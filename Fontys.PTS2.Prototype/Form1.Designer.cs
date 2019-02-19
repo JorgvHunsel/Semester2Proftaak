@@ -70,9 +70,9 @@
             // tbSubject
             // 
             this.tbSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSubject.Location = new System.Drawing.Point(236, 191);
+            this.tbSubject.Location = new System.Drawing.Point(236, 183);
             this.tbSubject.Name = "tbSubject";
-            this.tbSubject.Size = new System.Drawing.Size(307, 36);
+            this.tbSubject.Size = new System.Drawing.Size(710, 36);
             this.tbSubject.TabIndex = 3;
             // 
             // tbDescription
