@@ -100,9 +100,9 @@
             this.cbUrgent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUrgent.Location = new System.Drawing.Point(236, 400);
             this.cbUrgent.Name = "cbUrgent";
-            this.cbUrgent.Size = new System.Drawing.Size(130, 33);
+            this.cbUrgent.Size = new System.Drawing.Size(110, 33);
             this.cbUrgent.TabIndex = 7;
-            this.cbUrgent.Text = "Urgentie";
+            this.cbUrgent.Text = "Urgent";
             this.cbUrgent.UseVisualStyleBackColor = true;
             // 
             // Form1
@@ -117,9 +117,10 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblSubject);
             this.Controls.Add(this.lblTitle);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Hulpvraag aanmaken";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
