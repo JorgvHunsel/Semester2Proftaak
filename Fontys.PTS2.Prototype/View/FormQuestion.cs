@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fontys.PTS2.Prototype.Classes;
+using Fontys.PTS2.Prototype.Data;
 
 namespace Fontys.PTS2.Prototype
 {
@@ -20,6 +22,14 @@ namespace Fontys.PTS2.Prototype
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRequest_Click(object sender, EventArgs e)
+        {
+            string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
+            Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency);
+            Database db = new Database();
+            db.WriteQuestionToDatabase(newQuestion);
         }
     }
 }

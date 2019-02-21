@@ -10,7 +10,7 @@ namespace Fontys.PTS2.Prototype.Data
 {
     class Database
     {
-        private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=********;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private SqlConnection _conn = new SqlConnection(ConnectionString);
 
         public void WriteQuestionToDatabase(Question askedQuestion)
@@ -23,8 +23,11 @@ namespace Fontys.PTS2.Prototype.Data
                     CommandType = System.Data.CommandType.Text,
                     CommandText =
                         "INSERT INTO [Question] ([Status], [Title], [Description], [Datetime], [Urgency], [User_ID])" +
-                        $"VALUES ({askedQuestion.ToString()})"
+                        $"VALUES ({askedQuestion.ToString() + ", '1' "})"
                 };
+
+                cmd.Connection = _conn;
+                cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
