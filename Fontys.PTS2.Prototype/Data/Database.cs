@@ -13,5 +13,15 @@ namespace Fontys.PTS2.Prototype
 
         private const string connectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=********;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private SqlConnection conn = new SqlConnection(connectionString);
+
+        public void WriteQuestionToDatabase()
+        {
+
+        }
+
+        public void GetAllOpenQuestions()
+        {
+
+        }
     }
 }

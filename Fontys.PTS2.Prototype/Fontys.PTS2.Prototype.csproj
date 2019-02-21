@@ -61,7 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database.cs" />
+    <Compile Include="Classes\Admin.cs" />
+    <Compile Include="Classes\CareRecipient.cs" />
+    <Compile Include="Classes\Category.cs" />
+    <Compile Include="Classes\Professional.cs" />
+    <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\User.cs" />
+    <Compile Include="Classes\Volunteer.cs" />
+    <Compile Include="Data\Database.cs" />
     <Compile Include="View\FormQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,15 +117,6 @@
   <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\DatabasePrototype.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Data\DatabasePrototype_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DatabasePrototype.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
