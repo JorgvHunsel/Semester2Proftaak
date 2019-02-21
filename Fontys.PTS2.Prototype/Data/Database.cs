@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -38,12 +39,30 @@ namespace Fontys.PTS2.Prototype.Data
             {
                 _conn.Close();
             }
-            
         }
 
-        public void GetAllOpenQuestions()
+        public DataTable GetAllOpenQuestions()
         {
+            try
+            {
+                string query = "SELECT [Title], [User_ID], [Datetime], [Urgency] FROM [Question] WHERE [Status] = 'Open'";
+                _conn.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
         }
     }
 }

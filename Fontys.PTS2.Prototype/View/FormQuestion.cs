@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.View;
 
 namespace Fontys.PTS2.Prototype
 {
@@ -21,7 +22,7 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnRequest_Click(object sender, EventArgs e)
@@ -30,6 +31,9 @@ namespace Fontys.PTS2.Prototype
             Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency);
             Database db = new Database();
             db.WriteQuestionToDatabase(newQuestion);
+
+            FormQuestionOverview formQuestionOverview = new FormQuestionOverview();
+            formQuestionOverview.Show();
         }
     }
 }
