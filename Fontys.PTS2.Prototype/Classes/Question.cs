@@ -15,9 +15,9 @@ namespace Fontys.PTS2.Prototype.Classes
         private string Content { get; set; }
         private QuestionStatus Status { get; set; }
         private DateTime Date { get; set; }
-        private bool Urgency { get; set; }
+        private string Urgency { get; set; }
 
-        public Question(int questionId, string title, string content, QuestionStatus status, DateTime date, bool urgency)
+        public Question(int questionId, string title, string content, QuestionStatus status, DateTime date, string urgency)
         {
             QuestionId = questionId;
             Title = title;
@@ -46,5 +46,9 @@ namespace Fontys.PTS2.Prototype.Classes
             return null;
         }
 
+        public override string ToString()
+        {
+            return $" '{Status}', '{Title}', '{Content}', '{Date}', '{Urgency}' ";
+        }
     }
 }
