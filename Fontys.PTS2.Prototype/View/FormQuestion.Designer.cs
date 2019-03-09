@@ -35,6 +35,8 @@
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.btnRequest = new System.Windows.Forms.Button();
             this.cbUrgent = new System.Windows.Forms.CheckBox();
+            this.cboxCategory = new System.Windows.Forms.ComboBox();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAddRequest
@@ -52,7 +54,7 @@
             // 
             this.lblSubject.AutoSize = true;
             this.lblSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubject.Location = new System.Drawing.Point(36, 149);
+            this.lblSubject.Location = new System.Drawing.Point(36, 98);
             this.lblSubject.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubject.Name = "lblSubject";
             this.lblSubject.Size = new System.Drawing.Size(109, 25);
@@ -63,7 +65,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(36, 232);
+            this.lblDescription.Location = new System.Drawing.Point(35, 141);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(117, 25);
@@ -73,7 +75,7 @@
             // tbSubject
             // 
             this.tbSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSubject.Location = new System.Drawing.Point(177, 149);
+            this.tbSubject.Location = new System.Drawing.Point(177, 98);
             this.tbSubject.Margin = new System.Windows.Forms.Padding(2);
             this.tbSubject.Name = "tbSubject";
             this.tbSubject.Size = new System.Drawing.Size(534, 30);
@@ -82,7 +84,7 @@
             // tbDescription
             // 
             this.tbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDescription.Location = new System.Drawing.Point(177, 232);
+            this.tbDescription.Location = new System.Drawing.Point(177, 141);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(2);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -113,11 +115,32 @@
             this.cbUrgent.Text = "Urgent";
             this.cbUrgent.UseVisualStyleBackColor = true;
             // 
+            // cboxCategory
+            // 
+            this.cboxCategory.FormattingEnabled = true;
+            this.cboxCategory.Location = new System.Drawing.Point(177, 209);
+            this.cboxCategory.Name = "cboxCategory";
+            this.cboxCategory.Size = new System.Drawing.Size(121, 21);
+            this.cboxCategory.TabIndex = 8;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(28, 209);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(97, 25);
+            this.lblCategory.TabIndex = 9;
+            this.lblCategory.Text = "Categorie";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblCategory);
+            this.Controls.Add(this.cboxCategory);
             this.Controls.Add(this.cbUrgent);
             this.Controls.Add(this.btnRequest);
             this.Controls.Add(this.tbDescription);
@@ -142,6 +165,8 @@
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.Button btnRequest;
         private System.Windows.Forms.CheckBox cbUrgent;
+        private System.Windows.Forms.ComboBox cboxCategory;
+        private System.Windows.Forms.Label lblCategory;
     }
 }
 

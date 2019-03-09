@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fontys.PTS2.Prototype", "Fontys.PTS2.Prototype\Fontys.PTS2.Prototype.csproj", "{F329A5C1-3776-47F3-9EDF-0F338A8C06AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit Testing", "Unit Testing\Unit Testing.csproj", "{292D19E4-8812-45F6-9EC6-A031DF6EAE8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F329A5C1-3776-47F3-9EDF-0F338A8C06AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F329A5C1-3776-47F3-9EDF-0F338A8C06AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F329A5C1-3776-47F3-9EDF-0F338A8C06AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{292D19E4-8812-45F6-9EC6-A031DF6EAE8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{292D19E4-8812-45F6-9EC6-A031DF6EAE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{292D19E4-8812-45F6-9EC6-A031DF6EAE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{292D19E4-8812-45F6-9EC6-A031DF6EAE8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

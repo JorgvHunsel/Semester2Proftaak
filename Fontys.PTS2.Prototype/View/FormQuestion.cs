@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,15 +23,22 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            Category cg = new Category();
+            foreach (Category category in cg.GetAllCategories())
+            {
+                cboxCategory.Items.Add(category.Name);
+            }
         }
+
+        
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
+            string category = cboxCategory.SelectedItem.ToString();
             string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
-            Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency);
+            Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency, category);
             Database db = new Database();
-            db.WriteQuestionToDatabase(newQuestion);
+            db.WriteQuestionToDatabase(newQuestion, category);
 
             FormQuestionOverview formQuestionOverview = new FormQuestionOverview();
             formQuestionOverview.Show();
