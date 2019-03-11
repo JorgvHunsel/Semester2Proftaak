@@ -16,6 +16,8 @@ namespace Fontys.PTS2.Prototype
 {
     public partial class Form1 : Form
     {
+        private List<Category> categories;
+
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +25,9 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Category cg = new Category();
-            foreach (Category category in cg.GetAllCategories())
+            Database db = new Database();
+            this.categories = db.GetAllCategories();
+            foreach (Category category in this.categories)
             {
                 cboxCategory.Items.Add(category.Name);
             }
@@ -34,13 +37,21 @@ namespace Fontys.PTS2.Prototype
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            string category = cboxCategory.SelectedItem.ToString();
+            int categorySelectedIndex = cboxCategory.SelectedIndex;
+            Category category = categories[categorySelectedIndex];
             string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
             Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency, category);
             Database db = new Database();
-            db.WriteQuestionToDatabase(newQuestion, category);
+            db.WriteQuestionToDatabase(newQuestion);
 
-            FormQuestionOverview formQuestionOverview = new FormQuestionOverview();
+            FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
+            formQuestionOverview.Show();
+        }
+
+        private void btnQuestionOverview_Click(object sender, EventArgs e)
+        {
+            FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
+            this.Hide();
             formQuestionOverview.Show();
         }
     }

@@ -16,9 +16,9 @@ namespace Fontys.PTS2.Prototype.Classes
         private QuestionStatus Status { get; set; }
         private DateTime Date { get; set; }
         private string Urgency { get; set; }
-        private string Category { get; set; }
+        private Category Category { get; set; }
 
-        public Question(string title, string content, QuestionStatus status, DateTime date, string urgency, string category)
+        public Question(string title, string content, QuestionStatus status, DateTime date, string urgency, Category category)
         {
             Title = title;
             Content = content;
@@ -49,7 +49,7 @@ namespace Fontys.PTS2.Prototype.Classes
 
         public override string ToString()
         {
-            return $" '{Status}', '{Title}', '{Content}', '{Date.ToShortDateString()}', '{Urgency}' ";
+            return $" '{Status}', '{Title}', '{Content}', '{Date.ToShortDateString()}', '{Urgency}', '{Category.CategoryID}' ";
         }
     }
 }

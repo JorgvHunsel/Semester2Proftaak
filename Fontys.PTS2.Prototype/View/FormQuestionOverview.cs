@@ -13,10 +13,19 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionOverview : Form
     {
+        readonly Form _formQuestion;
+
         public FormQuestionOverview()
         {
             InitializeComponent();
             LoadQuestionsToList();
+        }
+
+        public FormQuestionOverview(Form form)
+        {
+            InitializeComponent();
+            LoadQuestionsToList();
+            _formQuestion = form;
         }
 
         public void LoadQuestionsToList()
@@ -38,6 +47,21 @@ namespace Fontys.PTS2.Prototype.View
                 }
                 lvOpenQuestions.Items.Add(item);
             }
+        }
+
+        // Re-open Create Question
+        private void btnCreateQuestion_Click(object sender, EventArgs e)
+        {
+             Form form = new Form();
+             this.Hide();
+             _formQuestion.Show();
+        }
+
+        // Edit Question
+        private void btnEditQuestion_Click(object sender, EventArgs e)
+        {
+            int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
+            int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5]);
         }
     }
 }

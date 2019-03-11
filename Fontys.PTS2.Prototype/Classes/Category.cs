@@ -10,12 +10,12 @@ using Fontys.PTS2.Prototype.Data;
 
 namespace Fontys.PTS2.Prototype.Classes
 {
-    class Category
+    public class Category
     {
-       
-        private int CategoryID { get; set; }
+
+        public int CategoryID { get; private set; }
         public string Name { get; private set; }
-        private string Description { get; set; }
+        public string Description { get; private set; }
 
         public Category()
         {
@@ -38,29 +38,7 @@ namespace Fontys.PTS2.Prototype.Classes
         {
             //Edit c.Description
         }
-
-        public List<Category> GetAllCategories()
-        {
-            List<Category> categoryList = new List<Category>();
-            Database db = new Database();
-
-            DataTable table = db.GetAllCategories();
-
-            foreach(DataRow row in table.Rows)
-            {
-                int categoryID = Convert.ToInt32(row["CategoryID"].ToString());
-                string categoryName = row["Name"].ToString();
-                string categoryDescription = row["Description"].ToString();
-
-                Category category = new Category(categoryID, categoryName, categoryDescription);
-                categoryList.Add(category);
-            }
-
-            return categoryList;
-        }
-
         
-
         public void DeleteCategory(Category c)
         {
             //Delete the category tha's been given as parameter

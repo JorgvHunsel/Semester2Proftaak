@@ -37,6 +37,7 @@
             this.cbUrgent = new System.Windows.Forms.CheckBox();
             this.cboxCategory = new System.Windows.Forms.ComboBox();
             this.lblCategory = new System.Windows.Forms.Label();
+            this.btnQuestionOverview = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAddRequest
@@ -94,7 +95,7 @@
             // btnRequest
             // 
             this.btnRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRequest.Location = new System.Drawing.Point(473, 367);
+            this.btnRequest.Location = new System.Drawing.Point(553, 383);
             this.btnRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnRequest.Name = "btnRequest";
             this.btnRequest.Size = new System.Drawing.Size(236, 56);
@@ -134,11 +135,22 @@
             this.lblCategory.TabIndex = 9;
             this.lblCategory.Text = "Categorie";
             // 
+            // btnQuestionOverview
+            // 
+            this.btnQuestionOverview.Location = new System.Drawing.Point(660, 12);
+            this.btnQuestionOverview.Name = "btnQuestionOverview";
+            this.btnQuestionOverview.Size = new System.Drawing.Size(128, 32);
+            this.btnQuestionOverview.TabIndex = 10;
+            this.btnQuestionOverview.Text = "Hulpvragen overzicht";
+            this.btnQuestionOverview.UseVisualStyleBackColor = true;
+            this.btnQuestionOverview.Click += new System.EventHandler(this.btnQuestionOverview_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnQuestionOverview);
             this.Controls.Add(this.lblCategory);
             this.Controls.Add(this.cboxCategory);
             this.Controls.Add(this.cbUrgent);
@@ -167,6 +179,7 @@
         private System.Windows.Forms.CheckBox cbUrgent;
         private System.Windows.Forms.ComboBox cboxCategory;
         private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.Button btnQuestionOverview;
     }
 }
 

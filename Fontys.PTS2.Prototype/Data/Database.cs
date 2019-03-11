@@ -14,7 +14,7 @@ namespace Fontys.PTS2.Prototype.Data
         private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public void WriteQuestionToDatabase(Question askedQuestion, string category)
+        public void WriteQuestionToDatabase(Question askedQuestion)
         {
             try
             {
@@ -24,8 +24,8 @@ namespace Fontys.PTS2.Prototype.Data
                     
                     CommandType = System.Data.CommandType.Text,
                     CommandText =
-                        "INSERT INTO [Question] ([Status], [Title], [Description], [Datetime], [Urgency], [CareRecipientID], [CategoryID])" +
-                        $"VALUES ({askedQuestion.ToString() + ", '1' , (SELECT [CategoryID] FROM Category WHERE [Name] = '" + category + "')"})"
+                        "INSERT INTO [Question] ([Status], [Title], [Description], [Datetime], [Urgency], [CategoryID], [CareRecipientID])" +
+                        $"VALUES ({askedQuestion.ToString() + ", '1' "})"
 
 
                 };
@@ -48,7 +48,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT Q.[Title], Q.[CareRecipientID], Q.[Datetime], Q.[Urgency], C.[Name] FROM[Question] as Q INNER JOIN[Category] as C ON Q.CategoryId = C.CategoryID  WHERE[Status] = 'Open'";
+                string query = "SELECT  Q.[Title], Q.[CareRecipientID], Q.[Datetime], Q.[Urgency], C.[Name], Q.[QuestionID] FROM[Question] as Q INNER JOIN[Category] as C ON Q.CategoryId = C.CategoryID  WHERE[Status] = 'Open'";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -68,7 +68,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public DataTable GetAllCategories()
+        public List<Category> GetAllCategories()
         {
             try
             {
@@ -78,8 +78,21 @@ namespace Fontys.PTS2.Prototype.Data
 
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
-                return dt;
 
+                List<Category> categoryList = new List<Category>();
+                
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    int categoryID = Convert.ToInt32(row["CategoryID"].ToString());
+                    string categoryName = row["Name"].ToString();
+                    string categoryDescription = row["Description"].ToString();
+
+                    Category category = new Category(categoryID, categoryName, categoryDescription);
+                    categoryList.Add(category);
+                }
+
+                return categoryList;
             }
             catch (Exception e)
             {
