@@ -47,6 +47,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -83,6 +87,12 @@
     <Compile Include="View\FormQuestionOverview.Designer.cs">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="View\FormQuestionOverview.resx">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

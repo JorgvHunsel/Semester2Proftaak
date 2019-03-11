@@ -50,9 +50,11 @@ namespace Fontys.PTS2.Prototype
 
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
-            FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
-            this.Hide();
-            formQuestionOverview.Show();
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+
+        //    FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
+         //   this.Hide();
+         //   formQuestionOverview.Show();
         }
     }
 }

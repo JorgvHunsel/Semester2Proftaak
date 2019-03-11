@@ -52,16 +52,15 @@ namespace Fontys.PTS2.Prototype.View
         // Re-open Create Question
         private void btnCreateQuestion_Click(object sender, EventArgs e)
         {
-             Form form = new Form();
-             this.Hide();
-             _formQuestion.Show();
+            ((MainForm)this.Parent.Parent).ReplaceForm(new Form1());
         }
 
         // Edit Question
         private void btnEditQuestion_Click(object sender, EventArgs e)
         {
             int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-            int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5]);
+            int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
+            MessageBox.Show(selectedId.ToString()); 
         }
     }
 }
