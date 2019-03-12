@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +28,7 @@ namespace Fontys.PTS2.Prototype
         {
             Database db = new Database();
             this.categories = db.GetAllCategories();
-            foreach (Category category in this.categories)
+            foreach (Category category in categories)
             {
                 cboxCategory.Items.Add(category.Name);
             }
@@ -37,24 +38,75 @@ namespace Fontys.PTS2.Prototype
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            int categorySelectedIndex = cboxCategory.SelectedIndex;
-            Category category = categories[categorySelectedIndex];
-            string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
-            Question newQuestion = new Question(tbSubject.Text, tbDescription.Text, Question.QuestionStatus.Open, DateTime.Now, urgency, category);
-            Database db = new Database();
-            db.WriteQuestionToDatabase(newQuestion);
+            if (CategoryComboboxIsNotEmpty() == true)
+            {
+                if (SubmittedValuesNotEmpty() == true)
+                {
+                    
+                    int categorySelectedIndex = cboxCategory.SelectedIndex;
 
-            FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
-            formQuestionOverview.Show();
+                    try
+                    {
+                        Category category = categories[categorySelectedIndex];
+                        string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
+                        Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
+                            Question.QuestionStatus.Open, DateTime.Now, urgency, category);
+                        Database db = new Database();
+                        db.WriteQuestionToDatabase(newQuestion);
+
+                        ((MainForm) this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+
+
+                    }
+                    catch (ArgumentOutOfRangeException)
+                    {
+                        MessageBox.Show("Categorie fout.");
+                    }
+                    
+
+
+                    
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Onderwerp en / of beschrijving leeg.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Categorie niet gekozen.");
+            }
+
+
         }
 
+
+        private bool SubmittedValuesNotEmpty()
+        {
+            if (tbSubject.Text != "" | tbDescription.Text != "")
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        private bool CategoryComboboxIsNotEmpty()
+        {
+            if (cboxCategory.SelectedText == "")
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        // Button to move to FormQuestionOverview
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
-
-        //    FormQuestionOverview formQuestionOverview = new FormQuestionOverview(this);
-         //   this.Hide();
-         //   formQuestionOverview.Show();
         }
     }
 }

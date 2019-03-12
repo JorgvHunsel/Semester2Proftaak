@@ -30,11 +30,11 @@
         {
             this.lvOpenQuestions = new System.Windows.Forms.ListView();
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrgency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnCreateQuestion = new System.Windows.Forms.Button();
             this.btnEditQuestion = new System.Windows.Forms.Button();
@@ -61,11 +61,6 @@
             this.columnTitle.Text = "Onderwerp";
             this.columnTitle.Width = 129;
             // 
-            // ID
-            // 
-            this.ID.Tag = "ID";
-            this.ID.Width = 30;
-            // 
             // columnUser
             // 
             this.columnUser.Text = "Hulpbehoevende";
@@ -84,6 +79,11 @@
             // 
             this.columnCategory.Text = "Categorie";
             this.columnCategory.Width = 103;
+            // 
+            // ID
+            // 
+            this.ID.Tag = "ID";
+            this.ID.Width = 0;
             // 
             // lblOpenRequests
             // 

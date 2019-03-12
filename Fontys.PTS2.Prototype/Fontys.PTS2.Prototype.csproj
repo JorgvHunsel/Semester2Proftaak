@@ -73,6 +73,12 @@
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Volunteer.cs" />
     <Compile Include="Data\Database.cs" />
+    <Compile Include="View\EditQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\EditQuestion.Designer.cs">
+      <DependentUpon>EditQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\EditQuestion.resx">
+      <DependentUpon>EditQuestion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>
     </EmbeddedResource>
