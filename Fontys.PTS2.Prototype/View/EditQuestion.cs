@@ -69,6 +69,10 @@ namespace Fontys.PTS2.Prototype.View
             {
                 Category category = categories[categorySelectedIndex];
                 db.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
+
+                MessageBox.Show("Hulpvraag bewerkt.");
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+
             }
 
 
