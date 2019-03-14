@@ -38,6 +38,7 @@
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnCreateQuestion = new System.Windows.Forms.Button();
             this.btnEditQuestion = new System.Windows.Forms.Button();
+            this.btnReactToQuestion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -116,11 +117,22 @@
             this.btnEditQuestion.UseVisualStyleBackColor = true;
             this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
             // 
+            // btnReactToQuestion
+            // 
+            this.btnReactToQuestion.Location = new System.Drawing.Point(681, 313);
+            this.btnReactToQuestion.Name = "btnReactToQuestion";
+            this.btnReactToQuestion.Size = new System.Drawing.Size(107, 37);
+            this.btnReactToQuestion.TabIndex = 4;
+            this.btnReactToQuestion.Text = "Reageer";
+            this.btnReactToQuestion.UseVisualStyleBackColor = true;
+            this.btnReactToQuestion.Click += new System.EventHandler(this.btnReactToQuestion_Click);
+            // 
             // FormQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReactToQuestion);
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.btnCreateQuestion);
             this.Controls.Add(this.lblOpenRequests);
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button btnCreateQuestion;
         private System.Windows.Forms.Button btnEditQuestion;
         private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.Button btnReactToQuestion;
     }
 }

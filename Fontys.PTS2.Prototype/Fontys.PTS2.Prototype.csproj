@@ -73,6 +73,7 @@
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Volunteer.cs" />
     <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\QueryQuestion.cs" />
     <Compile Include="View\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +93,12 @@
     </Compile>
     <Compile Include="View\FormQuestionOverview.Designer.cs">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormQuestionReaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormQuestionReaction.Designer.cs">
+      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
@@ -116,6 +123,9 @@
     </Compile>
     <EmbeddedResource Include="View\FormQuestionOverview.resx">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormQuestionReaction.resx">
+      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

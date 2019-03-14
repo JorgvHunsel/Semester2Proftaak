@@ -69,5 +69,20 @@ namespace Fontys.PTS2.Prototype.View
                 MessageBox.Show("Error");
             }
         }
+
+        private void btnReactToQuestion_Click(object sender, EventArgs e)
+        {
+            if (lvOpenQuestions.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecteer eerst een vraag uit de lijst.");
+            }
+            else
+            {
+                int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
+                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
+                Form questionReaction = new FormQuestionReaction(selectedId);
+                questionReaction.Show();
+            }
+        }
     }
 }
