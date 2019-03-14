@@ -46,5 +46,36 @@ namespace Fontys.PTS2.Prototype.Data
                 _conn.Close();
             }
         }
+
+        public static string GetQuestionDescription(int questionId)
+        {
+            try
+            {
+                string query = "SELECT [Description] FROM [Question] WHERE [QuestionID] = " + questionId.ToString();
+                _conn.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
+
+                string description = "";
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    description = row["Description"].ToString();
+                }
+
+                return description;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
     }
 }

@@ -70,10 +70,12 @@
     <Compile Include="Classes\Category.cs" />
     <Compile Include="Classes\Professional.cs" />
     <Compile Include="Classes\Question.cs" />
+    <Compile Include="Classes\Reaction.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Volunteer.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\QueryQuestion.cs" />
+    <Compile Include="Data\QueryReaction.cs" />
     <Compile Include="View\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
