@@ -13,7 +13,6 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionOverview : Form
     {
-        readonly Form _formQuestion;
 
         public FormQuestionOverview()
         {
@@ -21,12 +20,6 @@ namespace Fontys.PTS2.Prototype.View
             LoadQuestionsToList();
         }
 
-        public FormQuestionOverview(Form form)
-        {
-            InitializeComponent();
-            LoadQuestionsToList();
-            _formQuestion = form;
-        }
 
         public void LoadQuestionsToList()
         {
@@ -69,7 +62,8 @@ namespace Fontys.PTS2.Prototype.View
                 MessageBox.Show("Error");
             }
         }
-
+        
+        //React to Question
         private void btnReactToQuestion_Click(object sender, EventArgs e)
         {
             if (lvOpenQuestions.SelectedItems.Count == 0)

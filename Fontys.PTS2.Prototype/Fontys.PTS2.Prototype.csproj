@@ -68,13 +68,17 @@
     <Compile Include="Classes\Admin.cs" />
     <Compile Include="Classes\CareRecipient.cs" />
     <Compile Include="Classes\Category.cs" />
+    <Compile Include="Classes\ChatLog.cs" />
+    <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\Professional.cs" />
     <Compile Include="Classes\Question.cs" />
     <Compile Include="Classes\Reaction.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Volunteer.cs" />
     <Compile Include="Data\Database.cs" />
+    <Compile Include="Data\DatabaseChat.cs" />
     <Compile Include="Data\QueryQuestion.cs" />
+    <Compile Include="Data\QueryUsers.cs" />
     <Compile Include="Data\QueryReaction.cs" />
     <Compile Include="View\EditQuestion.cs">
       <SubType>Form</SubType>
@@ -108,6 +112,18 @@
     <Compile Include="View\FormQuestionOverviewCareRecipient.Designer.cs">
       <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\LoginPrototype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginPrototype.Designer.cs">
+      <DependentUpon>LoginPrototype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormVolunteerChatOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormVolunteerChatOverview.Designer.cs">
+      <DependentUpon>FormVolunteerChatOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormQuestionReaction.resx">
       <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginPrototype.resx">
+      <DependentUpon>LoginPrototype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormVolunteerChatOverview.resx">
+      <DependentUpon>FormVolunteerChatOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
