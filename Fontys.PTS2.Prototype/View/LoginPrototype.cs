@@ -16,7 +16,7 @@ namespace Fontys.PTS2.Prototype.View
     public partial class LoginPrototype : Form
     {
         private List<string> userNames;
-
+        
         public LoginPrototype()
         {
             InitializeComponent();
@@ -35,11 +35,13 @@ namespace Fontys.PTS2.Prototype.View
         {
             if (rbtnCareRecipient.Checked)
             {
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                Form newForm = new FormQuestionOverviewCareRecipient();
+                newForm.Show();
             }
             else if (rbtnVolunteer.Checked)
             {
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                Form newForm = new FormQuestionOverview();
+                newForm.Show();
             }
             else
             {
