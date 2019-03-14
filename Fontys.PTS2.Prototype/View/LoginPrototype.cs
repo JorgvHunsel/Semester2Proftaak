@@ -35,11 +35,11 @@ namespace Fontys.PTS2.Prototype.View
         {
             if (rbtnCareRecipient.Checked)
             {
-
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
             }
             else if (rbtnVolunteer.Checked)
             {
-
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
             }
             else
             {
