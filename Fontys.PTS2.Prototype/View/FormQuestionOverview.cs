@@ -58,9 +58,31 @@ namespace Fontys.PTS2.Prototype.View
         // Edit Question
         private void btnEditQuestion_Click(object sender, EventArgs e)
         {
-            int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-            int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
-            MessageBox.Show(selectedId.ToString()); 
+            if (lvOpenQuestions.SelectedItems.Count == 1)
+            {
+                int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
+                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
+                ((MainForm)this.Parent.Parent).ReplaceForm(new EditQuestion(selectedId));
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void btnReactToQuestion_Click(object sender, EventArgs e)
+        {
+            if (lvOpenQuestions.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Selecteer eerst een vraag uit de lijst.");
+            }
+            else
+            {
+                int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
+                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
+                Form questionReaction = new FormQuestionReaction(selectedId);
+                questionReaction.Show();
+            }
         }
     }
 }

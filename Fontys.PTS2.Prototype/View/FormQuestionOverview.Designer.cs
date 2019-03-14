@@ -30,14 +30,15 @@
         {
             this.lvOpenQuestions = new System.Windows.Forms.ListView();
             this.columnTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUser = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnUrgency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnCreateQuestion = new System.Windows.Forms.Button();
             this.btnEditQuestion = new System.Windows.Forms.Button();
+            this.btnReactToQuestion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -61,11 +62,6 @@
             this.columnTitle.Text = "Onderwerp";
             this.columnTitle.Width = 129;
             // 
-            // ID
-            // 
-            this.ID.Tag = "ID";
-            this.ID.Width = 30;
-            // 
             // columnUser
             // 
             this.columnUser.Text = "Hulpbehoevende";
@@ -84,6 +80,11 @@
             // 
             this.columnCategory.Text = "Categorie";
             this.columnCategory.Width = 103;
+            // 
+            // ID
+            // 
+            this.ID.Tag = "ID";
+            this.ID.Width = 0;
             // 
             // lblOpenRequests
             // 
@@ -116,11 +117,22 @@
             this.btnEditQuestion.UseVisualStyleBackColor = true;
             this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
             // 
+            // btnReactToQuestion
+            // 
+            this.btnReactToQuestion.Location = new System.Drawing.Point(681, 313);
+            this.btnReactToQuestion.Name = "btnReactToQuestion";
+            this.btnReactToQuestion.Size = new System.Drawing.Size(107, 37);
+            this.btnReactToQuestion.TabIndex = 4;
+            this.btnReactToQuestion.Text = "Reageer";
+            this.btnReactToQuestion.UseVisualStyleBackColor = true;
+            this.btnReactToQuestion.Click += new System.EventHandler(this.btnReactToQuestion_Click);
+            // 
             // FormQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnReactToQuestion);
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.btnCreateQuestion);
             this.Controls.Add(this.lblOpenRequests);
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button btnCreateQuestion;
         private System.Windows.Forms.Button btnEditQuestion;
         private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.Button btnReactToQuestion;
     }
 }
