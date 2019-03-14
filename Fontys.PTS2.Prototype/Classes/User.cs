@@ -34,12 +34,5 @@ namespace Fontys.PTS2.Prototype.Classes
             Status = status;
         }
 
-        public User NewUser(int userId, string firstName, string lastName, string address, string city,
-            string postalCode, string emailAddress, int age, Gender userGender, bool status)
-        {
-            return null;
-        }
-
-
     }
 }

@@ -1,19 +1,19 @@
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net.Mime;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Unit_Testing
 {
     [TestClass]
-    public class UnitTest1
+    public class CareRecipientTests
     {
         [TestMethod]
-        public void GetAllOpenQuestions()
+        public void anjermannen()
         {
-            Database db = new Database();
-            db.GetAllOpenQuestions();
-            
+
         }
     }
 }

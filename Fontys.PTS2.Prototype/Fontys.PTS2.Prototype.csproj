@@ -87,6 +87,12 @@
     <Compile Include="View\FormQuestionOverview.Designer.cs">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormQuestionOverviewCareRecipient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormQuestionOverviewCareRecipient.Designer.cs">
+      <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,9 @@
     </Compile>
     <EmbeddedResource Include="View\FormQuestionOverview.resx">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormQuestionOverviewCareRecipient.resx">
+      <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
