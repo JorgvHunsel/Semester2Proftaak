@@ -11,6 +11,10 @@ namespace Unit_Testing
     public class UserTests
     {
         [TestMethod]
+        public void test1()
+        {
+            ;
+        }
 
     }
 }

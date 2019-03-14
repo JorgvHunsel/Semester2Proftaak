@@ -77,6 +77,7 @@
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\DatabaseChat.cs" />
     <Compile Include="Data\QueryQuestion.cs" />
+    <Compile Include="Data\QueryUsers.cs" />
     <Compile Include="View\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,17 +98,23 @@
     <Compile Include="View\FormQuestionOverview.Designer.cs">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\FormQuestionReaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormQuestionReaction.Designer.cs">
+      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormQuestionOverviewCareRecipient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormQuestionOverviewCareRecipient.Designer.cs">
       <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormQuestionReaction.cs">
+    <Compile Include="View\LoginPrototype.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormQuestionReaction.Designer.cs">
-      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    <Compile Include="View\LoginPrototype.Designer.cs">
+      <DependentUpon>LoginPrototype.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormVolunteerChatOverview.cs">
       <SubType>Form</SubType>
@@ -144,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormQuestionReaction.resx">
       <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginPrototype.resx">
+      <DependentUpon>LoginPrototype.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\FormVolunteerChatOverview.resx">
       <DependentUpon>FormVolunteerChatOverview.cs</DependentUpon>
