@@ -49,7 +49,7 @@ namespace Fontys.PTS2.Prototype.Classes
 
         public override string ToString()
         {
-            return $" '{Status}', '{Title}', '{Content}', '{Date.ToShortDateString()}', '{Urgency}', '{Category.CategoryID}' ";
+            return $" '{Status}', '{Title}', '{Content}', '{Date.ToString("yyyy-M-d hh:mm tt")}', '{Urgency}', '{Category.CategoryID}' ";
         }
     }
 }

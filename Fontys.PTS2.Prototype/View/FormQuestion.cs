@@ -34,51 +34,37 @@ namespace Fontys.PTS2.Prototype
             }
         }
 
-        
+
 
         private void btnRequest_Click(object sender, EventArgs e)
         {
-            if (CategoryComboboxIsNotEmpty() == true)
+            if (CategoryComboboxIsNotEmpty() == true && SubmittedValuesNotEmpty() == true)
             {
-                if (SubmittedValuesNotEmpty() == true)
+                int categorySelectedIndex = cboxCategory.SelectedIndex;
+
+                try
                 {
-                    
-                    int categorySelectedIndex = cboxCategory.SelectedIndex;
+                    Category category = categories[categorySelectedIndex];
+                    string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
+                    Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
+                        Question.QuestionStatus.Open, DateTime.Now , urgency, category);
+                    Database db = new Database();
+                    db.WriteQuestionToDatabase(newQuestion);
 
-                    try
-                    {
-                        Category category = categories[categorySelectedIndex];
-                        string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
-                        Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
-                            Question.QuestionStatus.Open, DateTime.Now, urgency, category);
-                        Database db = new Database();
-                        db.WriteQuestionToDatabase(newQuestion);
-
-                        ((MainForm) this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                    ((MainForm) this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
 
 
-                    }
-                    catch (ArgumentOutOfRangeException)
-                    {
-                        MessageBox.Show("Categorie fout.");
-                    }
-                    
-
-
-                    
-                    
                 }
-                else
+                catch (ArgumentOutOfRangeException)
                 {
-                    MessageBox.Show("Onderwerp en / of beschrijving leeg.");
+                    MessageBox.Show("Categorie fout.");
                 }
+
             }
             else
             {
-                MessageBox.Show("Categorie niet gekozen.");
+                MessageBox.Show("Something went wrong.");
             }
-
-
         }
 
 

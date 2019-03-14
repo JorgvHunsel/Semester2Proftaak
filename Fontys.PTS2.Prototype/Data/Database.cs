@@ -25,7 +25,7 @@ namespace Fontys.PTS2.Prototype.Data
                     CommandType = System.Data.CommandType.Text,
                     CommandText =
                         "INSERT INTO [Question] ([Status], [Title], [Description], [Datetime], [Urgency], [CategoryID], [CareRecipientID])" +
-                        $"VALUES ({askedQuestion.ToString() + ", '1' "})"
+                        $"VALUES ({askedQuestion.ToString() + ", '1'"})"
 
 
                 };
