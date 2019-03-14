@@ -8,9 +8,9 @@ namespace Fontys.PTS2.Prototype.Classes
 {
     abstract class User
     {
-        public enum Gender { Male, Female, Other}
+        public enum Gender { Male, Female, Other }
         private int UserId { get; set; }
-        private string FirstName { get; set; }
+        public string FirstName { get; private set; }
         private string LastName { get; set; }
         private string Address { get; set; }
         private string City { get; set; }
@@ -33,6 +33,5 @@ namespace Fontys.PTS2.Prototype.Classes
             UserGender = userGender;
             Status = status;
         }
-
     }
 }
