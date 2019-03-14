@@ -94,17 +94,17 @@
     <Compile Include="View\FormQuestionOverview.Designer.cs">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormQuestionReaction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\FormQuestionReaction.Designer.cs">
-      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\FormQuestionOverviewCareRecipient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FormQuestionOverviewCareRecipient.Designer.cs">
       <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormQuestionReaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormQuestionReaction.Designer.cs">
+      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
     </Compile>
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
