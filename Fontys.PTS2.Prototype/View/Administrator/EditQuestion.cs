@@ -41,12 +41,10 @@ namespace Fontys.PTS2.Prototype.View
         private void btnSaveQuestion_Click(object sender, EventArgs e)
         {
             int categorySelectedIndex = cmbCategory.SelectedIndex;
-
-            
-
             string subjectNew;
             string contentNew;
             
+                
             string urgency;
             if(cbUrgent.Checked == true)
             {

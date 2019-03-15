@@ -47,5 +47,30 @@ namespace Fontys.PTS2.Prototype.Data
                 _conn.Close();
             }
         }
+
+        // To do:
+        public static DataTable GetUserByID(int userID)
+        {
+            try
+            {
+                string query = "SELECT * FROM [User] WHERE UserID = '"+ userID +"' ";
+                _conn.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
+
+                return dt;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
     }
 }

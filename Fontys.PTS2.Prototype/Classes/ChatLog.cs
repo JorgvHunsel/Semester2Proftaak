@@ -16,7 +16,7 @@ namespace Fontys.PTS2.Prototype.Classes
         public string ReceiverFirstName { get; private set; }
         public string SenderLastName { get; private set; }
         public string SenderFirstName { get; private set; }
-        public List<Message> Messages = new List<Message>();
+        public List<ChatMessage> Messages = new List<ChatMessage>();
 
         public ChatLog(int chatLogId, string questionTitle, int senderId, int receiverId, string receiverLastName, string receiverFirstName, string senderLastName, string senderFirstName)
         {

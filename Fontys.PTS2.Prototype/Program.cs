@@ -17,7 +17,7 @@ namespace Fontys.PTS2.Prototype
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginPrototype());
+            Application.Run(new MainForm());
         }
     }
 }
