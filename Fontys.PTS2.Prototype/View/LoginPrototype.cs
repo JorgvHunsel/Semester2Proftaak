@@ -45,7 +45,7 @@ namespace Fontys.PTS2.Prototype.View
             }
             else
             {
-                MessageBox.Show("fa2 niffauw doe rol kiezen");
+                MessageBox.Show("Kies een rol");
             }
         }
     }
