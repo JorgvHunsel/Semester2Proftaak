@@ -11,9 +11,9 @@ namespace Fontys.PTS2.Prototype.Data
     class QueryReaction
     {
         private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        private readonly SqlConnection _conn = new SqlConnection(ConnectionString);
+        private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public void PostReaction(Reaction reaction)
+        public static void PostReaction(Reaction reaction)
         {
             try
             {

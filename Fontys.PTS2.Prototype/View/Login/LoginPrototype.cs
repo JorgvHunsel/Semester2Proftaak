@@ -15,7 +15,7 @@ namespace Fontys.PTS2.Prototype.View
 
     public partial class LoginPrototype : Form
     {
-        public int CurrentUserId { get; set; }
+        public static int CurrentUserId { get; set; }
         
         private List<string> userNames;
         

@@ -15,6 +15,7 @@ namespace Fontys.PTS2.Prototype.View
     public partial class FormQuestionReaction : Form
     {   
         public int QuestionId { get; }
+        readonly int _currentUserId = LoginPrototype.CurrentUserId;
         public FormQuestionReaction(int questionId)
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
-            Reaction newReaction = new Reaction(QuestionId, 1, richtbReaction.Text);
-
+            Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
+            QueryReaction.PostReaction(newReaction);
         }
     }
 }
