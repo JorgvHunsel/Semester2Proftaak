@@ -38,6 +38,7 @@
             // 
             // cboxUsers
             // 
+            this.cboxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxUsers.FormattingEnabled = true;
             this.cboxUsers.Location = new System.Drawing.Point(30, 19);
             this.cboxUsers.Name = "cboxUsers";
