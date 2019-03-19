@@ -94,6 +94,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Login\NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Login\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Volunteer\FormQuestionOverview.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +118,10 @@
     <Compile Include="View\CareRecipient\FormQuestionOverviewCareRecipient.Designer.cs">
       <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\LoginPrototype.cs">
+    <Compile Include="View\Login\LoginPrototype.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\LoginPrototype.Designer.cs">
+    <Compile Include="View\Login\LoginPrototype.Designer.cs">
       <DependentUpon>LoginPrototype.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Volunteer\FormVolunteerChat.cs">
@@ -151,6 +157,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Login\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormQuestionOverview.resx">
       <DependentUpon>FormQuestionOverview.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,7 +169,7 @@
     <EmbeddedResource Include="View\Volunteer\FormQuestionReaction.resx">
       <DependentUpon>FormQuestionReaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\LoginPrototype.resx">
+    <EmbeddedResource Include="View\Login\LoginPrototype.resx">
       <DependentUpon>LoginPrototype.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormVolunteerChat.resx">

@@ -15,6 +15,8 @@ namespace Fontys.PTS2.Prototype.View
 
     public partial class LoginPrototype : Form
     {
+        public int CurrentUserId { get; set; }
+        
         private List<string> userNames;
         
         public LoginPrototype()
@@ -33,6 +35,9 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string selectedUser = cboxUsers.SelectedItem.ToString();
+            CurrentUserId = QueryUsers.GetUserId(selectedUser);
+
             if (rbtnCareRecipient.Checked)
             {
                 Form newForm = new FormQuestionOverviewCareRecipient();

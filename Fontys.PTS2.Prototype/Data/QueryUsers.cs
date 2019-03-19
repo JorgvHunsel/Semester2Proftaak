@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 
 namespace Fontys.PTS2.Prototype.Data
@@ -49,11 +51,11 @@ namespace Fontys.PTS2.Prototype.Data
         }
 
         // To do:
-        public static DataTable GetUserByID(int userID)
+        public static DataTable GetUserById(int userID)
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE UserID = '"+ userID +"' ";
+                string query = "SELECT * FROM [User] WHERE UserID = '" + userID + "' ";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -61,6 +63,29 @@ namespace Fontys.PTS2.Prototype.Data
                 sqlAdapter.Fill(dt);
 
                 return dt;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+        public static int GetUserId(string firstName)
+        {
+            try
+            {
+                string query = "SELECT [UserID] FROM [User] WHERE [FirstName] = '" + firstName + "'";
+                _conn.Open();
+                SqlCommand cmd = new SqlCommand(query, _conn);
+
+                int UserId = (int)cmd.ExecuteScalar();
+
+                return UserId;
             }
             catch (Exception e)
             {
