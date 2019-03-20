@@ -78,5 +78,10 @@ namespace Fontys.PTS2.Prototype.View
                 questionReaction.Show();
             }
         }
+
+        private void btnLogOff_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
+        }
     }
 }

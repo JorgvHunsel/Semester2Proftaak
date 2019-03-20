@@ -47,12 +47,13 @@ namespace Fontys.PTS2.Prototype
                     Category category = categories[categorySelectedIndex];
                     string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
                     Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
-                        Question.QuestionStatus.Open, DateTime.Now , urgency, category);
+                        Question.QuestionStatus.Open, DateTime.Now, urgency, category);
                     Database db = new Database();
                     db.WriteQuestionToDatabase(newQuestion);
 
-                    ((MainForm) this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                    MessageBox.Show("De hulpvraag is succesvol aangemaakt");
 
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
 
                 }
                 catch (ArgumentOutOfRangeException)
@@ -88,11 +89,10 @@ namespace Fontys.PTS2.Prototype
             return false;
         }
 
-
         // Button to move to FormQuestionOverview
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
         }
     }
 }

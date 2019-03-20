@@ -35,18 +35,24 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string selectedUser = cboxUsers.SelectedItem.ToString();
-            CurrentUserId = QueryUsers.GetUserId(selectedUser);
-
+            try
+            {
+                string selectedUser = cboxUsers.SelectedItem.ToString();
+                CurrentUserId = QueryUsers.GetUserId(selectedUser);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Er is geen gebruiker ingevoerd");
+                return;
+            }
+            
             if (rbtnCareRecipient.Checked)
             {
-                Form newForm = new FormQuestionOverviewCareRecipient();
-                newForm.Show();
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
             }
             else if (rbtnVolunteer.Checked)
             {
-                Form newForm = new FormQuestionOverview();
-                newForm.Show();
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
             }
             else
             {

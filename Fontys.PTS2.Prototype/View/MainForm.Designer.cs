@@ -28,26 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ContainerPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // ContainerPanel
             // 
-            this.ContainerPanel.Location = new System.Drawing.Point(-2, -2);
-            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.ContainerPanel.AutoSize = true;
+            this.ContainerPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ContainerPanel.Location = new System.Drawing.Point(-3, -2);
+            this.ContainerPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ContainerPanel.Name = "ContainerPanel";
-            this.ContainerPanel.Size = new System.Drawing.Size(1005, 526);
+            this.ContainerPanel.Size = new System.Drawing.Size(1340, 647);
             this.ContainerPanel.TabIndex = 0;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 518);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1333, 638);
             this.Controls.Add(this.ContainerPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Gemeente Eindhoven";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

@@ -53,5 +53,16 @@ namespace Fontys.PTS2.Prototype.View
                 MessageBox.Show("Error");
             }
         }
+
+        private void btnAskQuestion_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new Form1());
+
+        }
+
+        private void btnLogOff_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
+        }
     }
 }

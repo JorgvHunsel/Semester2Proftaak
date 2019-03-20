@@ -100,11 +100,11 @@
     <Compile Include="View\Login\NewUser.Designer.cs">
       <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionOverview.cs">
+    <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionOverview.Designer.cs">
-      <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.Designer.cs">
+      <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Volunteer\FormQuestionReaction.cs">
       <SubType>Form</SubType>
@@ -156,12 +156,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\Login\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormQuestionOverview.resx">
-      <DependentUpon>FormQuestionOverview.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormQuestionOverviewVolunteer.resx">
+      <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormQuestionOverviewCareRecipient.resx">
       <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
@@ -206,7 +207,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Blue-Pattern03.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

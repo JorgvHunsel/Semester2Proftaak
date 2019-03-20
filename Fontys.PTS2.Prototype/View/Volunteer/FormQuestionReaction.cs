@@ -28,6 +28,15 @@ namespace Fontys.PTS2.Prototype.View
         {
             Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
             QueryReaction.PostReaction(newReaction);
+
+            MessageBox.Show("Reactie verstuurd");
+
+            Hide();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }

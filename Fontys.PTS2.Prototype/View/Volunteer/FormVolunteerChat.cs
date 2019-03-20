@@ -17,8 +17,8 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
     public partial class FormVolunteerChat : Form
     {
         private int chatID;
-        private int SenderID;
-        private int receiverID;
+        private int SenderID = 3;
+        private int receiverID = 1;
 
         public FormVolunteerChat(int chatID)
         {
