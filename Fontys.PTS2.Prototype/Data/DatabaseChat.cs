@@ -15,11 +15,11 @@ namespace Fontys.PTS2.Prototype.Data
         private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public DataTable GetAllOpenChatsAsDataTable()
+        public DataTable GetAllOpenChatsAsDataTable(int userid)
         {
             try
             {
-                string query = "SELECT U2.FirstName as ReceiverFirstName, U2.LastName as ReceiverLastName, C.ChatLogID, C.MessageID, C.ReceiverID, C.SenderID, Q.Title as QuestionTitle, R.Description as Reactie, U.FirstName as SenderFirstName, U.LastName as SenderLastName FROM CHATLOG as C INNER JOIN Reaction as R on R.ReactionID = C.ReactionID INNER JOIN Question as Q on R.QuestionID = Q.QuestionID INNER JOIN [User] as U on U.UserID = C.SenderID INNER JOIN [User] as U2 on U2.UserID = C.ReceiverID WHERE C.SenderID = 1";
+                string query = "SELECT U2.FirstName as ReceiverFirstName, U2.LastName as ReceiverLastName, C.ChatLogID, C.ReceiverID, C.SenderID, Q.Title as QuestionTitle, R.Description as Reactie, U.FirstName as SenderFirstName, U.LastName as SenderLastName, C.TimeStamp as TimeStamp FROM CHATLOG as C INNER JOIN Reaction as R on R.ReactionID = C.ReactionID INNER JOIN Question as Q on R.QuestionID = Q.QuestionID INNER JOIN [User] as U on U.UserID = C.SenderID INNER JOIN [User] as U2 on U2.UserID = C.ReceiverID WHERE C.ReceiverID = '"+ userid +"'";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -73,8 +73,8 @@ namespace Fontys.PTS2.Prototype.Data
 
                     CommandType = System.Data.CommandType.Text,
                     CommandText =
-                        "INSERT INTO [Message] ([ChatID], [Content], [SenderID], [ReceiverID], [TimeStamp])" +
-                        $"VALUES ({chatid}, '{message}', {senderid}, {receiverid}, '{DateTime.Now.ToString("yyyy - M - d hh: mm tt")}')"
+                        "INSERT INTO [Message] ([ChatID], [Content], [SenderID], [ReceiverID])" +
+                        $"VALUES ({chatid}, '{message}', {senderid}, {receiverid})"
 
 
                 };
