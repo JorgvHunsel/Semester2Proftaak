@@ -16,9 +16,10 @@ namespace Fontys.PTS2.Prototype.Classes
         public string ReceiverFirstName { get; private set; }
         public string SenderLastName { get; private set; }
         public string SenderFirstName { get; private set; }
+        public DateTime TimeStamp { get; private set; }
         public List<ChatMessage> Messages = new List<ChatMessage>();
 
-        public ChatLog(int chatLogId, string questionTitle, int senderId, int receiverId, string receiverLastName, string receiverFirstName, string senderLastName, string senderFirstName)
+        public ChatLog(int chatLogId, string questionTitle, int senderId, int receiverId, string receiverLastName, string receiverFirstName, string senderLastName, string senderFirstName, DateTime timeStamp)
         {
             ChatLogID = chatLogId;
             QuestionTitle = questionTitle;
@@ -28,6 +29,7 @@ namespace Fontys.PTS2.Prototype.Classes
             ReceiverFirstName = receiverFirstName;
             SenderLastName = senderLastName;
             SenderFirstName = senderFirstName;
+            TimeStamp = timeStamp;
         }
     }
 }

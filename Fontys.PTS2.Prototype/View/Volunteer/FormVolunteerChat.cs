@@ -17,7 +17,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
     public partial class FormVolunteerChat : Form
     {
         private int chatID;
-        private int SenderID = 3;
+        private int senderID = 3;
         private int receiverID = 1;
 
         public FormVolunteerChat(int chatID)
@@ -29,6 +29,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         private void FormVolunteerChat_Load(object sender, EventArgs e)
         {
             RefreshPage();
+            lbChatReceiver.Text = receiverID.ToString();
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
@@ -36,10 +37,11 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
             string message = tbMessage.Text;
 
             DatabaseChat dbChat = new DatabaseChat();
-            dbChat.SendMessage(this.chatID, 3, 1, message);
+            dbChat.SendMessage(this.chatID,receiverID, senderID, message);
             RefreshPage();
         }
 
+        //
         private List<ChatMessage> LoadMessagesAsList()
         {
             DatabaseChat dbChat = new DatabaseChat();
@@ -55,13 +57,14 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
                 string Content = row["Content"].ToString();
                 DateTime timestamp = Convert.ToDateTime(row["TimeStamp"]);
 
-                ChatMessage message = new ChatMessage(ChatID, SenderID, ReceiverID, Content, timestamp);
+                ChatMessage message = new ChatMessage(ChatID, receiverID, senderID, Content, timestamp);
                 messagesList.Add(message);
             }
 
             return messagesList;
         }
-
+        
+        // Refresh latest messages
         private void RefreshPage()
         {
             lbChat.Items.Clear();
