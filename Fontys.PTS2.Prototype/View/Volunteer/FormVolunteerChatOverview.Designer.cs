@@ -42,9 +42,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(115, 39);
+            this.label1.Location = new System.Drawing.Point(86, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(230, 58);
+            this.label1.Size = new System.Drawing.Size(185, 46);
             this.label1.TabIndex = 0;
             this.label1.Text = "Uw chats";
             // 
@@ -56,10 +57,10 @@
             this.Time,
             this.ChatID,
             this.ReceiverID});
-            this.lvChats.Location = new System.Drawing.Point(125, 100);
-            this.lvChats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lvChats.Location = new System.Drawing.Point(94, 81);
+            this.lvChats.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvChats.Name = "lvChats";
-            this.lvChats.Size = new System.Drawing.Size(736, 298);
+            this.lvChats.Size = new System.Drawing.Size(553, 243);
             this.lvChats.TabIndex = 1;
             this.lvChats.UseCompatibleStateImageBehavior = false;
             this.lvChats.View = System.Windows.Forms.View.Details;
@@ -89,10 +90,10 @@
             // 
             // btnOpenChat
             // 
-            this.btnOpenChat.Location = new System.Drawing.Point(125, 404);
-            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnOpenChat.Location = new System.Drawing.Point(94, 328);
+            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnOpenChat.Name = "btnOpenChat";
-            this.btnOpenChat.Size = new System.Drawing.Size(157, 71);
+            this.btnOpenChat.Size = new System.Drawing.Size(118, 58);
             this.btnOpenChat.TabIndex = 2;
             this.btnOpenChat.Text = "Open chat";
             this.btnOpenChat.UseVisualStyleBackColor = true;
@@ -100,14 +101,14 @@
             // 
             // FormVolunteerChatOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnOpenChat);
             this.Controls.Add(this.lvChats);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormVolunteerChatOverview";
             this.Text = "FormVolunteerChatOverview";
             this.Load += new System.EventHandler(this.FormVolunteerChatOverview_Load);

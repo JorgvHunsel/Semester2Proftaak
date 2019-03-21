@@ -49,10 +49,9 @@
             this.columnUrgency,
             this.columnCategory,
             this.ID});
-            this.lvOpenQuestions.Location = new System.Drawing.Point(16, 71);
-            this.lvOpenQuestions.Margin = new System.Windows.Forms.Padding(4);
+            this.lvOpenQuestions.Location = new System.Drawing.Point(12, 58);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
-            this.lvOpenQuestions.Size = new System.Drawing.Size(783, 467);
+            this.lvOpenQuestions.Size = new System.Drawing.Size(588, 380);
             this.lvOpenQuestions.TabIndex = 0;
             this.lvOpenQuestions.UseCompatibleStateImageBehavior = false;
             this.lvOpenQuestions.View = System.Windows.Forms.View.Details;
@@ -90,19 +89,19 @@
             // 
             this.lblOpenRequests.AutoSize = true;
             this.lblOpenRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpenRequests.Location = new System.Drawing.Point(12, 9);
+            this.lblOpenRequests.Location = new System.Drawing.Point(9, 7);
+            this.lblOpenRequests.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblOpenRequests.Name = "lblOpenRequests";
-            this.lblOpenRequests.Size = new System.Drawing.Size(857, 58);
+            this.lblOpenRequests.Size = new System.Drawing.Size(680, 46);
             this.lblOpenRequests.TabIndex = 1;
             this.lblOpenRequests.Text = "Vrijwilliger - Openstaande hulpvragen";
             // 
             // btnReactToQuestion
             // 
             this.btnReactToQuestion.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnReactToQuestion.Location = new System.Drawing.Point(807, 492);
-            this.btnReactToQuestion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnReactToQuestion.Location = new System.Drawing.Point(605, 400);
             this.btnReactToQuestion.Name = "btnReactToQuestion";
-            this.btnReactToQuestion.Size = new System.Drawing.Size(143, 46);
+            this.btnReactToQuestion.Size = new System.Drawing.Size(107, 37);
             this.btnReactToQuestion.TabIndex = 4;
             this.btnReactToQuestion.Text = "Reageer";
             this.btnReactToQuestion.UseVisualStyleBackColor = false;
@@ -111,10 +110,9 @@
             // btnLogOff
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogOff.Location = new System.Drawing.Point(807, 71);
-            this.btnLogOff.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOff.Location = new System.Drawing.Point(605, 58);
             this.btnLogOff.Name = "btnLogOff";
-            this.btnLogOff.Size = new System.Drawing.Size(143, 31);
+            this.btnLogOff.Size = new System.Drawing.Size(107, 25);
             this.btnLogOff.TabIndex = 5;
             this.btnLogOff.Text = "Uitloggen";
             this.btnLogOff.UseVisualStyleBackColor = false;
@@ -122,15 +120,14 @@
             // 
             // FormQuestionOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(965, 554);
+            this.ClientSize = new System.Drawing.Size(724, 450);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnReactToQuestion);
             this.Controls.Add(this.lblOpenRequests);
             this.Controls.Add(this.lvOpenQuestions);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuestionOverview";
             this.Text = "FormQuestionOverview";
             this.ResumeLayout(false);

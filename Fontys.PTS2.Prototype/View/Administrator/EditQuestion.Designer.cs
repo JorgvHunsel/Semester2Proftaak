@@ -49,9 +49,10 @@
             // 
             this.lblSubjectOld.AutoSize = true;
             this.lblSubjectOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectOld.Location = new System.Drawing.Point(15, 11);
+            this.lblSubjectOld.Location = new System.Drawing.Point(11, 9);
+            this.lblSubjectOld.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubjectOld.Name = "lblSubjectOld";
-            this.lblSubjectOld.Size = new System.Drawing.Size(185, 29);
+            this.lblSubjectOld.Size = new System.Drawing.Size(147, 25);
             this.lblSubjectOld.TabIndex = 2;
             this.lblSubjectOld.Text = "Oud onderwerp";
             // 
@@ -59,9 +60,10 @@
             // 
             this.lblContentOld.AutoSize = true;
             this.lblContentOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContentOld.Location = new System.Drawing.Point(15, 54);
+            this.lblContentOld.Location = new System.Drawing.Point(11, 44);
+            this.lblContentOld.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContentOld.Name = "lblContentOld";
-            this.lblContentOld.Size = new System.Drawing.Size(216, 29);
+            this.lblContentOld.Size = new System.Drawing.Size(169, 25);
             this.lblContentOld.TabIndex = 3;
             this.lblContentOld.Text = "Oude beschrijving";
             // 
@@ -69,19 +71,19 @@
             // 
             this.lblCategoryOld.AutoSize = true;
             this.lblCategoryOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryOld.Location = new System.Drawing.Point(15, 142);
+            this.lblCategoryOld.Location = new System.Drawing.Point(11, 115);
+            this.lblCategoryOld.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategoryOld.Name = "lblCategoryOld";
-            this.lblCategoryOld.Size = new System.Drawing.Size(185, 29);
+            this.lblCategoryOld.Size = new System.Drawing.Size(146, 25);
             this.lblCategoryOld.TabIndex = 4;
             this.lblCategoryOld.Text = "Oude categorie";
             // 
             // btnSaveQuestion
             // 
             this.btnSaveQuestion.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSaveQuestion.Location = new System.Drawing.Point(856, 494);
-            this.btnSaveQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveQuestion.Location = new System.Drawing.Point(642, 401);
             this.btnSaveQuestion.Name = "btnSaveQuestion";
-            this.btnSaveQuestion.Size = new System.Drawing.Size(195, 46);
+            this.btnSaveQuestion.Size = new System.Drawing.Size(146, 37);
             this.btnSaveQuestion.TabIndex = 5;
             this.btnSaveQuestion.Text = "Opslaan";
             this.btnSaveQuestion.UseVisualStyleBackColor = false;
@@ -90,39 +92,38 @@
             // tbSubjectOld
             // 
             this.tbSubjectOld.Enabled = false;
-            this.tbSubjectOld.Location = new System.Drawing.Point(261, 17);
-            this.tbSubjectOld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSubjectOld.Location = new System.Drawing.Point(196, 14);
             this.tbSubjectOld.Name = "tbSubjectOld";
-            this.tbSubjectOld.Size = new System.Drawing.Size(711, 22);
+            this.tbSubjectOld.Size = new System.Drawing.Size(534, 20);
             this.tbSubjectOld.TabIndex = 6;
             // 
             // tbContentOld
             // 
             this.tbContentOld.Enabled = false;
             this.tbContentOld.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContentOld.Location = new System.Drawing.Point(261, 59);
-            this.tbContentOld.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbContentOld.Location = new System.Drawing.Point(196, 48);
+            this.tbContentOld.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbContentOld.Multiline = true;
             this.tbContentOld.Name = "tbContentOld";
-            this.tbContentOld.Size = new System.Drawing.Size(711, 75);
+            this.tbContentOld.Size = new System.Drawing.Size(534, 62);
             this.tbContentOld.TabIndex = 7;
             // 
             // tbCategoryOld
             // 
             this.tbCategoryOld.Enabled = false;
-            this.tbCategoryOld.Location = new System.Drawing.Point(261, 148);
-            this.tbCategoryOld.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCategoryOld.Location = new System.Drawing.Point(196, 120);
             this.tbCategoryOld.Name = "tbCategoryOld";
-            this.tbCategoryOld.Size = new System.Drawing.Size(711, 22);
+            this.tbCategoryOld.Size = new System.Drawing.Size(534, 20);
             this.tbCategoryOld.TabIndex = 8;
             // 
             // lblSubjectNew
             // 
             this.lblSubjectNew.AutoSize = true;
             this.lblSubjectNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubjectNew.Location = new System.Drawing.Point(15, 250);
+            this.lblSubjectNew.Location = new System.Drawing.Point(11, 203);
+            this.lblSubjectNew.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSubjectNew.Name = "lblSubjectNew";
-            this.lblSubjectNew.Size = new System.Drawing.Size(208, 29);
+            this.lblSubjectNew.Size = new System.Drawing.Size(163, 25);
             this.lblSubjectNew.TabIndex = 9;
             this.lblSubjectNew.Text = "Nieuw onderwerp";
             // 
@@ -130,9 +131,10 @@
             // 
             this.lblContentNew.AutoSize = true;
             this.lblContentNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContentNew.Location = new System.Drawing.Point(15, 292);
+            this.lblContentNew.Location = new System.Drawing.Point(11, 237);
+            this.lblContentNew.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblContentNew.Name = "lblContentNew";
-            this.lblContentNew.Size = new System.Drawing.Size(225, 29);
+            this.lblContentNew.Size = new System.Drawing.Size(174, 25);
             this.lblContentNew.TabIndex = 10;
             this.lblContentNew.Text = "Nieuw beschrijving";
             // 
@@ -140,46 +142,44 @@
             // 
             this.lblCategoryNew.AutoSize = true;
             this.lblCategoryNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryNew.Location = new System.Drawing.Point(15, 379);
+            this.lblCategoryNew.Location = new System.Drawing.Point(11, 308);
+            this.lblCategoryNew.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCategoryNew.Name = "lblCategoryNew";
-            this.lblCategoryNew.Size = new System.Drawing.Size(194, 29);
+            this.lblCategoryNew.Size = new System.Drawing.Size(151, 25);
             this.lblCategoryNew.TabIndex = 11;
             this.lblCategoryNew.Text = "Nieuw categorie";
             // 
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(261, 386);
-            this.cmbCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbCategory.Location = new System.Drawing.Point(196, 314);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(711, 24);
+            this.cmbCategory.Size = new System.Drawing.Size(534, 21);
             this.cmbCategory.TabIndex = 12;
             // 
             // tbContentNew
             // 
             this.tbContentNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbContentNew.Location = new System.Drawing.Point(261, 299);
-            this.tbContentNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbContentNew.Location = new System.Drawing.Point(196, 243);
+            this.tbContentNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbContentNew.Multiline = true;
             this.tbContentNew.Name = "tbContentNew";
-            this.tbContentNew.Size = new System.Drawing.Size(711, 75);
+            this.tbContentNew.Size = new System.Drawing.Size(534, 62);
             this.tbContentNew.TabIndex = 14;
             // 
             // tbSubjectNew
             // 
-            this.tbSubjectNew.Location = new System.Drawing.Point(261, 257);
-            this.tbSubjectNew.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSubjectNew.Location = new System.Drawing.Point(196, 209);
             this.tbSubjectNew.Name = "tbSubjectNew";
-            this.tbSubjectNew.Size = new System.Drawing.Size(711, 22);
+            this.tbSubjectNew.Size = new System.Drawing.Size(534, 20);
             this.tbSubjectNew.TabIndex = 13;
             // 
             // cbUrgent
             // 
             this.cbUrgent.AutoSize = true;
-            this.cbUrgent.Location = new System.Drawing.Point(261, 420);
-            this.cbUrgent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbUrgent.Location = new System.Drawing.Point(196, 341);
             this.cbUrgent.Name = "cbUrgent";
-            this.cbUrgent.Size = new System.Drawing.Size(73, 21);
+            this.cbUrgent.Size = new System.Drawing.Size(58, 17);
             this.cbUrgent.TabIndex = 15;
             this.cbUrgent.Text = "Urgent";
             this.cbUrgent.UseVisualStyleBackColor = true;
@@ -187,10 +187,9 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCancel.Location = new System.Drawing.Point(691, 494);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(518, 401);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(157, 46);
+            this.btnCancel.Size = new System.Drawing.Size(118, 37);
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Annuleren";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -198,10 +197,10 @@
             // 
             // EditQuestion
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.cbUrgent);
             this.Controls.Add(this.tbContentNew);
@@ -217,7 +216,6 @@
             this.Controls.Add(this.lblCategoryOld);
             this.Controls.Add(this.lblContentOld);
             this.Controls.Add(this.lblSubjectOld);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditQuestion";
             this.Text = "EditQuestion";
             this.ResumeLayout(false);

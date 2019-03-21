@@ -36,10 +36,9 @@
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.Location = new System.Drawing.Point(376, 303);
-            this.btnSendMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSendMessage.Location = new System.Drawing.Point(282, 246);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(39, 34);
+            this.btnSendMessage.Size = new System.Drawing.Size(29, 28);
             this.btnSendMessage.TabIndex = 1;
             this.btnSendMessage.Text = ">";
             this.btnSendMessage.UseVisualStyleBackColor = true;
@@ -47,43 +46,38 @@
             // 
             // tbMessage
             // 
-            this.tbMessage.Location = new System.Drawing.Point(16, 309);
-            this.tbMessage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbMessage.Location = new System.Drawing.Point(12, 251);
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(351, 22);
+            this.tbMessage.Size = new System.Drawing.Size(264, 20);
             this.tbMessage.TabIndex = 2;
             // 
             // lbChat
             // 
             this.lbChat.FormattingEnabled = true;
-            this.lbChat.ItemHeight = 16;
-            this.lbChat.Location = new System.Drawing.Point(16, 41);
-            this.lbChat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbChat.Location = new System.Drawing.Point(12, 33);
             this.lbChat.Name = "lbChat";
-            this.lbChat.Size = new System.Drawing.Size(351, 260);
+            this.lbChat.Size = new System.Drawing.Size(264, 212);
             this.lbChat.TabIndex = 3;
             // 
             // lbChatReceiver
             // 
             this.lbChatReceiver.AutoSize = true;
-            this.lbChatReceiver.Location = new System.Drawing.Point(16, 16);
-            this.lbChatReceiver.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbChatReceiver.Location = new System.Drawing.Point(12, 13);
             this.lbChatReceiver.Name = "lbChatReceiver";
-            this.lbChatReceiver.Size = new System.Drawing.Size(46, 17);
+            this.lbChatReceiver.Size = new System.Drawing.Size(35, 13);
             this.lbChatReceiver.TabIndex = 4;
             this.lbChatReceiver.Text = "label1";
             // 
             // FormVolunteerChat
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.lbChatReceiver);
             this.Controls.Add(this.lbChat);
             this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.btnSendMessage);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormVolunteerChat";
             this.Text = "FormVolunteerChat";
             this.Load += new System.EventHandler(this.FormVolunteerChat_Load);
