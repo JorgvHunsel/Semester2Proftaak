@@ -166,12 +166,13 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(27, 248);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
+            this.label8.Size = new System.Drawing.Size(67, 13);
             this.label8.TabIndex = 12;
-            this.label8.Text = "City:";
+            this.label8.Text = "Woonplaats:";
             // 
             // cboxSex
             // 
+            this.cboxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSex.FormattingEnabled = true;
             this.cboxSex.Location = new System.Drawing.Point(105, 125);
             this.cboxSex.Name = "cboxSex";
@@ -221,6 +222,7 @@
             this.btnAddUser.TabIndex = 19;
             this.btnAddUser.Text = "Maak Account aan!";
             this.btnAddUser.UseVisualStyleBackColor = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // NewUser
             // 

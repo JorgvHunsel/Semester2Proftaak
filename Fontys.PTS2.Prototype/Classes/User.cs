@@ -8,6 +8,7 @@ namespace Fontys.PTS2.Prototype.Classes
 {
     abstract class User
     {
+        public enum AccountType { CareRecipient, Volunteer, Professional, Admin }
         public enum Gender { Male, Female, Other }
         public int UserId { get; set; }
         public string FirstName { get; private set; }
@@ -18,6 +19,7 @@ namespace Fontys.PTS2.Prototype.Classes
         private string EmailAddress { get; set; }
         private int Age { get; set; }
         private Gender UserGender { get; set; }
+        private AccountType UserAccountType { get; set; }
         private bool Status { get; set; }
 
         protected User(int userId, string firstName, string lastName, string address, string city, string postalCode, string emailAddress, int age, Gender userGender, bool status)

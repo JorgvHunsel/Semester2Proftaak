@@ -18,6 +18,24 @@ namespace Fontys.PTS2.Prototype.Data
 
         private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
+        public void AddNewUser(string FirstName, string LastName, DateTime BirthDate, User.Gender Gender, string Email, string Address, string PostalCode, string City, string AccountType)
+        {
+            try
+            {
+                string query = "";
+                _conn.Open();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
         public static List<string> GetAllUsers()
         {
             try
