@@ -85,7 +85,7 @@ namespace Fontys.PTS2.Prototype.Data
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                throw e;
+                throw;
             }
             finally
             {
