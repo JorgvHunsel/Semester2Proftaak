@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fontys.PTS2.Prototype.View.Login;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -15,7 +16,7 @@ namespace Fontys.PTS2.Prototype.View
         public MainForm()
         {
             InitializeComponent();
-            ReplaceForm(new FormVolunteerChatOverview());
+            ReplaceForm(new NewUser());
         }
 
         public void ReplaceForm(Form newForm)

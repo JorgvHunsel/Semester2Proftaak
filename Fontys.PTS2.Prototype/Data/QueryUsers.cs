@@ -18,12 +18,24 @@ namespace Fontys.PTS2.Prototype.Data
 
         private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public void AddNewUser(string FirstName, string LastName, DateTime BirthDate, User.Gender Gender, string Email, string Address, string PostalCode, string City, string AccountType)
+        public void AddNewUser(string firstName, string lastName, DateTime birthDate, User.Gender gender, string email, string address, string postalCode, string city)
         {
             try
             {
-                string query = "";
+                string query = "INSERT INTO [User] (FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City) VALUES (@FirstName, @LastName, @Birthdate, @Sex, @Email, @Address, @PostalCode, @City)";
                 _conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@FirstName", firstName);
+                    cmd.Parameters.AddWithValue("@LastName", lastName);
+                    cmd.Parameters.AddWithValue("@Birthdate", birthDate);
+                    cmd.Parameters.AddWithValue("@Sex", gender);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Address", address);
+                    cmd.Parameters.AddWithValue("@PostalCode", postalCode);
+                    cmd.Parameters.AddWithValue("@City", city);
+                    cmd.ExecuteNonQuery();
+                }
             }
             catch (Exception e)
             {

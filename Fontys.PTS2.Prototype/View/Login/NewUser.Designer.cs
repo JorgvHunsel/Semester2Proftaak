@@ -46,7 +46,7 @@
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.tbPostalCode = new System.Windows.Forms.TextBox();
             this.tbCity = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -207,12 +207,12 @@
             this.tbCity.Size = new System.Drawing.Size(100, 20);
             this.tbCity.TabIndex = 17;
             // 
-            // dateTimePicker1
+            // dateOfBirth
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(105, 95);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 18;
+            this.dateOfBirth.Location = new System.Drawing.Point(105, 95);
+            this.dateOfBirth.Name = "dateOfBirth";
+            this.dateOfBirth.Size = new System.Drawing.Size(200, 20);
+            this.dateOfBirth.TabIndex = 18;
             // 
             // btnAddUser
             // 
@@ -230,7 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 417);
             this.Controls.Add(this.btnAddUser);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateOfBirth);
             this.Controls.Add(this.tbCity);
             this.Controls.Add(this.tbPostalCode);
             this.Controls.Add(this.tbAddress);
@@ -276,7 +276,7 @@
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.TextBox tbPostalCode;
         private System.Windows.Forms.TextBox tbCity;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateOfBirth;
         private System.Windows.Forms.Button btnAddUser;
     }
 }
