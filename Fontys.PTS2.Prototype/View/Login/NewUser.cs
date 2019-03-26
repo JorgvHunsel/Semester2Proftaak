@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,15 +23,40 @@ namespace Fontys.PTS2.Prototype.View.Login
 
         private void AddGenders()
         {
-            foreach(string gender in Enum.GetNames(typeof(User.Gender)))
-            { 
+            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
+            {
                 cboxSex.Items.Add(gender);
             }
         }
+
+        private void AddSpecificAccountTypes()
+        {
+            foreach (string AccountType in Enum.GetNames(typeof(User.AccountType)))
+            {
+                if (AccountType == "Vrijwilliger" || AccountType == "Hulpbehoevende")
+                {
+                    cbAccountType.Items.Add(AccountType);
+                }
+            }
+        }
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-            QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
+            if (tbPassword != tbPassValidation)
+            {
+                MessageBox.Show("Wachtwoord komt niet overeen!");
+            }
+            else
+            {
+                if (User.IsEmailValid(tbEmail.Text))
+                {
+                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, cbAccountType.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Email is verkeerd!");
+                }
+            }
         }
     }
 }
