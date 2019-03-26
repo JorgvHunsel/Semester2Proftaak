@@ -30,12 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPrototype));
             this.EpicVictoryRoyale = new System.Windows.Forms.GroupBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tboxEmail = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tboxEmail = new System.Windows.Forms.TextBox();
-            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.linklblNewAccount = new System.Windows.Forms.LinkLabel();
             this.EpicVictoryRoyale.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,12 +48,35 @@
             this.EpicVictoryRoyale.Controls.Add(this.label1);
             this.EpicVictoryRoyale.Controls.Add(this.lblEmail);
             this.EpicVictoryRoyale.Controls.Add(this.btnLogin);
-            this.EpicVictoryRoyale.Location = new System.Drawing.Point(10, 87);
+            this.EpicVictoryRoyale.Location = new System.Drawing.Point(10, 75);
             this.EpicVictoryRoyale.Name = "EpicVictoryRoyale";
             this.EpicVictoryRoyale.Size = new System.Drawing.Size(254, 138);
             this.EpicVictoryRoyale.TabIndex = 3;
             this.EpicVictoryRoyale.TabStop = false;
             this.EpicVictoryRoyale.Text = "Login";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(89, 65);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(159, 20);
+            this.tbPassword.TabIndex = 7;
+            // 
+            // tboxEmail
+            // 
+            this.tboxEmail.Location = new System.Drawing.Point(89, 36);
+            this.tboxEmail.Name = "tboxEmail";
+            this.tboxEmail.Size = new System.Drawing.Size(159, 20);
+            this.tboxEmail.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Wachtwoord:";
             // 
             // lblEmail
             // 
@@ -87,28 +111,16 @@
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "Welkom";
             // 
-            // label1
+            // linklblNewAccount
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 68);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Wachtwoord:";
-            // 
-            // tboxEmail
-            // 
-            this.tboxEmail.Location = new System.Drawing.Point(89, 36);
-            this.tboxEmail.Name = "tboxEmail";
-            this.tboxEmail.Size = new System.Drawing.Size(159, 20);
-            this.tboxEmail.TabIndex = 6;
-            // 
-            // tbPassword
-            // 
-            this.tbPassword.Location = new System.Drawing.Point(89, 65);
-            this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(159, 20);
-            this.tbPassword.TabIndex = 7;
+            this.linklblNewAccount.AutoSize = true;
+            this.linklblNewAccount.Location = new System.Drawing.Point(12, 223);
+            this.linklblNewAccount.Name = "linklblNewAccount";
+            this.linklblNewAccount.Size = new System.Drawing.Size(80, 13);
+            this.linklblNewAccount.TabIndex = 5;
+            this.linklblNewAccount.TabStop = true;
+            this.linklblNewAccount.Text = "Nieuw Account";
+            this.linklblNewAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblNewAccount_LinkClicked);
             // 
             // LoginPrototype
             // 
@@ -116,13 +128,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(280, 245);
+            this.Controls.Add(this.linklblNewAccount);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.EpicVictoryRoyale);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(298, 291);
             this.Name = "LoginPrototype";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.LoginPrototype_Load);
             this.EpicVictoryRoyale.ResumeLayout(false);
             this.EpicVictoryRoyale.PerformLayout();
             this.ResumeLayout(false);
@@ -138,5 +150,6 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.TextBox tboxEmail;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linklblNewAccount;
     }
 }

@@ -50,6 +50,7 @@ namespace Fontys.PTS2.Prototype.View.Login
                     }
 
                     QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
                 else
                 {

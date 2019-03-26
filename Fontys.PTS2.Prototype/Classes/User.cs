@@ -78,5 +78,10 @@ namespace Fontys.PTS2.Prototype.Classes
                 return false;
             }
         }
+
+        public static bool DoesUserExist(string email)
+        {
+            return false;
+        }
     }
 }
