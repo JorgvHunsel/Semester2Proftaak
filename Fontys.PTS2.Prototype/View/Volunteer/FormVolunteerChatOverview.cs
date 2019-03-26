@@ -17,11 +17,12 @@ namespace Fontys.PTS2.Prototype.View
     {
         private List<ChatLog> chatLogs;
         // Logged in user
-        private int userid = 1;
+        private int userid = 15;
 
         public FormVolunteerChatOverview()
         {
             InitializeComponent();
+            //this.userid = senderid;
         }
 
         // Load listview with items. @@@@@@@@ ADD DATETIME IN DB @@@@@@@@

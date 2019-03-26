@@ -19,7 +19,21 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT U2.FirstName as ReceiverFirstName, U2.LastName as ReceiverLastName, C.ChatLogID, C.ReceiverID, C.SenderID, Q.Title as QuestionTitle, R.Description as Reactie, U.FirstName as SenderFirstName, U.LastName as SenderLastName, C.TimeStamp as TimeStamp FROM CHATLOG as C INNER JOIN Reaction as R on R.ReactionID = C.ReactionID INNER JOIN Question as Q on R.QuestionID = Q.QuestionID INNER JOIN [User] as U on U.UserID = C.SenderID INNER JOIN [User] as U2 on U2.UserID = C.ReceiverID WHERE C.ReceiverID = '"+ userid +"'";
+                string query = "SELECT[ChatLogID],[ReactionID],[CareRecipientID], [VolunteerID], [TimeStamp]," +
+                "[Volunteer].Firstname as VolunteerFirstName, [Volunteer].LastName as VolunteerLastName, " +
+                "[CareRecipient].Firstname as VolunteerFirstName, [CareRecipient].LastName as VolunteerLastName" +
+                " FROM [ChatLog] INNER JOIN[User] As Volunteer ON Volunteer.UserID = VolunteerID" +
+                " INNER JOIN [User] As CareRecipient ON CareRecipient.UserID = CareRecipientID " +
+                "WHERE Volunteer.VolunteerID = '" + userid + "'";
+
+
+
+
+                //"SELECT U2.FirstName as ReceiverFirstName, U2.LastName as ReceiverLastName, C.ChatLogID, C.CareRecipientID, C.VolunteerID, " +
+                //               "Q.Title as QuestionTitle, R.Description as Reactie, U.FirstName as SenderFirstName, U.LastName as SenderLastName, " +
+                //               "C.TimeStamp as TimeStamp FROM CHATLOG as C INNER JOIN Reaction as R on R.ReactionID = C.ReactionID INNER JOIN" +
+                //               " Question as Q on R.QuestionID = Q.QuestionID INNER JOIN [User] as U on U.UserID = C.VolunteerID INNER JOIN [User] " +
+                //               "as U2 on U2.UserID = C.CareRecipientID WHERE C.CareRecipientID = '"+ userid +"'";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -43,7 +57,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT M.ChatID, M.SenderID, M.ReceiverID, M.Content, M.TimeStamp FROM [Message] M INNER JOIN ChatLog C ON C.ChatLogID = M.ChatID WHERE M.ChatID = '"+chatID+"'";
+                string query = "SELECT M.ChatID, M.VolunteerID, M.CareRecipientID, M.Content, M.TimeStamp FROM [Message] M INNER JOIN ChatLog C ON C.ChatLogID = M.ChatID WHERE M.ChatID = '" + chatID + "'";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
