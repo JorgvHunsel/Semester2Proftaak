@@ -26,7 +26,7 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Database db = new Database();
+            CategoryContextSQL db = new CategoryContextSQL();
             this.categories = db.GetAllCategories();
             foreach (Category category in categories)
             {
@@ -48,7 +48,7 @@ namespace Fontys.PTS2.Prototype
                     string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
                     Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
                         Question.QuestionStatus.Open, DateTime.Now, urgency, category);
-                    QueryQuestion.WriteQuestionToDatabase(newQuestion);
+                    QuestionContextSQL.WriteQuestionToDatabase(newQuestion);
 
                     MessageBox.Show("De hulpvraag is succesvol aangemaakt");
 

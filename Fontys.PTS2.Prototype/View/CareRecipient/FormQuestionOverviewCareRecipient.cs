@@ -23,7 +23,7 @@ namespace Fontys.PTS2.Prototype.View
         {
             DataTable dt = new DataTable();
 
-            dt = QueryQuestion.GetAllOpenQuestions();
+            dt = QuestionContextSQL.GetAllOpenQuestions();
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)

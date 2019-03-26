@@ -24,8 +24,8 @@ namespace Fontys.PTS2.Prototype.View
             questionID = QuestionID;
 
 
-            Database db = new Database();
-            Question question = QueryQuestion.LoadSingleQuestion(QuestionID);
+            CategoryContextSQL db = new CategoryContextSQL();
+            Question question = QuestionContextSQL.LoadSingleQuestion(QuestionID);
             tbSubjectOld.Text = question.Title;
             tbContentOld.Text = question.Content;
             tbCategoryOld.Text = question.Category.Name;
@@ -60,12 +60,12 @@ namespace Fontys.PTS2.Prototype.View
 
             if (categorySelectedIndex == -1)
             {
-                QueryQuestion.EditQuestion(questionID, subjectNew, contentNew, urgency);
+                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, urgency);
             }
             else
             {
                 Category category = categories[categorySelectedIndex];
-                QueryQuestion.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
+                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
 
                 //MessageBox.Show("Hulpvraag bewerkt.");
                 //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());

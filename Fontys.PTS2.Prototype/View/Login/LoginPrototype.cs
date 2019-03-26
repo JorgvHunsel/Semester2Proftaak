@@ -26,7 +26,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void LoginPrototype_Load(object sender, EventArgs e)
         {
-            userNames = QueryUsers.GetAllUsers();
+            userNames = UserContextSQL.GetAllUsers();
             foreach (string FirstName in userNames)
             {
                 //cboxUsers.Items.Add(FirstName);

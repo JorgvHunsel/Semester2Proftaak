@@ -36,7 +36,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         {
             string message = tbMessage.Text;
 
-            DatabaseChat dbChat = new DatabaseChat();
+            ChatContextSQL dbChat = new ChatContextSQL();
             dbChat.SendMessage(this.chatID,receiverID, senderID, message);
             RefreshPage();
         }
@@ -44,7 +44,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         //
         private List<ChatMessage> LoadMessagesAsList()
         {
-            DatabaseChat dbChat = new DatabaseChat();
+            ChatContextSQL dbChat = new ChatContextSQL();
             DataTable messagesDataTable = dbChat.LoadMessagesAsDataTable(chatID);
 
             List<ChatMessage> messagesList = new List<ChatMessage>();

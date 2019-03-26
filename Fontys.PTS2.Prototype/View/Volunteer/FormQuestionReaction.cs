@@ -20,14 +20,14 @@ namespace Fontys.PTS2.Prototype.View
         {
             InitializeComponent();
             QuestionId = questionId;
-            lblQuestionTitle.Text = QueryQuestion.GetQuestionName(questionId);
-            richtbDescription.Text = QueryQuestion.GetQuestionDescription(questionId);
+            lblQuestionTitle.Text = QuestionContextSQL.GetQuestionName(questionId);
+            richtbDescription.Text = QuestionContextSQL.GetQuestionDescription(questionId);
         }
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
             Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
-            QueryReaction.PostReaction(newReaction);
+            ReactionContextSQL.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");
 

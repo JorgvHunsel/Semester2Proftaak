@@ -65,36 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\CategoryRepository.cs" />
-    <Compile Include="Data\ChatRepository.cs" />
-    <Compile Include="Data\Contexts\ICategoryContext.cs" />
-    <Compile Include="Data\Contexts\IChatContext.cs" />
-    <Compile Include="Data\Contexts\IQuestionContext.cs" />
-    <Compile Include="Data\Contexts\IReactionContext.cs" />
-    <Compile Include="Data\Contexts\IUserContext.cs" />
-    <Compile Include="Data\QuestionRepository.cs" />
-    <Compile Include="Data\ReactionRepository.cs" />
-    <Compile Include="Data\UserRepository.cs" />
-    <Compile Include="Logic\CategoryLogic.cs" />
-    <Compile Include="Logic\ChatLogic.cs" />
-    <Compile Include="Logic\QuestionLogic.cs" />
-    <Compile Include="Logic\ReactionLogic.cs" />
-    <Compile Include="Logic\UserLogic.cs" />
-    <Compile Include="Model\Admin.cs" />
-    <Compile Include="Model\CareRecipient.cs" />
-    <Compile Include="Model\Category.cs" />
-    <Compile Include="Model\ChatLog.cs" />
-    <Compile Include="Model\ChatMessage.cs" />
-    <Compile Include="Model\Professional.cs" />
-    <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Reaction.cs" />
-    <Compile Include="Model\User.cs" />
-    <Compile Include="Model\Volunteer.cs" />
-    <Compile Include="Data\Contexts\CategoryContextSQL.cs" />
-    <Compile Include="Data\Contexts\ChatContextSQL.cs" />
-    <Compile Include="Data\Contexts\QuestionContextSQL.cs" />
-    <Compile Include="Data\Contexts\UserContextSQL.cs" />
-    <Compile Include="Data\Contexts\ReactionContextSQL.cs" />
     <Compile Include="View\Administrator\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +225,18 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{ae9327ee-5ca8-4e8e-af98-757f64fde874}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{645f3729-025a-4c68-8ac1-75f3d3b0261a}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
