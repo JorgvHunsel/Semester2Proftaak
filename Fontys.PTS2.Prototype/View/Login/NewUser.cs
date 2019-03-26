@@ -57,6 +57,8 @@ namespace Fontys.PTS2.Prototype.View.Login
                     MessageBox.Show("Email is verkeerd!");
                 }
             }
+            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+            //QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
         }
     }
 }

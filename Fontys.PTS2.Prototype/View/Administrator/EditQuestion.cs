@@ -68,13 +68,13 @@ namespace Fontys.PTS2.Prototype.View
                 QueryQuestion.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
 
                 //MessageBox.Show("Hulpvraag bewerkt.");
-                //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
         }
     }
 }
