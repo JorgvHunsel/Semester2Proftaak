@@ -28,6 +28,18 @@ namespace Fontys.PTS2.Prototype.View.Login
                 cboxSex.Items.Add(gender);
             }
         }
+
+        private void AddSpecificAccountTypes()
+        {
+            foreach (string AccountType in Enum.GetNames(typeof(User.AccountType)))
+            {
+                if (AccountType == "Vrijwilliger" || AccountType == "Hulpbehoevende")
+                {
+                    cbAccountType.Items.Add(AccountType);
+                }
+            }
+        }
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             if (tbPassword != tbPassValidation)
@@ -38,17 +50,7 @@ namespace Fontys.PTS2.Prototype.View.Login
             {
                 if (User.IsEmailValid(tbEmail.Text))
                 {
-                    User.AccountType accountType;
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-                    if (rbtnVolunteer.Checked)
-                    {
-                        accountType = User.AccountType.Volunteer;
-                    }
-                    else if (rbtnCareRecipient.Checked)
-                    {
-                        accountType = User.AccountType.CareRecipient;
-                    }
-                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, User.AccountType accountType);
+                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, cbAccountType.Text);
                 }
                 else
                 {
