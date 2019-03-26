@@ -11,10 +11,10 @@ using Fontys.PTS2.Prototype.Data;
 
 namespace Fontys.PTS2.Prototype.View
 {
-    public partial class FormQuestionOverview : Form
+    public partial class FormQuestionOverviewVolunteer : Form
     {
 
-        public FormQuestionOverview()
+        public FormQuestionOverviewVolunteer()
         {
             InitializeComponent();
             LoadQuestionsToList();
@@ -82,6 +82,11 @@ namespace Fontys.PTS2.Prototype.View
         private void btnLogOff_Click(object sender, EventArgs e)
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
+        }
+
+        private void ChatOverview_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
         }
     }
 }

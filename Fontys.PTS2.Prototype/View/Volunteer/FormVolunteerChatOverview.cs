@@ -89,5 +89,18 @@ namespace Fontys.PTS2.Prototype.View
 
             return chatLogList;
         }
+
+        private void btnMakeAppointment_Click(object sender, EventArgs e)
+        {
+            //if (lvChats.SelectedItems.)
+            //{
+                
+            //}
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+        }
     }
 }

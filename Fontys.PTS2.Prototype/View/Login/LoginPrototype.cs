@@ -52,7 +52,7 @@ namespace Fontys.PTS2.Prototype.View
             }
             else if (rbtnVolunteer.Checked)
             {
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
             }
             else
             {

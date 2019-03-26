@@ -30,7 +30,7 @@ namespace Fontys.PTS2.Prototype.View.Login
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-            QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
+            //QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
         }
     }
 }
