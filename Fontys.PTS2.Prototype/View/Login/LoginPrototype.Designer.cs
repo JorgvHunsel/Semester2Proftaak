@@ -29,55 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPrototype));
-            this.cboxUsers = new System.Windows.Forms.ComboBox();
-            this.rbtnCareRecipient = new System.Windows.Forms.RadioButton();
-            this.rbtnVolunteer = new System.Windows.Forms.RadioButton();
             this.EpicVictoryRoyale = new System.Windows.Forms.GroupBox();
-            this.lblUser = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tboxEmail = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.EpicVictoryRoyale.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // cboxUsers
-            // 
-            this.cboxUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxUsers.FormattingEnabled = true;
-            this.cboxUsers.Location = new System.Drawing.Point(30, 41);
-            this.cboxUsers.Name = "cboxUsers";
-            this.cboxUsers.Size = new System.Drawing.Size(121, 21);
-            this.cboxUsers.TabIndex = 0;
-            // 
-            // rbtnCareRecipient
-            // 
-            this.rbtnCareRecipient.AutoSize = true;
-            this.rbtnCareRecipient.Location = new System.Drawing.Point(30, 80);
-            this.rbtnCareRecipient.Name = "rbtnCareRecipient";
-            this.rbtnCareRecipient.Size = new System.Drawing.Size(107, 17);
-            this.rbtnCareRecipient.TabIndex = 1;
-            this.rbtnCareRecipient.TabStop = true;
-            this.rbtnCareRecipient.Text = "Hulpbehoevende";
-            this.rbtnCareRecipient.UseVisualStyleBackColor = true;
-            // 
-            // rbtnVolunteer
-            // 
-            this.rbtnVolunteer.AutoSize = true;
-            this.rbtnVolunteer.Location = new System.Drawing.Point(30, 102);
-            this.rbtnVolunteer.Name = "rbtnVolunteer";
-            this.rbtnVolunteer.Size = new System.Drawing.Size(70, 17);
-            this.rbtnVolunteer.TabIndex = 2;
-            this.rbtnVolunteer.TabStop = true;
-            this.rbtnVolunteer.Text = "Vrijwilliger";
-            this.rbtnVolunteer.UseVisualStyleBackColor = true;
             // 
             // EpicVictoryRoyale
             // 
             this.EpicVictoryRoyale.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.EpicVictoryRoyale.Controls.Add(this.lblUser);
+            this.EpicVictoryRoyale.Controls.Add(this.tbPassword);
+            this.EpicVictoryRoyale.Controls.Add(this.tboxEmail);
+            this.EpicVictoryRoyale.Controls.Add(this.label1);
+            this.EpicVictoryRoyale.Controls.Add(this.lblEmail);
             this.EpicVictoryRoyale.Controls.Add(this.btnLogin);
-            this.EpicVictoryRoyale.Controls.Add(this.cboxUsers);
-            this.EpicVictoryRoyale.Controls.Add(this.rbtnVolunteer);
-            this.EpicVictoryRoyale.Controls.Add(this.rbtnCareRecipient);
             this.EpicVictoryRoyale.Location = new System.Drawing.Point(10, 87);
             this.EpicVictoryRoyale.Name = "EpicVictoryRoyale";
             this.EpicVictoryRoyale.Size = new System.Drawing.Size(254, 138);
@@ -85,15 +54,15 @@
             this.EpicVictoryRoyale.TabStop = false;
             this.EpicVictoryRoyale.Text = "Login";
             // 
-            // lblUser
+            // lblEmail
             // 
-            this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(30, 24);
-            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(56, 13);
-            this.lblUser.TabIndex = 4;
-            this.lblUser.Text = "Gebruiker:";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(5, 39);
+            this.lblEmail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(66, 13);
+            this.lblEmail.TabIndex = 4;
+            this.lblEmail.Text = "Emailadress:";
             // 
             // btnLogin
             // 
@@ -118,6 +87,29 @@
             this.lblWelcome.TabIndex = 4;
             this.lblWelcome.Text = "Welkom";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Wachtwoord:";
+            // 
+            // tboxEmail
+            // 
+            this.tboxEmail.Location = new System.Drawing.Point(89, 36);
+            this.tboxEmail.Name = "tboxEmail";
+            this.tboxEmail.Size = new System.Drawing.Size(159, 20);
+            this.tboxEmail.TabIndex = 6;
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(89, 65);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(159, 20);
+            this.tbPassword.TabIndex = 7;
+            // 
             // LoginPrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -139,13 +131,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox cboxUsers;
-        private System.Windows.Forms.RadioButton rbtnCareRecipient;
-        private System.Windows.Forms.RadioButton rbtnVolunteer;
         private System.Windows.Forms.GroupBox EpicVictoryRoyale;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblWelcome;
-        private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tboxEmail;
+        private System.Windows.Forms.Label label1;
     }
 }

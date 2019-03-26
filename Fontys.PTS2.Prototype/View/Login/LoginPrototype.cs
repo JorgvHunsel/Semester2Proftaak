@@ -29,15 +29,15 @@ namespace Fontys.PTS2.Prototype.View
             userNames = QueryUsers.GetAllUsers();
             foreach (string FirstName in userNames)
             {
-                cboxUsers.Items.Add(FirstName);
+                //cboxUsers.Items.Add(FirstName);
             }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+           /* try
             {
-                string selectedUser = cboxUsers.SelectedItem.ToString();
+                //string selectedUser = cboxUsers.SelectedItem.ToString();
                 CurrentUserId = QueryUsers.GetUserId(selectedUser);
             }
             catch (Exception exception)
@@ -46,7 +46,7 @@ namespace Fontys.PTS2.Prototype.View
                 return;
             }
             
-            if (rbtnCareRecipient.Checked)
+           if (rbtnCareRecipient.Checked)
             {
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
             }
@@ -57,7 +57,7 @@ namespace Fontys.PTS2.Prototype.View
             else
             {
                 MessageBox.Show("Kies een rol");
-            }
+            }*/
         }
     }
 }
