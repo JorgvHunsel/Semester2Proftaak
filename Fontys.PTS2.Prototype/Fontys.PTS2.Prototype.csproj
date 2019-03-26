@@ -106,6 +106,12 @@
     <Compile Include="View\Login\NewUser.Designer.cs">
       <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Volunteer\FormAppointmentVolunteer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Volunteer\FormAppointmentVolunteer.Designer.cs">
+      <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="View\Login\NewUser.resx">
       <DependentUpon>NewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Volunteer\FormAppointmentVolunteer.resx">
+      <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormQuestionOverviewVolunteer.resx">
       <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>
