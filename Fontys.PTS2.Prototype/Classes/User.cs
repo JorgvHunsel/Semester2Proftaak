@@ -11,7 +11,7 @@ namespace Fontys.PTS2.Prototype.Classes
     abstract class User
     {
         public enum AccountType { CareRecipient, Volunteer, Professional, Admin }
-        public enum Gender { Male, Female, Other }
+        public enum Gender { M, V, A }
         public int UserId { get; set; }
         public string FirstName { get; private set; }
         private string LastName { get; set; }
