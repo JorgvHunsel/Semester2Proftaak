@@ -83,7 +83,7 @@ namespace Fontys.PTS2.Prototype.Data
         }
 
         // To do:
-        public static DataTable GetUserById(int userID)
+        public static List<string> GetUserById(int userID)
         {
             try
             {
@@ -94,7 +94,19 @@ namespace Fontys.PTS2.Prototype.Data
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
 
-                return dt;
+                List<string> user = new List<string>();
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    //string categoryID = row["CategoryID"].ToString();
+                    //string categoryName = row["Name"].ToString();
+                    //string categoryDescription = row["Description"].ToString();
+
+                    
+                    user.Add(Convert.ToString(row));
+                }
+
+                return user;
             }
             catch (Exception e)
             {
