@@ -29,20 +29,9 @@ namespace Fontys.PTS2.Prototype.View.Login
             }
         }
 
-        private void AddSpecificAccountTypes()
-        {
-            foreach (string AccountType in Enum.GetNames(typeof(User.AccountType)))
-            {
-                if (AccountType == "Vrijwilliger" || AccountType == "Hulpbehoevende")
-                {
-                    cbAccountType.Items.Add(AccountType);
-                }
-            }
-        }
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            if (tbPassword != tbPassValidation)
+            if (tbPassword.Text != tbPassValidation.Text)
             {
                 MessageBox.Show("Wachtwoord komt niet overeen!");
             }
@@ -50,7 +39,17 @@ namespace Fontys.PTS2.Prototype.View.Login
             {
                 if (User.IsEmailValid(tbEmail.Text))
                 {
-                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, cbAccountType.Text);
+                    string accountType = "CareRecipient";
+                    if (rbtnVolunteer.Checked)
+                    {
+                        accountType = "Volunteer";
+                    }
+                    else if (rbtnCareRecipient.Checked)
+                    {
+                        accountType = "CareRecipient";
+                    }
+
+                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
                 }
                 else
                 {
