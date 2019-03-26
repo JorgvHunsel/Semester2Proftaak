@@ -14,10 +14,9 @@ namespace Unit_Testing
         public void GetAllOpenQuestions()
         {
             //Arrange
-            Database db = new Database();
 
             //Act
-            db.GetAllOpenQuestions();
+            QueryQuestion.GetAllOpenQuestions();
 
             //Assert
         }

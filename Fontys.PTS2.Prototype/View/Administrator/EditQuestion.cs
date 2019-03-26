@@ -25,7 +25,7 @@ namespace Fontys.PTS2.Prototype.View
 
 
             Database db = new Database();
-            Question question = db.LoadSingleQuestion(QuestionID);
+            Question question = QueryQuestion.LoadSingleQuestion(QuestionID);
             tbSubjectOld.Text = question.Title;
             tbContentOld.Text = question.Content;
             tbCategoryOld.Text = question.Category.Name;
@@ -58,15 +58,14 @@ namespace Fontys.PTS2.Prototype.View
             subjectNew = (tbSubjectNew.Text == "") ? tbSubjectOld.Text : tbSubjectNew.Text;
             contentNew = (tbContentNew.Text == "") ? tbContentOld.Text : tbContentNew.Text;
 
-            Database db = new Database();
             if (categorySelectedIndex == -1)
             {
-                db.EditQuestion(questionID, subjectNew, contentNew, urgency);
+                QueryQuestion.EditQuestion(questionID, subjectNew, contentNew, urgency);
             }
             else
             {
                 Category category = categories[categorySelectedIndex];
-                db.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
+                QueryQuestion.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
 
                 //MessageBox.Show("Hulpvraag bewerkt.");
                 //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
