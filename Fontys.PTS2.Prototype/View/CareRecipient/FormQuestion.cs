@@ -26,15 +26,13 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CategoryContextSQL db = new CategoryContextSQL();
+            CategoryRepository db = new CategoryRepository();
             this.categories = db.GetAllCategories();
             foreach (Category category in categories)
             {
                 cboxCategory.Items.Add(category.Name);
             }
         }
-
-
 
         private void btnRequest_Click(object sender, EventArgs e)
         {

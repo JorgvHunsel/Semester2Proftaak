@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
+using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
 {
-    public class QuestionContextSQL
+    public class QuestionContextSQL : IQuestionContext
     {
+        //Er mogen geen static methodes hier voorkomen. Je maakt ze pas static bij de questionrepos
         private const string ConnectionString =
             @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fontys.PTS2.Prototype.Data.Contexts
 {
-    interface IUserContext
+    public interface IUserContext
     {
     }
 }

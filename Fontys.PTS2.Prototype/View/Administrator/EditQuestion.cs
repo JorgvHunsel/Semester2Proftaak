@@ -24,7 +24,7 @@ namespace Fontys.PTS2.Prototype.View
             questionID = QuestionID;
 
 
-            CategoryContextSQL db = new CategoryContextSQL();
+            CategoryRepository db = new CategoryRepository();
             Question question = QuestionContextSQL.LoadSingleQuestion(QuestionID);
             tbSubjectOld.Text = question.Title;
             tbContentOld.Text = question.Content;

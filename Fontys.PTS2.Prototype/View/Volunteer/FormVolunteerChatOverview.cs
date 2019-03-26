@@ -66,7 +66,7 @@ namespace Fontys.PTS2.Prototype.View
         // Convert DataTable to List.
         private List<ChatLog> GetAllOpenChatsAsList()
         {
-            ChatContextSQL dbchat = new ChatContextSQL();
+            ChatRepository dbchat = new ChatRepository();
             DataTable dt = dbchat.GetAllOpenChatsAsDataTable(userid);
 
             List<ChatLog> chatLogList = new List<ChatLog>();

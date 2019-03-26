@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
+using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
 {
-    class UserContextSQL
+    class UserContextSQL : IUserContext
     {
+        //er mogen hier geen static methodes zijn. deze worden pas gemaakt in de logic layer.
         private const string ConnectionString =
             @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
@@ -102,7 +104,7 @@ namespace Fontys.PTS2.Prototype.Data
                     //string categoryName = row["Name"].ToString();
                     //string categoryDescription = row["Description"].ToString();
 
-                    
+
                     user.Add(Convert.ToString(row));
                 }
 

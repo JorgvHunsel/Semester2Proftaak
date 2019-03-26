@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
+using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
 {
-    class ReactionContextSQL
+    class ReactionContextSQL : IReactionContext
     {
         private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
-
+        //er mogen hier geen static methodes voorkomen, deze moeten pas static worden in de logic layer.
         public static void PostReaction(Reaction reaction)
         {
             try
@@ -25,8 +26,6 @@ namespace Fontys.PTS2.Prototype.Data
                     CommandText =
                         "INSERT INTO [Reaction] ([QuestionID], [SenderID], [Description])" +
                         $"VALUES ({reaction.ToString()})"
-
-
                 };
 
                 cmd.Connection = _conn;
