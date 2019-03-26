@@ -23,10 +23,9 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            Database db = new Database();
             DataTable dt = new DataTable();
 
-            dt = db.GetAllOpenQuestions();
+            dt = QueryQuestion.GetAllOpenQuestions();
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
