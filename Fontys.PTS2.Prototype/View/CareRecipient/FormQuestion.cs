@@ -50,7 +50,7 @@ namespace Fontys.PTS2.Prototype
 
                     MessageBox.Show("De hulpvraag is succesvol aangemaakt");
 
-                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
 
                 }
                 catch (ArgumentOutOfRangeException)
@@ -86,7 +86,7 @@ namespace Fontys.PTS2.Prototype
             return false;
         }
 
-        // Button to move to FormQuestionOverview
+        // Button to move to FormQuestionOverviewVolunteer
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());

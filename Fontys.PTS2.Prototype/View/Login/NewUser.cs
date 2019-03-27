@@ -49,13 +49,16 @@ namespace Fontys.PTS2.Prototype.View.Login
                         accountType = "CareRecipient";
                     }
 
-                    UserContextSQL.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
+                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
                 else
                 {
                     MessageBox.Show("Email is verkeerd!");
                 }
             }
+            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+            //QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
         }
     }
 }

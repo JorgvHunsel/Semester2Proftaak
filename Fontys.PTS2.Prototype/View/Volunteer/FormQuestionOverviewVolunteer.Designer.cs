@@ -1,6 +1,6 @@
 ﻿namespace Fontys.PTS2.Prototype.View
 {
-    partial class FormQuestionOverview
+    partial class FormQuestionOverviewVolunteer
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnReactToQuestion = new System.Windows.Forms.Button();
             this.btnLogOff = new System.Windows.Forms.Button();
+            this.btnChatOverview = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -118,18 +119,30 @@
             this.btnLogOff.UseVisualStyleBackColor = false;
             this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
             // 
-            // FormQuestionOverview
+            // btnChatOverview
+            // 
+            this.btnChatOverview.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnChatOverview.Location = new System.Drawing.Point(606, 357);
+            this.btnChatOverview.Name = "btnChatOverview";
+            this.btnChatOverview.Size = new System.Drawing.Size(107, 37);
+            this.btnChatOverview.TabIndex = 6;
+            this.btnChatOverview.Text = "Chat overview";
+            this.btnChatOverview.UseVisualStyleBackColor = false;
+            this.btnChatOverview.Click += new System.EventHandler(this.ChatOverview_Click);
+            // 
+            // FormQuestionOverviewVolunteer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(724, 450);
+            this.Controls.Add(this.btnChatOverview);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnReactToQuestion);
             this.Controls.Add(this.lblOpenRequests);
             this.Controls.Add(this.lvOpenQuestions);
-            this.Name = "FormQuestionOverview";
-            this.Text = "FormQuestionOverview";
+            this.Name = "FormQuestionOverviewVolunteer";
+            this.Text = "FormQuestionOverviewVolunteer";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +160,6 @@
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.Button btnReactToQuestion;
         private System.Windows.Forms.Button btnLogOff;
+        private System.Windows.Forms.Button btnChatOverview;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.View.Login;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -35,29 +36,26 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-           /* try
+            try
             {
-                //string selectedUser = cboxUsers.SelectedItem.ToString();
-                CurrentUserId = QueryUsers.GetUserId(selectedUser);
+                string selectedUser = tboxEmail.Text;
+                string password = tbPassword.Text;
+                if (QueryUsers.CheckValidityUser(selectedUser, password))
+                {
+                    CurrentUserId = QueryUsers.GetUserId(selectedUser);
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                }
             }
             catch (Exception exception)
             {
                 MessageBox.Show("Er is geen gebruiker ingevoerd");
                 return;
             }
-            
-           if (rbtnCareRecipient.Checked)
-            {
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
-            }
-            else if (rbtnVolunteer.Checked)
-            {
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverview());
-            }
-            else
-            {
-                MessageBox.Show("Kies een rol");
-            }*/
+        }
+
+        private void linklblNewAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new NewUser());
         }
     }
 }

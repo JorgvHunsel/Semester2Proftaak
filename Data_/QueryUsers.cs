@@ -119,11 +119,11 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static int GetUserId(string firstName)
+        public static int GetUserId(string email)
         {
             try
             {
-                string query = "SELECT [UserID] FROM [User] WHERE [FirstName] = '" + firstName + "'";
+                string query = "SELECT [UserID] FROM [User] WHERE [Email] = '" + email + "'";
                 _conn.Open();
                 SqlCommand cmd = new SqlCommand(query, _conn);
 
@@ -140,6 +140,37 @@ namespace Fontys.PTS2.Prototype.Data
             {
                 _conn.Close();
             }
+        }
+
+        public static bool CheckValidityUser(string email, string password)
+        {
+            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = '" + email + "' AND [Password] = '" + password + "'";
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand(query, _conn);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    if (password == (string) reader[1])
+                    {
+                        MessageBox.Show("User found");
+                        _conn.Close();
+                        return true;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Gebruiker bestaat niet of wachtwoord is verkeerd!");
+                return false;
+            }
+
+            reader.Close();
+            _conn.Close();
+            return false;
         }
     }
 }
