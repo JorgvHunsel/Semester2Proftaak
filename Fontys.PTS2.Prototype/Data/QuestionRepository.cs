@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
@@ -21,6 +23,8 @@ namespace Fontys.PTS2.Prototype.Data
             this.context = context;
         }
 
-        //hier komen functies te staan die waardes doorgeven aan de context
+        public void WriteQuestionToDatabase(Question askedQuestion) => context.WriteQuestionToDatabase(askedQuestion);
+        public DataTable GetAllOpenQuestions() => context.GetAllOpenQuestions();
+        public Question GetSingleQuestion(int questionID) => context.GetSingleQuestion(questionID);
     }
 }

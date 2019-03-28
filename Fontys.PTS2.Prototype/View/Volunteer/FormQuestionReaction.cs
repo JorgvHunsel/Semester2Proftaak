@@ -15,21 +15,21 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionReaction : Form
     {   
-        private int QuestionId { get; }
         readonly int _currentUserId = LoginPrototype.CurrentUserId;
-        
-        public FormQuestionReaction(int questionId)
+        private Question _question;
+
+        public FormQuestionReaction(Question question)
         {
             InitializeComponent();
-            QuestionId = questionId;
-            lblQuestionTitle.Text = QuestionContextSQL.GetQuestionName(questionId);
-            richtbDescription.Text = QuestionContextSQL.GetQuestionDescription(questionId);
+            _question = question;
+            lblQuestionTitle.Text = _question.Title;
+            richtbDescription.Text = _question.Content;
         }
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
             ReactionLogic logic = new ReactionLogic();
-            Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
+            Reaction newReaction = new Reaction(_question.QuestionId, _currentUserId, richtbReaction.Text);
             logic.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");

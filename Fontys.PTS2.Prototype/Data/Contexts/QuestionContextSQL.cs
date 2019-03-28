@@ -12,75 +12,116 @@ namespace Fontys.PTS2.Prototype.Data
 {
     public class QuestionContextSQL : IQuestionContext
     {
-        //Er mogen geen static methodes hier voorkomen. Je maakt ze pas static bij de questionrepos
         private const string ConnectionString =
             @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public static string GetQuestionName(int questionId)
-        {
-            try
-            {
-                string query = "SELECT [Title] FROM [Question] WHERE [QuestionID] = " + questionId.ToString();
-                _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+        //public List<Question> GetAllQuestions()
+        //{
+        //    try
+        //    {
+        //        string query =
+        //            "SELECT QuestionID, CareRecipientID, CategoryId, Status, Title, Description, Datetime, Urgency " +
+        //            "FROM Question";
+        //        _conn.Open();
+        //        SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
-                DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+        //        DataTable dt = new DataTable();
+        //        sqlAdapter.Fill(dt);
 
-                string questionTitle = "";
+        //        List<Question> QuestionList = new List<Question>();
 
-                foreach (DataRow row in dt.Rows)
-                {
-                    questionTitle = row["Title"].ToString();
-                }
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            int questionId = (int)row["QuestionID"];
+        //            int careRecipientID = (int)row["CareRecipientID"];
+        //            int categoryId = (int)row["CategoryId"];
+        //            string status = row["Status"].ToString();
+        //            string title = row["Title"].ToString();
+        //            string description = row["Description"].ToString();
+        //            DateTime Datetime = (DateTime)row["Urgency"];
+        //            string urgency = row["Urgency"].ToString();
 
-                return questionTitle;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-        }
 
-        public static string GetQuestionDescription(int questionId)
-        {
-            try
-            {
-                string query = "SELECT [Description] FROM [Question] WHERE [QuestionID] = " + questionId.ToString();
-                _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+        //        }
 
-                DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+        //        return QuestionList;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        _conn.Close();
+        //    }
+        //}
 
-                string description = "";
+        //public string GetQuestionName(int questionId)
+        //{
+        //    try
+        //    {
+        //        string query = "SELECT [Title] FROM [Question] WHERE [QuestionID] = " + questionId.ToString();
+        //        _conn.Open();
+        //        SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
-                foreach (DataRow row in dt.Rows)
-                {
-                    description = row["Description"].ToString();
-                }
+        //        DataTable dt = new DataTable();
+        //        sqlAdapter.Fill(dt);
 
-                return description;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-        }
+        //        string questionTitle = "";
 
-        public static void WriteQuestionToDatabase(Question askedQuestion)
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            questionTitle = row["Title"].ToString();
+        //        }
+
+        //        return questionTitle;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        _conn.Close();
+        //    }
+        //}
+
+        //public string GetQuestionDescription(int questionId)
+        //{
+        //    try
+        //    {
+        //        string query = "SELECT [Description] FROM [Question] WHERE [QuestionID] = " + questionId.ToString();
+        //        _conn.Open();
+        //        SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+
+        //        DataTable dt = new DataTable();
+        //        sqlAdapter.Fill(dt);
+
+        //        string description = "";
+
+        //        foreach (DataRow row in dt.Rows)
+        //        {
+        //            description = row["Description"].ToString();
+        //        }
+
+        //        return description;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        _conn.Close();
+        //    }
+        //}
+
+        public void WriteQuestionToDatabase(Question askedQuestion)
         {
             try
             {
@@ -108,7 +149,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static DataTable GetAllOpenQuestions()
+        public DataTable GetAllOpenQuestions()
         {
             try
             {
@@ -132,7 +173,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static Question LoadSingleQuestion(int questionID)
+        public Question GetSingleQuestion(int questionID)
         {
             try
             {
@@ -172,7 +213,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static void EditQuestion(int questionID, string subjectNew, string contentNew, Category category, string urgency)
+        public void EditQuestion(int questionID, string subjectNew, string contentNew, Category category, string urgency)
         {
             try
             {
@@ -199,31 +240,31 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static void EditQuestion(int questionID, string subjectNew, string contentNew, string urgency)
-        {
-            try
-            {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand
-                {
+        //public static void EditQuestion(int questionID, string subjectNew, string contentNew, string urgency)
+        //{
+        //    try
+        //    {
+        //        _conn.Open();
+        //        SqlCommand cmd = new SqlCommand
+        //        {
 
-                    CommandType = System.Data.CommandType.Text,
-                    CommandText =
-                        "UPDATE Question SET Title = '" + subjectNew + "', Description = '" + contentNew + "', Urgency = '" + urgency + "' WHERE QuestionID = '" + questionID + "'"
-                };
+        //            CommandType = System.Data.CommandType.Text,
+        //            CommandText =
+        //                "UPDATE Question SET Title = '" + subjectNew + "', Description = '" + contentNew + "', Urgency = '" + urgency + "' WHERE QuestionID = '" + questionID + "'"
+        //        };
 
-                cmd.Connection = _conn;
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw e;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-        }
+        //        cmd.Connection = _conn;
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        Console.WriteLine(e.Message);
+        //        throw e;
+        //    }
+        //    finally
+        //    {
+        //        _conn.Close();
+        //    }
+        //}
     }
 }

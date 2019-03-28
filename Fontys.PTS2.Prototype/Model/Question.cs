@@ -10,7 +10,7 @@ namespace Fontys.PTS2.Prototype.Classes
     public class Question
     {
         public enum QuestionStatus { Open, Closed}
-        private int QuestionId { get; set; }
+        public int QuestionId { get; private set; }
         public string Title { get; private set; }
         public string Content { get; private set; }
         private QuestionStatus Status { get; set; }
