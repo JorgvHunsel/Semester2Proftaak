@@ -8,7 +8,7 @@ namespace Fontys.PTS2.Prototype.Classes
 {
     class Admin : User
     {
-        public Admin(int userId, string firstName, string lastName, string address, string city, string postalCode, string emailAddress, int age, Gender userGender, bool status) : base(userId, firstName, lastName, address, city, postalCode, emailAddress, age, userGender, status)
+        public Admin(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateBirth, Gender userGender, bool status) : base(firstName, lastName, address, city, postalCode, emailAddress, dateBirth, userGender, status)
         {
         }
     }

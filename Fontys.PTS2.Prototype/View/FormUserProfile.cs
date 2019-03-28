@@ -22,9 +22,8 @@ namespace Fontys.PTS2.Prototype.View
         private void FormUserProfile_Load(object sender, EventArgs e)
         {
             int _currentUserId = LoginPrototype.CurrentUserId;
-            List<string> userData = UserContextSQL.GetUserById(_currentUserId);
 
-            
+
 
 
         }
