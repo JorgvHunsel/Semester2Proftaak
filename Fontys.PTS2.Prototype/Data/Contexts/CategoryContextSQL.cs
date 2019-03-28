@@ -27,11 +27,10 @@ namespace Fontys.PTS2.Prototype.Data
                 sqlAdapter.Fill(dt);
 
                 List<Category> categoryList = new List<Category>();
-                
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    int categoryID = Convert.ToInt32(row["CategoryID"].ToString());
+                    int categoryID = Convert.ToInt32(row["CategoryID"]);
                     string categoryName = row["Name"].ToString();
                     string categoryDescription = row["Description"].ToString();
 

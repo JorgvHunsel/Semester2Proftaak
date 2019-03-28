@@ -8,16 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionOverviewVolunteer : Form
     {
+        QuestionLogic ql = new QuestionLogic();
 
         public FormQuestionOverviewVolunteer()
         {
             InitializeComponent();
             LoadQuestionsToList();
+
+            
         }
 
 
@@ -25,7 +29,7 @@ namespace Fontys.PTS2.Prototype.View
         {
             DataTable dt = new DataTable();
 
-            dt = QuestionContextSQL.GetAllOpenQuestions();
+            dt = ql.GetAllOpenQuestions();
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
@@ -54,7 +58,7 @@ namespace Fontys.PTS2.Prototype.View
             {
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
-                ((MainForm)this.Parent.Parent).ReplaceForm(new EditQuestion(selectedId));
+                ((MainForm)this.Parent.Parent).ReplaceForm(new EditQuestion(ql.GetSingleQuestion(selectedId)));
             }
             else
             {
@@ -65,6 +69,7 @@ namespace Fontys.PTS2.Prototype.View
         //React to Question
         private void btnReactToQuestion_Click(object sender, EventArgs e)
         {
+            
             if (lvOpenQuestions.SelectedItems.Count == 0)
             {
                 MessageBox.Show("Selecteer eerst een vraag uit de lijst.");

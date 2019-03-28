@@ -13,7 +13,9 @@ namespace Fontys.PTS2.Prototype.Logic
         CategoryRepository categoryRepo = new CategoryRepository();
         public List<Category> GetAllCategories()
         {
-            return GetAllCategories();
+            return categoryRepo.GetAllCategories();
         }
+
+       
     }
 }

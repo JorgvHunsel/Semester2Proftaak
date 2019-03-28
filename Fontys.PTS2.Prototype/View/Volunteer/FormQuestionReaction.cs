@@ -9,24 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionReaction : Form
     {   
-        public int QuestionId { get; }
         readonly int _currentUserId = LoginPrototype.CurrentUserId;
-        public FormQuestionReaction(int questionId)
+        private Question _question;
+
+        public FormQuestionReaction(Question question)
         {
             InitializeComponent();
-            QuestionId = questionId;
-            lblQuestionTitle.Text = QuestionContextSQL.GetQuestionName(questionId);
-            richtbDescription.Text = QuestionContextSQL.GetQuestionDescription(questionId);
+            _question = question;
+            lblQuestionTitle.Text = _question.Title;
+            richtbDescription.Text = _question.Content;
         }
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
-            Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
+            Reaction newReaction = new Reaction(_question.QuestionId, _currentUserId, richtbReaction.Text);
             ReactionContextSQL.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");
