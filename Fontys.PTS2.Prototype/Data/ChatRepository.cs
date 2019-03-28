@@ -28,7 +28,7 @@ namespace Fontys.PTS2.Prototype.Data
             return context.GetAllOpenChatsWithVolunteerID(userid);
         }
 
-        public DataTable LoadMessagesAsDataTable(int chatID) => context.LoadMessagesAsDataTable(chatID);
+        public List<ChatMessage> LoadMessageListWithChatID(int chatID) => context.LoadMessageAsListUsingChatLogID(chatID);
 
         public void SendMessage(int chatid, int receiverid, int senderid, string message) =>
            context.SendMessage(chatid, receiverid, senderid, message);
