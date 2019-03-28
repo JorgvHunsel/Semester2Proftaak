@@ -25,12 +25,13 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         private string chatReceiver;
         private ChatLogic chatLogic = new ChatLogic();
 
-        public FormVolunteerChat(int chatID, string chatReceiver, int userID)
+        public FormVolunteerChat(int chatID, string chatReceiver, int userID, int receiverID)
         {
             InitializeComponent();
             this.chatID = chatID;
             this.chatReceiver = chatReceiver;
             this.senderID = userID;
+            this.receiverID = receiverID;
         }
 
         private void FormVolunteerChat_Load(object sender, EventArgs e)
@@ -42,9 +43,8 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
             string message = tbMessage.Text;
-
-            ChatRepository dbChat = new ChatRepository();
-            dbChat.SendMessage(this.chatID,receiverID, senderID, message);
+            
+            chatLogic.SendMessage(this.chatID,receiverID, senderID, message);
             RefreshPage();
         }
         

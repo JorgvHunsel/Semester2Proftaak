@@ -57,7 +57,7 @@ namespace Fontys.PTS2.Prototype.View
 
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
                 
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, lvChats.Items[selectedRow].SubItems[0].Text, userid));
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, lvChats.Items[selectedRow].SubItems[0].Text, userid, receiverID));
             }
             else
             {
