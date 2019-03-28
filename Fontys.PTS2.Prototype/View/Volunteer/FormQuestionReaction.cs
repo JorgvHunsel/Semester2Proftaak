@@ -9,13 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionReaction : Form
     {   
-        public int QuestionId { get; }
+        private int QuestionId { get; }
         readonly int _currentUserId = LoginPrototype.CurrentUserId;
+        
         public FormQuestionReaction(int questionId)
         {
             InitializeComponent();
@@ -26,8 +28,9 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
+            ReactionLogic logic = new ReactionLogic();
             Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
-            ReactionContextSQL.PostReaction(newReaction);
+            logic.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");
 
