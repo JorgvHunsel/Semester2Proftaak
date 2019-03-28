@@ -51,7 +51,7 @@ namespace Fontys.PTS2.Prototype
 
                     MessageBox.Show("De hulpvraag is succesvol aangemaakt");
 
-                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
 
                 }
                 catch (ArgumentOutOfRangeException)
