@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace Fontys.PTS2.Prototype.Classes
 {
-    class ChatLog
+    public class ChatLog
     {
         public int ChatLogID { get; private set; }
         public string QuestionTitle { get; private set; }
-        public int SenderID { get; }
-        public int ReceiverID { get; }
-        public string ReceiverLastName { get; private set; }
-        public string ReceiverFirstName { get; private set; }
-        public string SenderLastName { get; private set; }
-        public string SenderFirstName { get; private set; }
+        public int CareRecipientID { get; }
+        public int VolunteerID { get; }
+        public string CareRecipientFirstName { get; private set; }
+        public string CareRecipientLastName { get; private set; }
+        public string VolunteerFirstName { get; private set; }
+        public string VolunteerLastName { get; private set; }
         public DateTime TimeStamp { get; private set; }
         public List<ChatMessage> Messages = new List<ChatMessage>();
 
-        public ChatLog(int chatLogId, string questionTitle, int senderId, int receiverId, string receiverLastName, string receiverFirstName, string senderLastName, string senderFirstName, DateTime timeStamp)
+        public ChatLog(int chatLogId, string questionTitle, int careRecipientId, int volunteerId, string careRecipientFirstName, string careRecipientLastName, string volunteerFirstName, string volunteerLastName, DateTime timeStamp)
         {
             ChatLogID = chatLogId;
             QuestionTitle = questionTitle;
-            SenderID = senderId;
-            ReceiverID = receiverId;
-            ReceiverLastName = receiverLastName;
-            ReceiverFirstName = receiverFirstName;
-            SenderLastName = senderLastName;
-            SenderFirstName = senderFirstName;
+            CareRecipientID = careRecipientId;
+            VolunteerID = volunteerId;
+            CareRecipientFirstName = careRecipientFirstName;
+            CareRecipientLastName = careRecipientLastName;
+            VolunteerFirstName = volunteerFirstName;
+            VolunteerLastName = volunteerLastName;
             TimeStamp = timeStamp;
         }
     }

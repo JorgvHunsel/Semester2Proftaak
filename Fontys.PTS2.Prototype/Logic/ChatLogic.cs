@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 
 namespace Fontys.PTS2.Prototype.Logic
@@ -26,5 +27,7 @@ namespace Fontys.PTS2.Prototype.Logic
         {
             chatRepo.SendMessage(chatid, receiverid, senderid, message);
         }
+
+        public List<ChatLog> GetAllOpenChatsWithVolunteerID(int userid) => chatRepo.GetAllChatsWithVolunteerID(userid);
     }
 }

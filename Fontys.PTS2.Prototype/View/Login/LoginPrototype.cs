@@ -40,11 +40,11 @@ namespace Fontys.PTS2.Prototype.View
             {
                 string selectedUser = tboxEmail.Text;
                 string password = tbPassword.Text;
-                if (QueryUsers.CheckValidityUser(selectedUser, password))
-                {
-                    CurrentUserId = QueryUsers.GetUserId(selectedUser);
-                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
-                }
+//                if (QueryUsers.CheckValidityUser(selectedUser, password))
+//                {
+//                    CurrentUserId = QueryUsers.GetUserId(selectedUser);
+//                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+//                }
             }
             catch (Exception exception)
             {
