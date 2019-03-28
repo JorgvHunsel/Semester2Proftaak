@@ -29,7 +29,7 @@ namespace Fontys.PTS2.Prototype.View
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
             ReactionLogic logic = new ReactionLogic();
-            Reaction newReaction = new Reaction(QuestionId, _currentUserId, richtbReaction.Text);
+            Reaction newReaction = new Reaction(_question.QuestionId, _currentUserId, richtbReaction.Text);
             logic.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");
