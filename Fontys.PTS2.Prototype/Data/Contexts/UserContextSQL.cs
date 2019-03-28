@@ -84,11 +84,11 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public int GetUserId(string firstName)
+        public int GetUserId(string email)
         {
             try
             {
-                string query = "SELECT [UserID] FROM [User] WHERE [FirstName] = '" + firstName + "'";
+                string query = "SELECT [UserID] FROM [User] WHERE [Email] = '" + email + "'";
                 _conn.Open();
                 SqlCommand cmd = new SqlCommand(query, _conn);
 
@@ -113,8 +113,8 @@ namespace Fontys.PTS2.Prototype.Data
             _conn.Open();
             SqlCommand cmd = new SqlCommand(query, _conn);
 
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
+            SqlDataReader reader = cmd.ExecuteReader();
+            
 
                 if (reader.HasRows)
                 {
@@ -135,7 +135,7 @@ namespace Fontys.PTS2.Prototype.Data
                 }
 
                 reader.Close();
-            }
+            
 
             _conn.Close();
             return false;
