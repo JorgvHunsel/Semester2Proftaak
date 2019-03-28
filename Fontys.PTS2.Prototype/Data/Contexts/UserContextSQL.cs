@@ -20,7 +20,7 @@ namespace Fontys.PTS2.Prototype.Data
 
         private static readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public static void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email, string address, string postalCode, string city, string password, string accountType)
+        public void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email, string address, string postalCode, string city, string password, string accountType)
         {
             try
             {
@@ -52,7 +52,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public static List<string> GetAllUsers()
+        public List<string> GetAllUsers()
         {
             try
             {
@@ -84,44 +84,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        // To do:
-        public static List<string> GetUserById(int userID)
-        {
-            try
-            {
-                string query = "SELECT * FROM [User] WHERE UserID = '" + userID + "' ";
-                _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
-
-                DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
-
-                List<string> user = new List<string>();
-
-                foreach (DataRow row in dt.Rows)
-                {
-                    //string categoryID = row["CategoryID"].ToString();
-                    //string categoryName = row["Name"].ToString();
-                    //string categoryDescription = row["Description"].ToString();
-
-
-                    user.Add(Convert.ToString(row));
-                }
-
-                return user;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
-            finally
-            {
-                _conn.Close();
-            }
-        }
-
-        public static int GetUserId(string firstName)
+        public int GetUserId(string firstName)
         {
             try
             {
@@ -142,6 +105,40 @@ namespace Fontys.PTS2.Prototype.Data
             {
                 _conn.Close();
             }
+        }
+
+        public bool CheckValidityUser(string email, string password)
+        {
+            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = '" + email + "' AND [Password] = '" + password + "'";
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand(query, _conn);
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        if (password == (string) reader[1])
+                        {
+                            MessageBox.Show("User found");
+                            _conn.Close();
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Gebruiker bestaat niet of wachtwoord is verkeerd!");
+                    return false;
+                }
+
+                reader.Close();
+            }
+
+            _conn.Close();
+            return false;
         }
     }
 }

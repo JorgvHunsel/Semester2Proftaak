@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 using Fontys.PTS2.Prototype.View;
 
 namespace Fontys.PTS2.Prototype
@@ -26,7 +27,7 @@ namespace Fontys.PTS2.Prototype
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            CategoryRepository db = new CategoryRepository();
+            CategoryLogic db = new CategoryLogic();
             this.categories = db.GetAllCategories();
             foreach (Category category in categories)
             {
