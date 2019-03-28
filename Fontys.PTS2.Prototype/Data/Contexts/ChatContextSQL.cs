@@ -16,18 +16,124 @@ namespace Fontys.PTS2.Prototype.Data
         private const string ConnectionString = @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private readonly SqlConnection _conn = new SqlConnection(ConnectionString);
 
-        public DataTable GetAllOpenChatsAsDataTable(int userid)
+        public List<ChatLog> GetAllOpenChatsWithVolunteerID(int userid)
         {
+            List<ChatLog> chatLogList = new List<ChatLog>();
             try
             {
-                string query = "SELECT U2.FirstName as ReceiverFirstName, U2.LastName as ReceiverLastName, C.ChatLogID, C.ReceiverID, C.SenderID, Q.Title as QuestionTitle, R.Description as Reactie, U.FirstName as SenderFirstName, U.LastName as SenderLastName, C.TimeStamp as TimeStamp FROM CHATLOG as C INNER JOIN Reaction as R on R.ReactionID = C.ReactionID INNER JOIN Question as Q on R.QuestionID = Q.QuestionID INNER JOIN [User] as U on U.UserID = C.SenderID INNER JOIN [User] as U2 on U2.UserID = C.ReceiverID WHERE C.ReceiverID = '" + userid + "'";
+                string query = "SELECT Chatlog.[ChatLogID]" +
+                               ", Chatlog.[ReactionID]" +
+                               ", Chatlog.[CareRecipientID]" +
+                               ", Chatlog.[VolunteerID]" +
+                               ", Chatlog.[TimeStamp]" +
+                               ", Question.[Title]" +
+
+
+                               ", [Volunteer].Firstname as VolunteerFirstName" +
+                               ", [Volunteer].LastName as VolunteerLastName" +
+
+                               ", [CareRecipient].Firstname as CareRecipientFirstName" +
+                               ", [CareRecipient].LastName as CareRecipientLastName" +
+
+                               " FROM[dbo].[ChatLog] AS Chatlog" +
+
+                               " INNER JOIN[User] As Volunteer ON Volunteer.UserID = VolunteerID" +
+                               " INNER JOIN[User] As CareRecipient ON CareRecipient.UserID = CareRecipientID" +
+                               " INNER JOIN[Reaction] As Reaction on Reaction.ReactionID = Chatlog.ReactionID" +
+                               " INNER JOIN[Question] AS Question ON Question.QuestionID = Reaction.QuestionID" +
+                               " WHERE Chatlog.[VolunteerID] = "+userid+" ;";
+
+                     _conn.Open();
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
+
+                DataTable dt = new DataTable();
+                sqlAdapter.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    int chatLogID = Convert.ToInt32(dr["ChatLogID"].ToString());
+                    string questionTitle = (dr["Title"].ToString());
+                    int careRecipientID = Convert.ToInt32(dr["CareRecipientID"].ToString());
+                    int volunteerID = Convert.ToInt32(dr["VolunteerID"].ToString());
+                    string careRecipientFirstName = dr["CareRecipientFirstName"].ToString();
+                    string careRecipientLastName = dr["CareRecipientLastName"].ToString();
+
+                    string volunteerFirstName = dr["VolunteerFirstName"].ToString();
+                    string volunteerLastName = dr["VolunteerLastName"].ToString();
+
+                    DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
+
+
+                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp);
+                    chatLogList.Add(chatLog);
+                }
+
+                return chatLogList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+        public List<ChatLog> GetAllOpenChatsWithCareRecipientID(int userid)
+        {
+            List<ChatLog> chatLogList = new List<ChatLog>();
+            try
+            {
+                string query = "SELECT Chatlog.[ChatLogID]" +
+                               ", Chatlog.[ReactionID]" +
+                               ", Chatlog.[CareRecipientID]" +
+                               ", Chatlog.[VolunteerID]" +
+                               ", Chatlog.[TimeStamp]" +
+                               ", Question.[Title]" +
+
+
+                               ", [Volunteer].Firstname as VolunteerFirstName," +
+                               ", [Volunteer].LastName as VolunteerLastName" +
+
+                               ", [CareRecipient].Firstname as CareRecipientFirstName" +
+                               ", [CareRecipient].LastName as CareRecipientLastName" +
+
+                               " FROM[dbo].[ChatLog] AS Chatlog" +
+
+                               " INNER JOIN[User] As Volunteer ON Volunteer.UserID = VolunteerID" +
+                               " INNER JOIN[User] As CareRecipient ON CareRecipient.UserID = CareRecipientID" +
+                               " INNER JOIN[Reaction] As Reaction on Reaction.ReactionID = Chatlog.ReactionID" +
+                               " INNER JOIN[Question] AS Question ON Question.QuestionID = Reaction.QuestionID" +
+                               " WHERE Chatlog.[CareRecipientID] = " + userid + " ;";
+
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
 
-                return dt;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    int chatLogID = Convert.ToInt32(dr["ChatLogID"].ToString());
+                    string questionTitle = (dr["Title"].ToString());
+                    int careRecipientID = Convert.ToInt32(dr["CareRecipientID"].ToString());
+                    int volunteerID = Convert.ToInt32(dr["VolunteerID"].ToString());
+                    string careRecipientFirstName = dr["CareRecipientFirstName"].ToString();
+                    string careRecipientLastName = dr["CareRecipientLastName"].ToString();
+
+                    string volunteerFirstName = dr["VolunteerFirstName"].ToString();
+                    string volunteerLastName = dr["VolunteerLastName"].ToString();
+
+                    DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
+
+
+                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp);
+                    chatLogList.Add(chatLog);
+                }
+
+                return chatLogList;
             }
             catch (Exception e)
             {

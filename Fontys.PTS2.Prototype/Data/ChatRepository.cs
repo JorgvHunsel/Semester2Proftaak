@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
@@ -22,7 +23,11 @@ namespace Fontys.PTS2.Prototype.Data
             this.context = context;
         }
 
-        public DataTable GetAllOpenChatsAsDataTable(int userid) => context.GetAllOpenChatsAsDataTable(userid);
+        public List<ChatLog> GetAllChatsWithVolunteerID(int userid)
+        {
+            return context.GetAllOpenChatsWithVolunteerID(userid);
+        }
+
         public DataTable LoadMessagesAsDataTable(int chatID) => context.LoadMessagesAsDataTable(chatID);
 
         public void SendMessage(int chatid, int receiverid, int senderid, string message) =>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
@@ -22,5 +23,6 @@ namespace Fontys.PTS2.Prototype.Data
         }
 
         //hier komen de methodes die gegevens doorgeven aan context.
+        public void PostReaction(Reaction reaction) => context.PostReaction(reaction);
     }
 }

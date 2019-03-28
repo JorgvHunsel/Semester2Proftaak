@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Fontys.PTS2.Prototype.Classes
 {
-    class Reaction
+    public class Reaction
     {
        public int ReactionId { get; set; }
        public int QuestionId { get; set; }
