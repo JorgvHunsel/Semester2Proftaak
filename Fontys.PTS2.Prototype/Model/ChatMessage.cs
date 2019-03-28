@@ -13,11 +13,8 @@ namespace Fontys.PTS2.Prototype.Classes
         public int SenderID { get; private set; }
         public string MessageContent { get; private set; }
         public DateTime TimeStamp { get; private set; }
+        
 
-        public ChatMessage(int chatID)
-        {
-            this.ChatID = chatID;
-        }
         public ChatMessage(int chatId, int receiverId, int senderId, string messageContent, DateTime timeStamp)
         {
             ChatID = chatId;

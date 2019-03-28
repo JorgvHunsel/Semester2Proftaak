@@ -37,7 +37,7 @@
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.Location = new System.Drawing.Point(282, 246);
+            this.btnSendMessage.Location = new System.Drawing.Point(313, 413);
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(29, 28);
             this.btnSendMessage.TabIndex = 1;
@@ -47,9 +47,9 @@
             // 
             // tbMessage
             // 
-            this.tbMessage.Location = new System.Drawing.Point(12, 251);
+            this.tbMessage.Location = new System.Drawing.Point(15, 418);
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(264, 20);
+            this.tbMessage.Size = new System.Drawing.Size(292, 20);
             this.tbMessage.TabIndex = 2;
             // 
             // lbChat
@@ -57,7 +57,7 @@
             this.lbChat.FormattingEnabled = true;
             this.lbChat.Location = new System.Drawing.Point(12, 33);
             this.lbChat.Name = "lbChat";
-            this.lbChat.Size = new System.Drawing.Size(264, 212);
+            this.lbChat.Size = new System.Drawing.Size(327, 368);
             this.lbChat.TabIndex = 3;
             // 
             // lbChatReceiver
@@ -71,7 +71,7 @@
             // 
             // btnBackToChats
             // 
-            this.btnBackToChats.Location = new System.Drawing.Point(282, 3);
+            this.btnBackToChats.Location = new System.Drawing.Point(345, 12);
             this.btnBackToChats.Name = "btnBackToChats";
             this.btnBackToChats.Size = new System.Drawing.Size(120, 46);
             this.btnBackToChats.TabIndex = 5;

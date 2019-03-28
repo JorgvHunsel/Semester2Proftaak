@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Fontys.PTS2.Prototype.Classes
 {
-    abstract class User
+    public abstract class User
     {
         public enum AccountType { CareRecipient, Volunteer, Professional, Admin }
         public enum Gender { M, V, A }
