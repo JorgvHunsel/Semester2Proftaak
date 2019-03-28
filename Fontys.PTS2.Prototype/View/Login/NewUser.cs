@@ -24,7 +24,7 @@ namespace Fontys.PTS2.Prototype.View.Login
 
         private void AddGenders()
         {
-            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
+            foreach (string gender in Enum.GetNames(typeof(Admin.Gender)))
             {
                 cboxSex.Items.Add(gender);
             }
@@ -49,7 +49,7 @@ namespace Fontys.PTS2.Prototype.View.Login
                     {
                         accountType = "CareRecipient";
                     }
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+                    Admin.Gender gender = (Admin.Gender)Enum.Parse(typeof(Admin.Gender), cboxSex.Text);
                     UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
                     ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
