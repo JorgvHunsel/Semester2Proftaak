@@ -32,6 +32,7 @@
             this.tbMessage = new System.Windows.Forms.TextBox();
             this.lbChat = new System.Windows.Forms.ListBox();
             this.lbChatReceiver = new System.Windows.Forms.Label();
+            this.btnBackToChats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSendMessage
@@ -68,12 +69,23 @@
             this.lbChatReceiver.TabIndex = 4;
             this.lbChatReceiver.Text = "label1";
             // 
+            // btnBackToChats
+            // 
+            this.btnBackToChats.Location = new System.Drawing.Point(282, 3);
+            this.btnBackToChats.Name = "btnBackToChats";
+            this.btnBackToChats.Size = new System.Drawing.Size(120, 46);
+            this.btnBackToChats.TabIndex = 5;
+            this.btnBackToChats.Text = "Terug naar chats";
+            this.btnBackToChats.UseVisualStyleBackColor = true;
+            this.btnBackToChats.Click += new System.EventHandler(this.btnBackToChats_Click);
+            // 
             // FormVolunteerChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBackToChats);
             this.Controls.Add(this.lbChatReceiver);
             this.Controls.Add(this.lbChat);
             this.Controls.Add(this.tbMessage);
@@ -91,5 +103,6 @@
         private System.Windows.Forms.TextBox tbMessage;
         private System.Windows.Forms.ListBox lbChat;
         private System.Windows.Forms.Label lbChatReceiver;
+        private System.Windows.Forms.Button btnBackToChats;
     }
 }

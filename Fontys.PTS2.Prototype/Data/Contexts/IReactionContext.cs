@@ -10,5 +10,6 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
     public interface IReactionContext
     {
         //hier komen de methodes van reactioncontextsql
+        void PostReaction(Reaction reaction);
     }
 }

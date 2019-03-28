@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 using Fontys.PTS2.Prototype.View.Login;
 
 namespace Fontys.PTS2.Prototype.View
@@ -17,9 +18,9 @@ namespace Fontys.PTS2.Prototype.View
     public partial class LoginPrototype : Form
     {
         public static int CurrentUserId { get; set; }
-        
+
         private List<string> userNames;
-        
+
         public LoginPrototype()
         {
             InitializeComponent();
@@ -27,11 +28,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void LoginPrototype_Load(object sender, EventArgs e)
         {
-            userNames = UserContextSQL.GetAllUsers();
-            foreach (string FirstName in userNames)
-            {
-                //cboxUsers.Items.Add(FirstName);
-            }
+            ;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -40,9 +37,9 @@ namespace Fontys.PTS2.Prototype.View
             {
                 string selectedUser = tboxEmail.Text;
                 string password = tbPassword.Text;
-                if (QueryUsers.CheckValidityUser(selectedUser, password))
+                if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
-                    CurrentUserId = QueryUsers.GetUserId(selectedUser);
+                    CurrentUserId = UserLogic.GetUserId(selectedUser);
                     ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
                 }
             }

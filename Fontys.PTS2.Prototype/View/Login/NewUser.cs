@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View.Login
 {
@@ -23,7 +24,7 @@ namespace Fontys.PTS2.Prototype.View.Login
 
         private void AddGenders()
         {
-            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
+            foreach (string gender in Enum.GetNames(typeof(Admin.Gender)))
             {
                 cboxSex.Items.Add(gender);
             }
@@ -48,17 +49,15 @@ namespace Fontys.PTS2.Prototype.View.Login
                     {
                         accountType = "CareRecipient";
                     }
-
-                    QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, cboxSex.Text, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
+                    Admin.Gender gender = (Admin.Gender)Enum.Parse(typeof(Admin.Gender), cboxSex.Text);
+                    UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
                     ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
                 else
                 {
                     MessageBox.Show("Email is verkeerd!");
                 }
-            }
-            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-            //QueryUsers.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text);
+            }            
         }
     }
 }

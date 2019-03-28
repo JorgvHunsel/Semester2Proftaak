@@ -19,17 +19,19 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         private int chatID;
         private int senderID = 5;
         private int receiverID = 1;
+        private string chatReceiver;
 
-        public FormVolunteerChat(int chatID)
+        public FormVolunteerChat(int chatID, string chatReceiver)
         {
             InitializeComponent();
             this.chatID = chatID;
+            this.chatReceiver = chatReceiver;
         }
 
         private void FormVolunteerChat_Load(object sender, EventArgs e)
         {
             RefreshPage();
-            lbChatReceiver.Text = receiverID.ToString();
+            lbChatReceiver.Text = chatReceiver;
         }
 
         private void btnSendMessage_Click(object sender, EventArgs e)
@@ -81,6 +83,11 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
                     lbChat.Items.Add("Other: " + messagesList[i].MessageContent);
                 }
             }
+        }
+
+        private void btnBackToChats_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
         }
     }
 }
