@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 
@@ -18,10 +19,8 @@ namespace Fontys.PTS2.Prototype.Logic
             return GetAllOpenChatsAsDataTable(userid);
         }
 
-        public DataTable LoadMessagesAsDataTable(int chatID)
-        {
-            return LoadMessagesAsDataTable(chatID);
-        }
+        public List<ChatMessage> LoadMessageListWithChatID(int chatID) => chatRepo.LoadMessageListWithChatID(chatID);
+        
 
         public void SendMessage(int chatid, int receiverid, int senderid, string message)
         {

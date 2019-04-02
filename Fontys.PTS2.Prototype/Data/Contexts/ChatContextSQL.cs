@@ -146,18 +146,43 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public DataTable LoadMessagesAsDataTable(int chatID)
+        public List<ChatMessage> LoadMessageAsListUsingChatLogID(int chatID)
         {
+            List<ChatMessage> chatMessageList = new List<ChatMessage>();
             try
             {
-                string query = "SELECT M.ChatID, M.SenderID, M.ReceiverID, M.Content, M.TimeStamp FROM [Message] M INNER JOIN ChatLog C ON C.ChatLogID = M.ChatID WHERE M.ChatID = '" + chatID + "'";
+                string query = "SELECT" +
+                               " M.ChatID" +
+                               ", M.SenderID" +
+                               ", M.ReceiverID" +
+                               ", M.Content" +
+                               ", M.TimeStamp" +
+                               " FROM [Message] M " +
+                               "INNER JOIN ChatLog C ON C.ChatLogID = M.ChatID " +
+                               "WHERE M.ChatID = " + chatID + "" +
+                               "ORDER BY M.TimeStamp asc";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
 
-                return dt;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    int chatlogID = Convert.ToInt32(dr["ChatID"].ToString());
+                    string content = (dr["Content"].ToString());
+                    
+                    int senderID = Convert.ToInt32(dr["SenderID"].ToString());
+                    int receiverID = Convert.ToInt32(dr["ReceiverID"].ToString());
+
+                    DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
+
+                    ChatMessage chatMessage = new ChatMessage(chatlogID, receiverID, senderID, content, timeStamp );
+                    chatMessageList.Add(chatMessage);
+                }
+
+                return chatMessageList;
+
             }
             catch (Exception e)
             {

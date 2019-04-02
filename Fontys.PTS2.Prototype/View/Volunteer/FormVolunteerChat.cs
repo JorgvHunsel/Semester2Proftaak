@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 using Microsoft.Win32;
 using Message = System.Windows.Forms.Message;
 
@@ -17,15 +18,20 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
     public partial class FormVolunteerChat : Form
     {
         private int chatID;
-        private int senderID = 5;
-        private int receiverID = 1;
-        private string chatReceiver;
 
-        public FormVolunteerChat(int chatID, string chatReceiver)
+        // Logged in User
+        private int senderID;
+        private int receiverID;
+        private string chatReceiver;
+        private ChatLogic chatLogic = new ChatLogic();
+
+        public FormVolunteerChat(int chatID, string chatReceiver, int userID, int receiverID)
         {
             InitializeComponent();
             this.chatID = chatID;
             this.chatReceiver = chatReceiver;
+            this.senderID = userID;
+            this.receiverID = receiverID;
         }
 
         private void FormVolunteerChat_Load(object sender, EventArgs e)
@@ -37,50 +43,26 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
             string message = tbMessage.Text;
-
-            ChatRepository dbChat = new ChatRepository();
-            dbChat.SendMessage(this.chatID,receiverID, senderID, message);
+            
+            chatLogic.SendMessage(this.chatID,receiverID, senderID, message);
             RefreshPage();
-        }
-
-        //
-        private List<ChatMessage> LoadMessagesAsList()
-        {
-            ChatRepository dbChat = new ChatRepository();
-            DataTable messagesDataTable = dbChat.LoadMessagesAsDataTable(chatID);
-
-            List<ChatMessage> messagesList = new List<ChatMessage>();
-
-            foreach (DataRow row in messagesDataTable.Rows)
-            {
-                int ChatID = Convert.ToInt32(row["ChatID"].ToString());
-                int SenderID = Convert.ToInt32(row["SenderID"].ToString());
-                int ReceiverID = Convert.ToInt32(row["ReceiverID"].ToString());
-                string Content = row["Content"].ToString();
-                DateTime timestamp = Convert.ToDateTime(row["TimeStamp"]);
-
-                ChatMessage message = new ChatMessage(ChatID, receiverID, senderID, Content, timestamp);
-                messagesList.Add(message);
-            }
-
-            return messagesList;
         }
         
         // Refresh latest messages
         private void RefreshPage()
         {
             lbChat.Items.Clear();
-            List<ChatMessage> messagesList = LoadMessagesAsList();
+            List<ChatMessage> messageList = chatLogic.LoadMessageListWithChatID(chatID);
 
-            for (int i = 0; i < messagesList.Count; i++)
+            for (int i = 0; i < messageList.Count; i++)
             {
-                if (messagesList[i].ReceiverID == this.receiverID)
+                if (messageList[i].ReceiverID == this.receiverID)
                 {
-                    lbChat.Items.Add("You: " + messagesList[i].MessageContent);
+                    lbChat.Items.Add("You: " + messageList[i].MessageContent);
                 }
                 else
                 {
-                    lbChat.Items.Add("Other: " + messagesList[i].MessageContent);
+                    lbChat.Items.Add("Other: " + messageList[i].MessageContent);
                 }
             }
         }

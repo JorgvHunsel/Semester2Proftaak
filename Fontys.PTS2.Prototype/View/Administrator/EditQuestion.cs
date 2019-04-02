@@ -10,28 +10,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
+using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View
 {
     public partial class EditQuestion : Form
     {
         private List<Category> categories;
-        private int questionID;
-        
-        public EditQuestion(int QuestionID)
+        private Question _question;
+        CategoryLogic db = new CategoryLogic();
+
+        public EditQuestion(Question question)
         {
             InitializeComponent();
-            questionID = QuestionID;
+            _question = question;
+            tbContentOld.Text = _question.Content;
+            tbSubjectOld.Text = _question.Title;
 
-
-            CategoryRepository db = new CategoryRepository();
-            Question question = QuestionContextSQL.LoadSingleQuestion(QuestionID);
-            tbSubjectOld.Text = question.Title;
-            tbContentOld.Text = question.Content;
-            tbCategoryOld.Text = question.Category.Name;
-
-            this.categories = db.GetAllCategories();
-            foreach (Category category in this.categories)
+            foreach (Category category in db.GetAllCategories())
             {
                 cmbCategory.Items.Add(category.Name);
             }
@@ -44,7 +40,6 @@ namespace Fontys.PTS2.Prototype.View
             string subjectNew;
             string contentNew;
             
-                
             string urgency;
             if(cbUrgent.Checked == true)
             {
@@ -60,12 +55,12 @@ namespace Fontys.PTS2.Prototype.View
 
             if (categorySelectedIndex == -1)
             {
-                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, urgency);
+//                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, urgency);
             }
             else
             {
                 Category category = categories[categorySelectedIndex];
-                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
+//                QuestionContextSQL.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
 
                 //MessageBox.Show("Hulpvraag bewerkt.");
                 //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());

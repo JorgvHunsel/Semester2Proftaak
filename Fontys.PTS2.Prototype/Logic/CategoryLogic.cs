@@ -16,5 +16,7 @@ namespace Fontys.PTS2.Prototype.Logic
         {
             return categoryRepo.GetAllCategories();
         }
+
+       
     }
 }

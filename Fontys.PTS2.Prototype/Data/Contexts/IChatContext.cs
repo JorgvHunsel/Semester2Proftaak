@@ -12,7 +12,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
     {
         List<ChatLog> GetAllOpenChatsWithVolunteerID(int userid);
         List<ChatLog> GetAllOpenChatsWithCareRecipientID(int userid);
-        DataTable LoadMessagesAsDataTable(int chatID);
+        List<ChatMessage> LoadMessageAsListUsingChatLogID(int chatID);
         void SendMessage(int chatid, int receiverid, int senderid, string message);
     }
 }

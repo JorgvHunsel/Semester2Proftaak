@@ -51,13 +51,13 @@ namespace Fontys.PTS2.Prototype.View
             if (lvChats.SelectedItems.Count == 1)
             {
                 int selectedRow = lvChats.SelectedItems[0].Index;
-                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text);
+                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text) -1;
 
                 int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
 
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
                 
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, lvChats.Items[selectedRow].SubItems[0].Text));
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, lvChats.Items[selectedRow].SubItems[0].Text, userid, receiverID));
             }
             else
             {

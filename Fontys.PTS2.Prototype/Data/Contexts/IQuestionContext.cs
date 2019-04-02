@@ -10,6 +10,9 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
 {
     public interface IQuestionContext
     {
-        // hier komen alle functies van questioncontextsql
+        void WriteQuestionToDatabase(Question askedQuestion);
+        DataTable GetAllOpenQuestions();
+        Question GetSingleQuestion(int questionID);
+        void EditQuestion(int questionID, string subjectNew, string contentNew, Category category, string urgency);
     }
 }
