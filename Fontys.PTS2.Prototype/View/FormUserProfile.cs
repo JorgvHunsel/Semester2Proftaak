@@ -27,9 +27,11 @@ namespace Fontys.PTS2.Prototype.View
 
             User currentUser = UserLogic.getCurrentUserInfo(_currentUserId);
 
+            lblTitle.Text = $"Welkom {currentUser.FirstName}";
             tbFirstName.Text = currentUser.FirstName;
             tbLastName.Text = currentUser.LastName;
             tbDateOfBirth.Text = currentUser.DateTime.ToString();
+            dateOfBirth.Value = currentUser.DateTime;
             tbSex.Text = currentUser.UserGender.ToString();
             tbEmail.Text = currentUser.EmailAddress;
             tbAddress.Text = currentUser.Address;
@@ -54,6 +56,20 @@ namespace Fontys.PTS2.Prototype.View
             tbPassValidation.Visible = true;
             lblPassword.Visible = true;
             lblPaswordValidation.Visible = true;
+
+            foreach (string gender in Enum.GetNames(typeof(Admin.Gender)))
+            {
+                cboxSex.Items.Add(gender);
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            User currentUser = UserLogic.getCurrentUserInfo(LoginPrototype.CurrentUserId);
+            if(currentUser.UserAccountType == User.AccountType.CareRecipient)
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+            if(currentUser.UserAccountType == User.AccountType.Volunteer)
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
         }
     }
 }

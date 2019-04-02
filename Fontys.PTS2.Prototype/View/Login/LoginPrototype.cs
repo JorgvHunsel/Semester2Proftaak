@@ -40,7 +40,12 @@ namespace Fontys.PTS2.Prototype.View
                 if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
                     CurrentUserId = UserLogic.GetUserId(selectedUser);
-                    ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+
+                    User currentUser = UserLogic.getCurrentUserInfo(CurrentUserId);
+                    if (currentUser.UserAccountType == User.AccountType.CareRecipient)
+                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                    else if (currentUser.UserAccountType == User.AccountType.Volunteer)
+                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
                 }
             }
             catch (Exception exception)
