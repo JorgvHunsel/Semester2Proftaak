@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 
 namespace Fontys.PTS2.Prototype.Data
@@ -31,6 +32,8 @@ namespace Fontys.PTS2.Prototype.Data
             string address, string postalCode, string city, string password, string accountType) =>
             context.AddNewUser(firstName, lastName, birthDate, gender, email, address, postalCode, city, password,
                 accountType);
+
+        public User getCurrentUserInfo(int userId) => context.getCurrentUserInfo(userId);
 
         //hier komen de methodes die gegevens doorgeven aan context.
     }

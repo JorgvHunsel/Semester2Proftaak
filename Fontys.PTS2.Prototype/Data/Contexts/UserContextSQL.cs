@@ -149,36 +149,41 @@ namespace Fontys.PTS2.Prototype.Data
             User currentUser;
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                string accountType = reader.GetString(1);
+                while (reader.Read())
+                {
+                    string accountType = reader.GetString(1);
 
-                if (accountType == "Admin")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                    if (accountType == "Admin")
+                    {
+                        User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                        bool status = true;
+                        currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                    }
+                    else if (accountType == "Professional")
+                    {
+                        User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                        bool status = true;
+                        currentUser = new Professional(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                    }
+                    else if (accountType == "Volunteer")
+                    {
+                        User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                        bool status = true;
+                        currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                    }
+                    else
+                    {
+                        User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                        bool status = true;
+                        currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                    }
+                    return currentUser;
                 }
-                else if (accountType == "Professional")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Professional(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
-                else if (accountType == "Volunteer")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
-                else
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
+                
             }
 
             _conn.Close();
-            return currentUser;
+            
 
         }
     }
