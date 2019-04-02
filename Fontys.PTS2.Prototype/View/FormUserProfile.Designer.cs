@@ -52,6 +52,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.tbSex = new System.Windows.Forms.TextBox();
             this.tbDateOfBirth = new System.Windows.Forms.TextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPaswordValidation
@@ -96,7 +97,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(13, 579);
+            this.btnEditUser.Location = new System.Drawing.Point(794, 579);
             this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(147, 62);
@@ -287,12 +288,24 @@
             this.tbDateOfBirth.Size = new System.Drawing.Size(132, 22);
             this.tbDateOfBirth.TabIndex = 48;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(949, 579);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(147, 62);
+            this.btnBack.TabIndex = 49;
+            this.btnBack.Text = "Terug";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 654);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tbDateOfBirth);
             this.Controls.Add(this.tbSex);
             this.Controls.Add(this.lblTitle);
@@ -351,5 +364,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox tbSex;
         private System.Windows.Forms.TextBox tbDateOfBirth;
+        private System.Windows.Forms.Button btnBack;
     }
 }
