@@ -49,7 +49,7 @@ namespace Fontys.PTS2.Prototype.View.Login
                     {
                         accountType = "CareRecipient";
                     }
-                    Admin.Gender gender = (Admin.Gender)Enum.Parse(typeof(Admin.Gender), cboxSex.Text);
+                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
                     UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
                     ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
