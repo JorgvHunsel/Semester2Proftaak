@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -140,46 +141,70 @@ namespace Fontys.PTS2.Prototype.Data
             _conn.Close();
             return false;
         }
-
         public User getCurrentUserInfo(int userId)
         {
-            string query = "SELECT * FROM [User] WHERE [UserID] = " + userId;
-            _conn.Open();
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            User currentUser;
-            using (SqlDataReader reader = cmd.ExecuteReader())
+            try
             {
-                string accountType = reader.GetString(1);
+                string query = "SELECT * FROM [User] WHERE [UserID] = " + userId;
+                _conn.Open();
+                SqlParameter useridParameter = new SqlParameter();
+                useridParameter.ParameterName = "@UserId";
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true);
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string accountType = reader.GetString(1);
 
-                if (accountType == "Admin")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
-                else if (accountType == "Professional")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Professional(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
-                else if (accountType == "Volunteer")
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
-                }
-                else
-                {
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                    bool status = true;
-                    currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4), gender, status);
+                        if (accountType == "Admin")
+                        {
+                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            bool status = true;
+                            currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
+                                gender, status);
+                        }
+                        else if (accountType == "Professional")
+                        {
+                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            bool status = true;
+                            currentUser = new Professional(reader.GetString(2), reader.GetString(3),
+                                reader.GetString(7),
+                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
+                                gender, status);
+                        }
+                        else if (accountType == "Volunteer")
+                        {
+                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            bool status = true;
+                            currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
+                                gender, status);
+                        }
+                        else
+                        {
+                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            bool status = true;
+                            currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
+                                reader.GetString(7),
+                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
+                                gender, status);
+                        }
+                        return currentUser;
+                    }
+                    return currentUser;
                 }
             }
-
-            _conn.Close();
-            return currentUser;
-
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
         }
     }
 }
