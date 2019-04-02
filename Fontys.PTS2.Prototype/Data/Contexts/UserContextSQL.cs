@@ -145,7 +145,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE [UserID] = @UserId";
+                string query = "SELECT * FROM [User] WHERE [UserID] = " + userId;
                 _conn.Open();
                 SqlParameter useridParameter = new SqlParameter();
                 useridParameter.ParameterName = "@UserId";
