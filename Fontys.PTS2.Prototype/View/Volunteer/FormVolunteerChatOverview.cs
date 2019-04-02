@@ -41,6 +41,7 @@ namespace Fontys.PTS2.Prototype.View
                 lvi.SubItems.Add(chatlog.TimeStamp.ToString());
                 lvi.SubItems.Add(chatlog.ChatLogID.ToString());
                 lvi.SubItems.Add(chatlog.CareRecipientID.ToString());
+                lvi.SubItems.Add(chatlog.QuestionID.ToString());
                 lvChats.Items.Add(lvi);
             }
         }
@@ -67,7 +68,22 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnMakeAppointment_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature not implemented yet.");
+            if (lvChats.SelectedItems.Count == 1)
+            {
+                int selectedRow = lvChats.SelectedItems[0].Index;
+                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text) - 1;
+
+                int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
+                int questionID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[5].Text);
+                string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
+
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormAppointmentVolunteer(questionID, receiverID, userid, selectedName));
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)

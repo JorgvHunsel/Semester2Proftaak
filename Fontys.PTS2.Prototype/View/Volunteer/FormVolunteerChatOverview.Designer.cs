@@ -38,6 +38,7 @@
             this.btnOpenChat = new System.Windows.Forms.Button();
             this.btnMakeAppointment = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -58,11 +59,12 @@
             this.Subject,
             this.Time,
             this.ChatID,
-            this.ReceiverID});
+            this.ReceiverID,
+            this.QuestionID});
             this.lvChats.Location = new System.Drawing.Point(94, 81);
             this.lvChats.Margin = new System.Windows.Forms.Padding(2);
             this.lvChats.Name = "lvChats";
-            this.lvChats.Size = new System.Drawing.Size(553, 243);
+            this.lvChats.Size = new System.Drawing.Size(646, 243);
             this.lvChats.TabIndex = 1;
             this.lvChats.UseCompatibleStateImageBehavior = false;
             this.lvChats.View = System.Windows.Forms.View.Details;
@@ -88,6 +90,7 @@
             // 
             // ReceiverID
             // 
+            this.ReceiverID.Text = "Receiver ID";
             this.ReceiverID.Width = 0;
             // 
             // btnOpenChat
@@ -123,6 +126,11 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // QuestionID
+            // 
+            this.QuestionID.Text = "Question ID";
+            this.QuestionID.Width = 91;
+            // 
             // FormVolunteerChatOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,5 +163,6 @@
         private System.Windows.Forms.ColumnHeader ReceiverID;
         private System.Windows.Forms.Button btnMakeAppointment;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ColumnHeader QuestionID;
     }
 }

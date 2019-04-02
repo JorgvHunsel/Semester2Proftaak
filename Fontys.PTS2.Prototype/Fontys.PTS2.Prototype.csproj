@@ -65,8 +65,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Contexts\AppointmentContextSQL.cs" />
+    <Compile Include="Data\AppointmentRepository.cs" />
     <Compile Include="Data\CategoryRepository.cs" />
     <Compile Include="Data\ChatRepository.cs" />
+    <Compile Include="Data\Contexts\IAppointmentContext.cs" />
     <Compile Include="Data\Contexts\ICategoryContext.cs" />
     <Compile Include="Data\Contexts\IChatContext.cs" />
     <Compile Include="Data\Contexts\IQuestionContext.cs" />
@@ -75,12 +78,14 @@
     <Compile Include="Data\QuestionRepository.cs" />
     <Compile Include="Data\ReactionRepository.cs" />
     <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Logic\AppointmentLogic.cs" />
     <Compile Include="Logic\CategoryLogic.cs" />
     <Compile Include="Logic\ChatLogic.cs" />
     <Compile Include="Logic\QuestionLogic.cs" />
     <Compile Include="Logic\ReactionLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
     <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Appointment.cs" />
     <Compile Include="Model\CareRecipient.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\ChatLog.cs" />
