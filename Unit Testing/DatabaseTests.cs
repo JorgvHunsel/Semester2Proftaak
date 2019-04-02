@@ -16,7 +16,7 @@ namespace Unit_Testing
             //Arrange
 
             //Act
-            QuestionContextSQL.GetAllOpenQuestions();
+            //QuestionContextSQL.GetAllOpenQuestions();
 
             //Assert
         }

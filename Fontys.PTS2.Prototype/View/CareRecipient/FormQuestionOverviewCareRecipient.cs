@@ -68,5 +68,10 @@ namespace Fontys.PTS2.Prototype.View
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
         }
+
+        private void btnToUserProfile_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormUserProfile());
+        }
     }
 }

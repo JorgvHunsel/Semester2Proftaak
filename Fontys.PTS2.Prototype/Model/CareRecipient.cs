@@ -8,7 +8,7 @@ namespace Fontys.PTS2.Prototype.Classes
 {
     class CareRecipient : User
     {
-        public CareRecipient(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status) : base(firstName, lastName, address, city, postalCode, emailAddress, dateTime, userGender, status)
+        public CareRecipient(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status, AccountType accountType) : base(firstName, lastName, address, city, postalCode, emailAddress, dateTime, userGender, status, accountType)
         {
         }
     }
