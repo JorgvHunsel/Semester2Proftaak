@@ -150,7 +150,7 @@ namespace Fontys.PTS2.Prototype.Data
                 SqlParameter useridParameter = new SqlParameter();
                 useridParameter.ParameterName = "@UserId";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true);
+                User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -163,7 +163,7 @@ namespace Fontys.PTS2.Prototype.Data
                             bool status = true;
                             currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status);
+                                gender, status, User.AccountType.Admin);
                         }
                         else if (accountType == "Professional")
                         {
@@ -172,7 +172,7 @@ namespace Fontys.PTS2.Prototype.Data
                             currentUser = new Professional(reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status);
+                                gender, status, User.AccountType.Professional);
                         }
                         else if (accountType == "Volunteer")
                         {
@@ -180,7 +180,7 @@ namespace Fontys.PTS2.Prototype.Data
                             bool status = true;
                             currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status);
+                                gender, status, User.AccountType.Volunteer);
                         }
                         else
                         {
@@ -189,7 +189,7 @@ namespace Fontys.PTS2.Prototype.Data
                             currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status);
+                                gender, status, User.AccountType.CareRecipient);
                         }
                         return currentUser;
                     }

@@ -34,22 +34,22 @@ namespace Fontys.PTS2.Prototype.Logic
             if (accountType == "Volunteer")
             {
                 Volunteer currentUser = new Volunteer(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true);
+                    true, User.AccountType.Volunteer);
             }
             else if (accountType == "Admin")
             {
                 Admin currentUser = new Admin(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true);
+                    true, User.AccountType.Admin);
             }
             else if (accountType == "CareRecipient")
             {
                 CareRecipient currentUser = new CareRecipient(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true);
+                    true, User.AccountType.CareRecipient);
             }
             else if (accountType == "Professional")
             {
                 Professional currentUser = new Professional(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true);
+                    true, User.AccountType.Professional);
             }
 
             string genderString = gender.ToString();

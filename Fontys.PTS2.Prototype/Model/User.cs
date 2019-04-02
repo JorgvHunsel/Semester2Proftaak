@@ -24,7 +24,7 @@ namespace Fontys.PTS2.Prototype.Classes
         public AccountType UserAccountType { get; private set; }
         private bool Status { get; set; }
 
-        protected User(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Admin.Gender userGender, bool status)
+        protected User(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status, AccountType accountType)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -35,6 +35,7 @@ namespace Fontys.PTS2.Prototype.Classes
             DateTime = dateTime;
             UserGender = userGender;
             Status = status;
+            UserAccountType = accountType;
         }
 
         public static bool IsEmailValid(string email)

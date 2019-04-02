@@ -51,7 +51,7 @@
             this.EpicVictoryRoyale.Location = new System.Drawing.Point(10, 75);
             this.EpicVictoryRoyale.Name = "EpicVictoryRoyale";
             this.EpicVictoryRoyale.Size = new System.Drawing.Size(254, 138);
-            this.EpicVictoryRoyale.TabIndex = 3;
+            this.EpicVictoryRoyale.TabIndex = 0;
             this.EpicVictoryRoyale.TabStop = false;
             this.EpicVictoryRoyale.Text = "Login";
             // 
@@ -60,14 +60,14 @@
             this.tbPassword.Location = new System.Drawing.Point(89, 65);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(159, 20);
-            this.tbPassword.TabIndex = 7;
+            this.tbPassword.TabIndex = 2;
             // 
             // tboxEmail
             // 
             this.tboxEmail.Location = new System.Drawing.Point(89, 36);
             this.tboxEmail.Name = "tboxEmail";
             this.tboxEmail.Size = new System.Drawing.Size(159, 20);
-            this.tboxEmail.TabIndex = 6;
+            this.tboxEmail.TabIndex = 1;
             // 
             // label1
             // 
