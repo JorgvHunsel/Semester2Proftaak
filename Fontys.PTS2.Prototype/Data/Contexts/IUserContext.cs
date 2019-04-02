@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fontys.PTS2.Prototype.Classes;
 
 namespace Fontys.PTS2.Prototype.Data.Contexts
 {
@@ -16,6 +17,8 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
         int GetUserId(string firstName);
 
         bool CheckValidityUser(string email, string password);
+
+        User getCurrentUserInfo(int userId);
 
     }
 }
