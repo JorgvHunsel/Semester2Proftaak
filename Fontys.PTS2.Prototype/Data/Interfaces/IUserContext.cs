@@ -22,5 +22,8 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
 
         void EditUser(User currentUser, string password);
 
+        bool CheckIfUserAlreadyExists(string email);
+
+        bool IsEmailValid(string email);
     }
 }

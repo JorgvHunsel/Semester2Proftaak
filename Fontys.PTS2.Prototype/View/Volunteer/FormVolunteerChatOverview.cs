@@ -17,7 +17,6 @@ namespace Fontys.PTS2.Prototype.View
     public partial class FormVolunteerChatOverview : Form
     {
         private List<ChatLog> chatLogs;
-        // Logged in user @@@@ HARDCODED @@@@
         ChatLogic chatLogic = new ChatLogic();
 
         public FormVolunteerChatOverview()
@@ -35,7 +34,7 @@ namespace Fontys.PTS2.Prototype.View
                 
                 ListViewItem lvi = new ListViewItem();
                 lvi.Text = chatLogs[i].CareRecipientFirstName + " " + chatLogs[i].CareRecipientLastName;
-                lvi.SubItems.Add(chatLogs[i].QuestionTitle.ToString());
+                lvi.SubItems.Add(chatLogs[i].QuestionTitle);
                 lvi.SubItems.Add(chatlog.TimeStamp.ToString());
                 lvi.SubItems.Add(chatlog.ChatLogID.ToString());
                 lvi.SubItems.Add(chatlog.CareRecipientID.ToString());

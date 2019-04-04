@@ -36,5 +36,9 @@ namespace Fontys.PTS2.Prototype.Data
         public User getCurrentUserInfo(string email) => context.getCurrentUserInfo(email);
 
         public void EditUser(User currentUser, string password) => context.EditUser(currentUser, password);
+
+        public bool CheckIfUserAlreadyExists(string email) => context.CheckIfUserAlreadyExists(email);
+
+        public bool IsEmailValid(string email) => context.IsEmailValid(email);
     }
 }

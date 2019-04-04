@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
@@ -66,5 +68,14 @@ namespace Fontys.PTS2.Prototype.Logic
             userRepo.EditUser(currentUser, password);
         }
 
+        public static bool CheckIfUserAlreadyExists(string email)
+        {
+            return userRepo.CheckIfUserAlreadyExists(email);
+        }
+
+        public static bool IsEmailValid(string email)
+        {
+            return userRepo.IsEmailValid(email);
+        }
     }
 }
