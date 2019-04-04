@@ -60,20 +60,12 @@ namespace Fontys.PTS2.Prototype.Data
             try
             {
                 string query = "UPDATE [User] " +
-                               "SET FirstName = @FirstName, LastName = @LastName, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City " +
+                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City " +
                                "WHERE UserID = @UserID";
                 if (password != "")
                 {
                     query = "UPDATE [User] " +
-                            "SET FirstName = @FirstName," +
-                            " LastName = @LastName, " +
-                            "Birthdate = @Birthdate, " +
-                            "Sex = @Sex, " +
-                            "Email = @Email, " +
-                            "Address = @Address, " +
-                            "PostalCode = @PostalCode, " +
-                            "City = @City, " +
-                            "Password = @Password " +
+                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City, Password = @Password" +
                             "WHERE UserID = @UserID";
                 }
                 _conn.Open();

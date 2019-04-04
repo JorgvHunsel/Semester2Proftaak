@@ -89,9 +89,9 @@ namespace Fontys.PTS2.Prototype.View
             string passwordValidate = tbPassValidation.Text;
 
             if (LoginPrototype.currentUser.UserAccountType == User.AccountType.CareRecipient)
-                editUser = new Classes.CareRecipient(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
+                editUser = new Classes.CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
             else if (LoginPrototype.currentUser.UserAccountType == User.AccountType.Volunteer)
-                editUser = new Classes.Volunteer(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
+                editUser = new Classes.Volunteer(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
 
             if (password == passwordValidate)
             {
