@@ -195,6 +195,9 @@
     <EmbeddedResource Include="View\Administrator\EditQuestion.resx">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChat.resx">
+      <DependentUpon>FormCareRecipientChat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChatOverview.resx">
       <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
     </EmbeddedResource>

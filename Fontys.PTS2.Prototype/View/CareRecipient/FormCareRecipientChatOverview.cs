@@ -54,7 +54,7 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
                 int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
 
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormCareRecipientChat());
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormCareRecipientChat(selectedChatId, selectedName, userid, receiverID));
             }
             else
             {
