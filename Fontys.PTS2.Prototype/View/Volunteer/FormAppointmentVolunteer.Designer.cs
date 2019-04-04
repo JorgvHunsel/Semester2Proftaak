@@ -30,20 +30,21 @@
         {
             this.btMakeAppointment = new System.Windows.Forms.Button();
             this.lbDate = new System.Windows.Forms.Label();
-            this.dtpAppointment = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCareRecipientName = new System.Windows.Forms.TextBox();
             this.lbNameCR = new System.Windows.Forms.Label();
             this.lblOpenRequests = new System.Windows.Forms.Label();
+            this.dtpAppointment = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // btMakeAppointment
             // 
-            this.btMakeAppointment.Location = new System.Drawing.Point(391, 163);
+            this.btMakeAppointment.Location = new System.Drawing.Point(391, 150);
             this.btMakeAppointment.Name = "btMakeAppointment";
-            this.btMakeAppointment.Size = new System.Drawing.Size(102, 23);
+            this.btMakeAppointment.Size = new System.Drawing.Size(102, 38);
             this.btMakeAppointment.TabIndex = 18;
             this.btMakeAppointment.Text = "Afspraak maken";
             this.btMakeAppointment.UseVisualStyleBackColor = true;
+            this.btMakeAppointment.Click += new System.EventHandler(this.btMakeAppointment_Click);
             // 
             // lbDate
             // 
@@ -55,21 +56,13 @@
             this.lbDate.TabIndex = 17;
             this.lbDate.Text = "Datum:";
             // 
-            // dtpAppointment
+            // tbCareRecipientName
             // 
-            this.dtpAppointment.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpAppointment.Location = new System.Drawing.Point(242, 122);
-            this.dtpAppointment.Name = "dtpAppointment";
-            this.dtpAppointment.Size = new System.Drawing.Size(251, 20);
-            this.dtpAppointment.TabIndex = 16;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(242, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 29);
-            this.textBox1.TabIndex = 15;
+            this.tbCareRecipientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCareRecipientName.Location = new System.Drawing.Point(242, 79);
+            this.tbCareRecipientName.Name = "tbCareRecipientName";
+            this.tbCareRecipientName.Size = new System.Drawing.Size(251, 29);
+            this.tbCareRecipientName.TabIndex = 15;
             // 
             // lbNameCR
             // 
@@ -92,16 +85,25 @@
             this.lblOpenRequests.TabIndex = 13;
             this.lblOpenRequests.Text = "Vrijwilliger - Afspraak aanmaken";
             // 
+            // dtpAppointment
+            // 
+            this.dtpAppointment.CustomFormat = "yyyy/MM/dd hh:mm:ss";
+            this.dtpAppointment.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpAppointment.Location = new System.Drawing.Point(242, 119);
+            this.dtpAppointment.Name = "dtpAppointment";
+            this.dtpAppointment.Size = new System.Drawing.Size(251, 20);
+            this.dtpAppointment.TabIndex = 19;
+            // 
             // FormAppointmentVolunteer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(512, 200);
+            this.Controls.Add(this.dtpAppointment);
             this.Controls.Add(this.btMakeAppointment);
             this.Controls.Add(this.lbDate);
-            this.Controls.Add(this.dtpAppointment);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbCareRecipientName);
             this.Controls.Add(this.lbNameCR);
             this.Controls.Add(this.lblOpenRequests);
             this.Name = "FormAppointmentVolunteer";
@@ -115,9 +117,9 @@
 
         private System.Windows.Forms.Button btMakeAppointment;
         private System.Windows.Forms.Label lbDate;
-        private System.Windows.Forms.DateTimePicker dtpAppointment;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCareRecipientName;
         private System.Windows.Forms.Label lbNameCR;
         private System.Windows.Forms.Label lblOpenRequests;
+        private System.Windows.Forms.DateTimePicker dtpAppointment;
     }
 }

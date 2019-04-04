@@ -15,7 +15,7 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormUserProfile : Form
     {
-        //UserLogic ul = new UserLogic();
+        
         public FormUserProfile()
         {
             InitializeComponent();
@@ -55,6 +55,7 @@ namespace Fontys.PTS2.Prototype.View
             tbPassValidation.Visible = true;
             lblPassword.Visible = true;
             lblPaswordValidation.Visible = true;
+            btnSave.Visible = true;
 
             foreach (string gender in Enum.GetNames(typeof(User.Gender)))
             {
@@ -69,6 +70,30 @@ namespace Fontys.PTS2.Prototype.View
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
             if(currentUser.UserAccountType == User.AccountType.Volunteer)
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            User editUser;
+
+            string firstname = tbFirstName.Text;
+            string lastname = tbLastName.Text;
+            string address = tbAddress.Text;
+            string city = tbCity.Text;
+            string postalCode = tbPostalCode.Text;
+            string email = tbEmail.Text;
+            DateTime birthdate = dateOfBirth.Value;
+            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+
+            if (LoginPrototype.CurrentUser.UserAccountType == User.AccountType.CareRecipient)
+                editUser = new CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
+            else if (LoginPrototype.CurrentUser.UserAccountType == User.AccountType.Volunteer)
+       
+
+
+
+
+            btnSave.Visible = false;
         }
     }
 }

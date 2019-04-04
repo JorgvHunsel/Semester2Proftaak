@@ -28,6 +28,11 @@ namespace Fontys.PTS2.Prototype.Data
             return context.GetAllOpenChatsWithVolunteerID(userid);
         }
 
+        public List<ChatLog> GetAllOpenChatsWithCareRecipientID(int userid)
+        {
+            return context.GetAllOpenChatsWithCareRecipientID(userid);
+        }
+
         public List<ChatMessage> LoadMessageListWithChatID(int chatID) => context.LoadMessageAsListUsingChatLogID(chatID);
 
         public void SendMessage(int chatid, int receiverid, int senderid, string message) =>

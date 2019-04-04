@@ -27,6 +27,7 @@ namespace Fontys.PTS2.Prototype.Data
                                ", Chatlog.[VolunteerID]" +
                                ", Chatlog.[TimeStamp]" +
                                ", Question.[Title]" +
+                               ", Question.[QuestionID] "+
 
 
                                ", [Volunteer].Firstname as VolunteerFirstName" +
@@ -62,6 +63,7 @@ namespace Fontys.PTS2.Prototype.Data
                     int volunteerID = Convert.ToInt32(dr["VolunteerID"].ToString());
                     string careRecipientFirstName = dr["CareRecipientFirstName"].ToString();
                     string careRecipientLastName = dr["CareRecipientLastName"].ToString();
+                    int questionID = Convert.ToInt32(dr["QuestionID"].ToString());
 
                     string volunteerFirstName = dr["VolunteerFirstName"].ToString();
                     string volunteerLastName = dr["VolunteerLastName"].ToString();
@@ -69,7 +71,7 @@ namespace Fontys.PTS2.Prototype.Data
                     DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
 
 
-                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp);
+                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp, questionID);
                     chatLogList.Add(chatLog);
                 }
 
@@ -97,9 +99,9 @@ namespace Fontys.PTS2.Prototype.Data
                                ", Chatlog.[VolunteerID]" +
                                ", Chatlog.[TimeStamp]" +
                                ", Question.[Title]" +
+                               ", Question.[QuestionID]" +
 
-
-                               ", [Volunteer].Firstname as VolunteerFirstName," +
+                               ", [Volunteer].Firstname as VolunteerFirstName" +
                                ", [Volunteer].LastName as VolunteerLastName" +
 
                                ", [CareRecipient].Firstname as CareRecipientFirstName" +
@@ -127,6 +129,7 @@ namespace Fontys.PTS2.Prototype.Data
                     int volunteerID = Convert.ToInt32(dr["VolunteerID"].ToString());
                     string careRecipientFirstName = dr["CareRecipientFirstName"].ToString();
                     string careRecipientLastName = dr["CareRecipientLastName"].ToString();
+                    int questionID = Convert.ToInt32(dr["QuestionID"].ToString());
 
                     string volunteerFirstName = dr["VolunteerFirstName"].ToString();
                     string volunteerLastName = dr["VolunteerLastName"].ToString();
@@ -134,7 +137,7 @@ namespace Fontys.PTS2.Prototype.Data
                     DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
 
 
-                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp);
+                    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp, questionID);
                     chatLogList.Add(chatLog);
                 }
 

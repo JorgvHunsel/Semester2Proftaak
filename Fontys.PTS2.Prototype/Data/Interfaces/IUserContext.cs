@@ -20,5 +20,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
 
         User getCurrentUserInfo(string email);
 
+        void EditUser(User currentUser);
+
     }
 }

@@ -28,5 +28,6 @@ namespace Fontys.PTS2.Prototype.Logic
         }
 
         public List<ChatLog> GetAllOpenChatsWithVolunteerID(int userid) => chatRepo.GetAllChatsWithVolunteerID(userid);
+        public List<ChatLog> GetAllOpenChatsWithCareRecipientID(int userid) => chatRepo.GetAllOpenChatsWithCareRecipientID(userid);
     }
 }

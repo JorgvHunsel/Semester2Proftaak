@@ -35,6 +35,6 @@ namespace Fontys.PTS2.Prototype.Data
 
         public User getCurrentUserInfo(string email) => context.getCurrentUserInfo(email);
 
-        //hier komen de methodes die gegevens doorgeven aan context.
+        public void EditUser(User currentUser) => context.EditUser(currentUser);
     }
 }
