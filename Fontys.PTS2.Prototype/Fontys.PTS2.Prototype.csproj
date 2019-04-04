@@ -106,6 +106,18 @@
     <Compile Include="View\Administrator\EditQuestion.Designer.cs">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CareRecipient\FormCareRecipientChat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormCareRecipientChat.Designer.cs">
+      <DependentUpon>FormCareRecipientChat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormCareRecipientChatOverview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormCareRecipientChatOverview.Designer.cs">
+      <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CareRecipient\FormQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,9 @@
     </Compile>
     <EmbeddedResource Include="View\Administrator\EditQuestion.resx">
       <DependentUpon>EditQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChatOverview.resx">
+      <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>
