@@ -145,11 +145,13 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE [UserID] = " + userId;
+                string query = "SELECT * FROM [User] WHERE [UserID] = @UserId";
                 _conn.Open();
                 SqlParameter useridParameter = new SqlParameter();
                 useridParameter.ParameterName = "@UserId";
                 SqlCommand cmd = new SqlCommand(query, _conn);
+                useridParameter.Value = userId;
+                cmd.Parameters.Add(useridParameter);
                 User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {

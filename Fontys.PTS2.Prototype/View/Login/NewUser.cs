@@ -24,7 +24,7 @@ namespace Fontys.PTS2.Prototype.View.Login
 
         private void AddGenders()
         {
-            foreach (string gender in Enum.GetNames(typeof(Admin.Gender)))
+            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
             {
                 cboxSex.Items.Add(gender);
             }
