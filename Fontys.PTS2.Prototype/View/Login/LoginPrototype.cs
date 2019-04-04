@@ -17,7 +17,9 @@ namespace Fontys.PTS2.Prototype.View
 
     public partial class LoginPrototype : Form
     {
-        public static int CurrentUserId { get; set; }
+        public static int CurrentUserId { get; private set; }
+        public static User CurrentUser { get; private set; }
+
 
         private List<string> userNames;
 
@@ -41,10 +43,12 @@ namespace Fontys.PTS2.Prototype.View
                 {
                     CurrentUserId = UserLogic.GetUserId(selectedUser);
 
-                    User currentUser = UserLogic.getCurrentUserInfo(CurrentUserId);
-                    if (currentUser.UserAccountType == User.AccountType.CareRecipient)
+                    CurrentUser = UserLogic.getCurrentUserInfo(CurrentUserId);
+
+
+                    if (CurrentUser.UserAccountType == User.AccountType.CareRecipient)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
-                    else if (currentUser.UserAccountType == User.AccountType.Volunteer)
+                    else if (CurrentUser.UserAccountType == User.AccountType.Volunteer)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
                 }
             }
