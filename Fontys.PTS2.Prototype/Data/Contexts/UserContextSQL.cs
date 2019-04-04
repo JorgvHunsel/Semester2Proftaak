@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
@@ -149,58 +151,105 @@ namespace Fontys.PTS2.Prototype.Data
 
         public bool CheckValidityUser(string email, string password)
         {
-            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = @email AND [Password] = @password";
-            _conn.Open();
-
-            SqlParameter emailParam = new SqlParameter();
-            emailParam.ParameterName = "@email";
-            SqlParameter passParam = new SqlParameter();
-            passParam.ParameterName = "@password";
-
-            SqlCommand cmd = new SqlCommand(query, _conn);
-            emailParam.Value = email;
-            passParam.Value = password;
-            cmd.Parameters.Add(emailParam);
-            cmd.Parameters.Add(passParam);
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            try
             {
-                while (reader.Read())
+                string query =
+                    "SELECT [Email], [Password] FROM [User] WHERE [Email] = @email AND [Password] = @password";
+                _conn.Open();
+
+                SqlParameter emailParam = new SqlParameter();
+                emailParam.ParameterName = "@email";
+                SqlParameter passParam = new SqlParameter();
+                passParam.ParameterName = "@password";
+
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                emailParam.Value = email;
+                passParam.Value = password;
+                cmd.Parameters.Add(emailParam);
+                cmd.Parameters.Add(passParam);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
                 {
-                    if (password == (string)reader[1])
+                    while (reader.Read())
                     {
-                        MessageBox.Show("User found");
-                        _conn.Close();
-                        return true;
+                        if (password == (string)reader[1])
+                        {
+                            MessageBox.Show("User found");
+                            _conn.Close();
+                            return true;
+                        }
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Gebruiker bestaat niet of wachtwoord is verkeerd!");
+                    return false;
+                }
+
+
+                reader.Close();
             }
-            else
+            catch (Exception e)
             {
-                MessageBox.Show("Gebruiker bestaat niet of wachtwoord is verkeerd!");
-                return false;
+                Console.WriteLine(e);
+                throw;
             }
-
-            reader.Close();
-
-
-            _conn.Close();
+            finally
+            {
+                _conn.Close();
+            }
             return false;
         }
+
+        public bool CheckIfUserAlreadyExists(string email)
+        {
+            try
+            {
+                string query = "SELECT COUNT(*) FROM [User] WHERE [Email] = @email";
+
+                _conn.Open();
+
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                cmd.Parameters.Add(new SqlParameter
+                {
+                    ParameterName = "@email",
+                    Value = email
+                });
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    reader.Close();
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+            return true;
+        }
+
         public User getCurrentUserInfo(string email)
         {
             try
             {
                 string query = "SELECT * FROM [User] WHERE [Email] = @email";
                 _conn.Open();
-                SqlParameter useridParameter = new SqlParameter();
-                useridParameter.ParameterName = "@email";
+                SqlParameter emailParam = new SqlParameter();
+                emailParam.ParameterName = "@email";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                useridParameter.Value = email;
-                cmd.Parameters.Add(useridParameter);
-                User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
+                emailParam.Value = email;
+                cmd.Parameters.Add(emailParam);
+                User currentUser = new Admin("a", "b", "c,", "d", "e", "f", Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -254,6 +303,47 @@ namespace Fontys.PTS2.Prototype.Data
             finally
             {
                 _conn.Close();
+            }
+        }
+
+        public bool IsEmailValid(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return false;
+            }
+            try
+            {
+                email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
+                    RegexOptions.None, TimeSpan.FromMilliseconds(200));
+
+                // Examines the domain part of the email and normalizes it.
+                string DomainMapper(Match match)
+                {
+                    // Use IdnMapping class to convert Unicode domain names.
+                    var idn = new IdnMapping();
+
+                    // Pull out and process domain name (throws ArgumentException on invalid)
+                    var domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
+            }
+            catch (RegexMatchTimeoutException e)
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(email,
+                    @"^(?("")("".+?(?<!\\)""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                    @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-0-9a-z]*[0-9a-z]*\.)+[a-z0-9][\-a-z0-9]{0,22}[a-z0-9]))$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
             }
         }
     }

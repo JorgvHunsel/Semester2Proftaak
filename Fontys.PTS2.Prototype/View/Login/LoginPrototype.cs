@@ -39,12 +39,15 @@ namespace Fontys.PTS2.Prototype.View
                 string password = tbPassword.Text;
                 if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
-
                     currentUser = UserLogic.getCurrentUserInfo(selectedUser);
                     if (currentUser.UserAccountType == User.AccountType.CareRecipient)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
                     else if (currentUser.UserAccountType == User.AccountType.Volunteer)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                }
+                else
+                {
+                    ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
             }
             catch (Exception exception)

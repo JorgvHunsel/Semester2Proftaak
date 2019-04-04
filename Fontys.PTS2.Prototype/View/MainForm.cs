@@ -17,7 +17,7 @@ namespace Fontys.PTS2.Prototype.View
         public MainForm()
         {
             InitializeComponent();
-            ReplaceForm(new FormCareRecipientChatOverview());
+            ReplaceForm(new LoginPrototype());
         }
 
         public void ReplaceForm(Form newForm)

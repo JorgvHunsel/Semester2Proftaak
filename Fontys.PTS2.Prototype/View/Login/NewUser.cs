@@ -38,24 +38,33 @@ namespace Fontys.PTS2.Prototype.View.Login
             }
             else
             {
-                if (User.IsEmailValid(tbEmail.Text))
+                if (UserLogic.CheckIfUserAlreadyExists(tbEmail.Text))
                 {
-                    string accountType = "CareRecipient";
-                    if (rbtnVolunteer.Checked)
+                    if (UserLogic.IsEmailValid(tbEmail.Text))
                     {
-                        accountType = "Volunteer";
+                        string accountType = "CareRecipient";
+                        if (rbtnVolunteer.Checked)
+                        {
+                            accountType = "Volunteer";
+                        }
+                        else if (rbtnCareRecipient.Checked)
+                        {
+                            accountType = "CareRecipient";
+                        }
+
+                        User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), cboxSex.Text);
+                        UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text,
+                            tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
+                        ((MainForm) this.Parent.Parent).ReplaceForm(new LoginPrototype());
                     }
-                    else if (rbtnCareRecipient.Checked)
+                    else
                     {
-                        accountType = "CareRecipient";
+                        MessageBox.Show("Email is verkeerd!");
                     }
-                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-                    UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text, tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
-                    ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
                 }
                 else
                 {
-                    MessageBox.Show("Email is verkeerd!");
+                    MessageBox.Show("Gebruiker bestaat al!");
                 }
             }            
         }
