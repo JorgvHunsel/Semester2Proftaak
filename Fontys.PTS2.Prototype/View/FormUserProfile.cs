@@ -15,7 +15,7 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormUserProfile : Form
     {
-        
+
         public FormUserProfile()
         {
             InitializeComponent();
@@ -66,15 +66,15 @@ namespace Fontys.PTS2.Prototype.View
         private void btnBack_Click(object sender, EventArgs e)
         {
             User currentUser = LoginPrototype.currentUser;
-            if(currentUser.UserAccountType == User.AccountType.CareRecipient)
+            if (currentUser.UserAccountType == User.AccountType.CareRecipient)
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
-            if(currentUser.UserAccountType == User.AccountType.Volunteer)
+            if (currentUser.UserAccountType == User.AccountType.Volunteer)
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            User editUser;
+            User editUser = new Classes.CareRecipient("a", "b", "c,", "d", "e", "f", Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
 
             string firstname = tbFirstName.Text;
             string lastname = tbLastName.Text;
@@ -84,14 +84,21 @@ namespace Fontys.PTS2.Prototype.View
             string email = tbEmail.Text;
             DateTime birthdate = dateOfBirth.Value;
             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+            string password = tbPassword.Text;
+            string passwordValidate = tbPassValidation.Text;
 
             if (LoginPrototype.currentUser.UserAccountType == User.AccountType.CareRecipient)
                 editUser = new Classes.CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
             else if (LoginPrototype.currentUser.UserAccountType == User.AccountType.Volunteer)
-       
+                editUser = new Classes.Volunteer(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
 
-
-
+            if (password == passwordValidate)
+                UserLogic.EditUser(editUser, password);
+            else
+            {
+                MessageBox.Show("Het wachtwoord komt niet overeen");
+                return;
+            }
 
             btnSave.Visible = false;
         }

@@ -53,13 +53,19 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public void EditUser(User currentUser)
+        public void EditUser(User currentUser, string password)
         {
             try
             {
                 string query = "UPDATE [User] " +
                                "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City " +
                                "WHERE UserID = @UserID";
+                if (password != "")
+                {
+                    query = "UPDATE [User] " +
+                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City, Password = @Password" +
+                            "WHERE UserID = @UserID";
+                }
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
@@ -72,6 +78,7 @@ namespace Fontys.PTS2.Prototype.Data
                     cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
                     cmd.Parameters.AddWithValue("@City", currentUser.City);
                     cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
+                    cmd.Parameters.AddWithValue("@Password", password);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -86,6 +93,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
+       
         public List<string> GetAllUsers()
         {
             try
@@ -200,7 +208,7 @@ namespace Fontys.PTS2.Prototype.Data
                 SqlCommand cmd = new SqlCommand(query, _conn);
                 useridParameter.Value = email;
                 cmd.Parameters.Add(useridParameter);
-                User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
+                User currentUser = new Admin("a", "b", "c,", "d", "e", "f", Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

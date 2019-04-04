@@ -61,9 +61,9 @@ namespace Fontys.PTS2.Prototype.Logic
             return userRepo.getCurrentUserInfo(email);
         }
 
-        public static void EditUser(User currentUser)
+        public static void EditUser(User currentUser, string password)
         {
-            userRepo.EditUser(currentUser);
+            userRepo.EditUser(currentUser, password);
         }
 
     }
