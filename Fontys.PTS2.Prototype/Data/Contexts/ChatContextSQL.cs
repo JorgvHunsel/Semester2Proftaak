@@ -42,7 +42,7 @@ namespace Fontys.PTS2.Prototype.Data
                                " INNER JOIN[User] As CareRecipient ON CareRecipient.UserID = CareRecipientID" +
                                " INNER JOIN[Reaction] As Reaction on Reaction.ReactionID = Chatlog.ReactionID" +
                                " INNER JOIN[Question] AS Question ON Question.QuestionID = Reaction.QuestionID" +
-                               " WHERE Chatlog.[VolunteerID] = "+userid+" ;";
+                               " WHERE Chatlog.[VolunteerID] = " + userid + " ;";
 
                      _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
@@ -96,7 +96,7 @@ namespace Fontys.PTS2.Prototype.Data
                                ", Question.[Title]" +
                                ", Question.[QuestionID]" +
 
-                               ", [Volunteer].Firstname as VolunteerFirstName," +
+                               ", [Volunteer].Firstname as VolunteerFirstName" +
                                ", [Volunteer].LastName as VolunteerLastName" +
 
                                ", [CareRecipient].Firstname as CareRecipientFirstName" +
