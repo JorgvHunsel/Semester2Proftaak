@@ -69,7 +69,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
         }
     }
 }
