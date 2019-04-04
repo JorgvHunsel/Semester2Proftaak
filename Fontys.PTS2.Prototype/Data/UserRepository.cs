@@ -33,7 +33,7 @@ namespace Fontys.PTS2.Prototype.Data
             context.AddNewUser(firstName, lastName, birthDate, gender, email, address, postalCode, city, password,
                 accountType);
 
-        public User getCurrentUserInfo(int userId) => context.getCurrentUserInfo(userId);
+        public User getCurrentUserInfo(string email) => context.getCurrentUserInfo(email);
 
         //hier komen de methodes die gegevens doorgeven aan context.
     }

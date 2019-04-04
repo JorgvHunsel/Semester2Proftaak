@@ -23,9 +23,8 @@ namespace Fontys.PTS2.Prototype.View
 
         private void FormUserProfile_Load(object sender, EventArgs e)
         {
-            int _currentUserId = LoginPrototype.CurrentUserId;
 
-            User currentUser = UserLogic.getCurrentUserInfo(_currentUserId);
+            User currentUser = LoginPrototype.currentUser;
 
             lblTitle.Text = $"Welkom {currentUser.FirstName}";
             tbFirstName.Text = currentUser.FirstName;
@@ -57,7 +56,7 @@ namespace Fontys.PTS2.Prototype.View
             lblPassword.Visible = true;
             lblPaswordValidation.Visible = true;
 
-            foreach (string gender in Enum.GetNames(typeof(Admin.Gender)))
+            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
             {
                 cboxSex.Items.Add(gender);
             }
@@ -65,7 +64,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            User currentUser = UserLogic.getCurrentUserInfo(LoginPrototype.CurrentUserId);
+            User currentUser = LoginPrototype.currentUser;
             if(currentUser.UserAccountType == User.AccountType.CareRecipient)
                 ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
             if(currentUser.UserAccountType == User.AccountType.Volunteer)

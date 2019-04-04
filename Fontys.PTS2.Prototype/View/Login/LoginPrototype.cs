@@ -17,9 +17,9 @@ namespace Fontys.PTS2.Prototype.View
 
     public partial class LoginPrototype : Form
     {
-        public static int CurrentUserId { get; set; }
 
         private List<string> userNames;
+        public static User currentUser;
 
         public LoginPrototype()
         {
@@ -39,9 +39,8 @@ namespace Fontys.PTS2.Prototype.View
                 string password = tbPassword.Text;
                 if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
-                    CurrentUserId = UserLogic.GetUserId(selectedUser);
 
-                    User currentUser = UserLogic.getCurrentUserInfo(CurrentUserId);
+                    currentUser = UserLogic.getCurrentUserInfo(selectedUser);
                     if (currentUser.UserAccountType == User.AccountType.CareRecipient)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
                     else if (currentUser.UserAccountType == User.AccountType.Volunteer)

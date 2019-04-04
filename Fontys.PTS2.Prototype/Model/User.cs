@@ -12,7 +12,7 @@ namespace Fontys.PTS2.Prototype.Classes
     {
         public enum AccountType { CareRecipient, Volunteer, Professional, Admin }
         public enum Gender { M, V, A }
-        private int UserId { get; set; }
+        public int UserId { get; set; }
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public string Address { get; private set; }
@@ -26,6 +26,21 @@ namespace Fontys.PTS2.Prototype.Classes
 
         protected User(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status, AccountType accountType)
         {
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
+            City = city;
+            PostalCode = postalCode;
+            EmailAddress = emailAddress;
+            DateTime = dateTime;
+            UserGender = userGender;
+            Status = status;
+            UserAccountType = accountType;
+        }
+
+        protected User(int userId, string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status, AccountType accountType)
+        {
+            UserId = userId;
             FirstName = firstName;
             LastName = lastName;
             Address = address;

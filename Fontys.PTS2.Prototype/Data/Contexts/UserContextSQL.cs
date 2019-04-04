@@ -57,7 +57,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT [FirstName] FROM [User] ";
+                string query = "SELECT [FirstName] FROM [User]";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -89,9 +89,15 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT [UserID] FROM [User] WHERE [Email] = '" + email + "'";
+                string query = "SELECT [UserID] FROM [User] WHERE [Email] = @email";
                 _conn.Open();
+
+                SqlParameter emailParam = new SqlParameter();
+                emailParam.ParameterName = "@email";
+
                 SqlCommand cmd = new SqlCommand(query, _conn);
+                emailParam.Value = email;
+                cmd.Parameters.Add(emailParam);
 
                 int UserId = (int)cmd.ExecuteScalar();
 
@@ -110,12 +116,21 @@ namespace Fontys.PTS2.Prototype.Data
 
         public bool CheckValidityUser(string email, string password)
         {
-            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = '" + email + "' AND [Password] = '" + password + "'";
+            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = @email AND [Password] = @password";
             _conn.Open();
+
+            SqlParameter emailParam = new SqlParameter();
+            emailParam.ParameterName = "@email";
+            SqlParameter passParam = new SqlParameter();
+            passParam.ParameterName = "@password";
+
             SqlCommand cmd = new SqlCommand(query, _conn);
+            emailParam.Value = email;
+            passParam.Value = password;
+            cmd.Parameters.Add(emailParam);
+            cmd.Parameters.Add(passParam);
 
             SqlDataReader reader = cmd.ExecuteReader();
-
 
             if (reader.HasRows)
             {
@@ -141,16 +156,16 @@ namespace Fontys.PTS2.Prototype.Data
             _conn.Close();
             return false;
         }
-        public User getCurrentUserInfo(int userId)
+        public User getCurrentUserInfo(string email)
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE [UserID] = @UserId";
+                string query = "SELECT * FROM [User] WHERE [Email] = @email";
                 _conn.Open();
                 SqlParameter useridParameter = new SqlParameter();
-                useridParameter.ParameterName = "@UserId";
+                useridParameter.ParameterName = "@email";
                 SqlCommand cmd = new SqlCommand(query, _conn);
-                useridParameter.Value = userId;
+                useridParameter.Value = email;
                 cmd.Parameters.Add(useridParameter);
                 User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())

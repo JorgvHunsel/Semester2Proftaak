@@ -178,7 +178,8 @@ namespace Fontys.PTS2.Prototype.Data
             try
             {
                 string query =
-                    "SELECT  * FROM [Question] AS Q INNER JOIN [Category] AS C ON Q.CategoryId = C.CategoryID WHERE Q.[QuestionID] = '" + questionID + "'";
+                    "SELECT  * FROM [Question] AS Q " +
+                    "INNER JOIN [Category] AS C ON Q.CategoryId = C.CategoryID WHERE Q.[QuestionID] = '" + questionID + "'";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -198,7 +199,7 @@ namespace Fontys.PTS2.Prototype.Data
 
                 Category category = new Category(CategoryID, CategoryName, CategoryDescription);
 
-                Question question = new Question(title, content, Question.QuestionStatus.Open, dateTime, urgency, category);
+                Question question = new Question(QuestionID, title, content, Question.QuestionStatus.Open, dateTime, urgency, category);
                 return question;
 
             }

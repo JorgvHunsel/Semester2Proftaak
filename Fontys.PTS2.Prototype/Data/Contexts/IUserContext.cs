@@ -18,7 +18,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
 
         bool CheckValidityUser(string email, string password);
 
-        User getCurrentUserInfo(int userId);
+        User getCurrentUserInfo(string email);
 
     }
 }
