@@ -100,11 +100,35 @@
     <Compile Include="Data\Contexts\QuestionContextSQL.cs" />
     <Compile Include="Data\Contexts\UserContextSQL.cs" />
     <Compile Include="Data\Contexts\ReactionContextSQL.cs" />
+    <Compile Include="View\Administrator\AccountOverviewAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Administrator\AccountOverviewAdminForm.Designer.cs">
+      <DependentUpon>AccountOverviewAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Administrator\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Administrator\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Administrator\ChatLogOverviewAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Administrator\ChatLogOverviewAdminForm.Designer.cs">
+      <DependentUpon>ChatLogOverviewAdminForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Administrator\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Administrator\EditQuestion.Designer.cs">
       <DependentUpon>EditQuestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Administrator\QuestionOverviewAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Administrator\QuestionOverviewAdminForm.Designer.cs">
+      <DependentUpon>QuestionOverviewAdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CareRecipient\FormCareRecipientChat.cs">
       <SubType>Form</SubType>
@@ -126,6 +150,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\CareRecipient\FormReactionQuestionCareRecipient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormReactionQuestionCareRecipient.Designer.cs">
+      <DependentUpon>FormReactionQuestionCareRecipient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\FormUserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +222,9 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Administrator\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Administrator\EditQuestion.resx">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </EmbeddedResource>

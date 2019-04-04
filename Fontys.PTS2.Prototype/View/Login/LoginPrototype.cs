@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.Administrator;
 using Fontys.PTS2.Prototype.View.Login;
 
 namespace Fontys.PTS2.Prototype.View
@@ -44,6 +45,10 @@ namespace Fontys.PTS2.Prototype.View
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
                     else if (currentUser.UserAccountType == User.AccountType.Volunteer)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                    else if (currentUser.UserAccountType == User.AccountType.Admin)
+                    {
+                        ((MainForm)this.Parent.Parent).ReplaceForm(new AdminForm());
+                    }
                 }
                 else
                 {
