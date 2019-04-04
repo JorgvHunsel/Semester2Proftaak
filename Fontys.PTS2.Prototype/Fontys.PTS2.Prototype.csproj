@@ -121,7 +121,7 @@
     <Compile Include="View\Administrator\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\EditQuestion.Designer.cs">
+    <Compile Include="View\Administrator\EditQuestion.Designer.cs">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Administrator\QuestionOverviewAdminForm.cs">
@@ -311,8 +311,6 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Administrator\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
