@@ -100,10 +100,10 @@
     <Compile Include="Data\Contexts\QuestionContextSQL.cs" />
     <Compile Include="Data\Contexts\UserContextSQL.cs" />
     <Compile Include="Data\Contexts\ReactionContextSQL.cs" />
-    <Compile Include="View\Administrator\EditQuestion.cs">
+    <Compile Include="View\CareRecipient\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\EditQuestion.Designer.cs">
+    <Compile Include="View\CareRecipient\EditQuestion.Designer.cs">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="View\CareRecipient\FormCareRecipientChat.cs">
@@ -192,7 +192,7 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\Administrator\EditQuestion.resx">
+    <EmbeddedResource Include="View\CareRecipient\EditQuestion.resx">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChat.resx">
@@ -278,6 +278,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\Administrator\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

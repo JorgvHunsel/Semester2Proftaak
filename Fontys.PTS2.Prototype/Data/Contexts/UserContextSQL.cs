@@ -281,7 +281,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                            currentUser = new Admin(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Admin);
                         }
@@ -289,7 +289,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Professional(reader.GetString(2), reader.GetString(3),
+                            currentUser = new Professional(reader.GetInt32(0), reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Professional);
@@ -298,7 +298,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                            currentUser = new Volunteer(reader.GetInt32(0),reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Volunteer);
                         }
@@ -306,7 +306,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.CareRecipient);
