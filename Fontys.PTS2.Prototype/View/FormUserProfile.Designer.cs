@@ -53,6 +53,7 @@
             this.tbSex = new System.Windows.Forms.TextBox();
             this.tbDateOfBirth = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblPaswordValidation
@@ -299,12 +300,25 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(39, 579);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(147, 62);
+            this.btnSave.TabIndex = 50;
+            this.btnSave.Text = "Opslaan";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1109, 654);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tbDateOfBirth);
             this.Controls.Add(this.tbSex);
@@ -365,5 +379,6 @@
         private System.Windows.Forms.TextBox tbSex;
         private System.Windows.Forms.TextBox tbDateOfBirth;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnSave;
     }
 }
