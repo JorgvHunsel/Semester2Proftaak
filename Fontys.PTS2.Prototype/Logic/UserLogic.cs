@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
@@ -63,19 +61,10 @@ namespace Fontys.PTS2.Prototype.Logic
             return userRepo.getCurrentUserInfo(email);
         }
 
-        public static void EditUser(User currentUser, string password)
+        public static void EditUser(User currentUser)
         {
-            userRepo.EditUser(currentUser, password);
+            userRepo.EditUser(currentUser);
         }
 
-        public static bool CheckIfUserAlreadyExists(string email)
-        {
-            return userRepo.CheckIfUserAlreadyExists(email);
-        }
-
-        public static bool IsEmailValid(string email)
-        {
-            return userRepo.IsEmailValid(email);
-        }
     }
 }

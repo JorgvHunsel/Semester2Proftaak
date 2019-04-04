@@ -60,27 +60,39 @@ namespace Fontys.PTS2.Prototype.Data
             try
             {
                 string query = "UPDATE [User] " +
-                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City " +
+                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City " +
                                "WHERE UserID = @UserID";
                 if (password != "")
                 {
                     query = "UPDATE [User] " +
-                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City, Password = @Password" +
+                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City, Password = @Password" +
                             "WHERE UserID = @UserID";
                 }
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
-                    cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
-                    cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
-                    cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
-                    cmd.Parameters.AddWithValue("@Address", currentUser.Address);
-                    cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
-                    cmd.Parameters.AddWithValue("@City", currentUser.City);
-                    cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = currentUser.FirstName;
+                    cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = currentUser.LastName;
+                    cmd.Parameters.Add("@Birthdate", SqlDbType.DateTime).Value = currentUser.BirthDate;
+                    cmd.Parameters.Add("@Sex", SqlDbType.Char).Value = currentUser.UserGender;
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = currentUser.EmailAddress;
+                    cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = currentUser.Address;
+                    cmd.Parameters.Add("@PostalCode", SqlDbType.NChar).Value = currentUser.PostalCode;
+                    cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = currentUser.City;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = currentUser.UserId;
+                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
+
+
+                    //cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
+                    //cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
+                    //cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
+                    //cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
+                    //cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
+                    //cmd.Parameters.AddWithValue("@Address", currentUser.Address);
+                    //cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
+                    //cmd.Parameters.AddWithValue("@City", currentUser.City);
+                    //cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
+                    //cmd.Parameters.AddWithValue("@Password", password);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -91,6 +103,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
             finally
             {
+                MessageBox.Show("epic win");
                 _conn.Close();
             }
         }
@@ -268,7 +281,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                            currentUser = new Admin(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Admin);
                         }
@@ -276,7 +289,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Professional(reader.GetString(2), reader.GetString(3),
+                            currentUser = new Professional(reader.GetInt32(0), reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Professional);
@@ -285,7 +298,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
+                            currentUser = new Volunteer(reader.GetInt32(0),reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.Volunteer);
                         }
@@ -293,7 +306,7 @@ namespace Fontys.PTS2.Prototype.Data
                         {
                             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
-                            currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
                                 gender, status, User.AccountType.CareRecipient);

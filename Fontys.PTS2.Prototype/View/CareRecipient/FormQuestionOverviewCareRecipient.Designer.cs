@@ -39,6 +39,7 @@
             this.btnAskQuestion = new System.Windows.Forms.Button();
             this.btnLogOff = new System.Windows.Forms.Button();
             this.btnToUserProfile = new System.Windows.Forms.Button();
+            this.btnChats = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -130,12 +131,23 @@
             this.btnToUserProfile.UseVisualStyleBackColor = true;
             this.btnToUserProfile.Click += new System.EventHandler(this.btnToUserProfile_Click);
             // 
+            // btnChats
+            // 
+            this.btnChats.Location = new System.Drawing.Point(682, 313);
+            this.btnChats.Name = "btnChats";
+            this.btnChats.Size = new System.Drawing.Size(108, 37);
+            this.btnChats.TabIndex = 9;
+            this.btnChats.Text = "Chats";
+            this.btnChats.UseVisualStyleBackColor = true;
+            this.btnChats.Click += new System.EventHandler(this.btnChats_Click);
+            // 
             // FormQuestionOverviewCareRecipient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(796, 450);
+            this.Controls.Add(this.btnChats);
             this.Controls.Add(this.btnToUserProfile);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnAskQuestion);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Button btnAskQuestion;
         private System.Windows.Forms.Button btnLogOff;
         private System.Windows.Forms.Button btnToUserProfile;
+        private System.Windows.Forms.Button btnChats;
     }
 }
