@@ -60,27 +60,39 @@ namespace Fontys.PTS2.Prototype.Data
             try
             {
                 string query = "UPDATE [User] " +
-                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City " +
+                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City " +
                                "WHERE UserID = @UserID";
                 if (password != "")
                 {
                     query = "UPDATE [User] " +
-                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City, Password = @Password" +
+                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City, Password = @Password" +
                             "WHERE UserID = @UserID";
                 }
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
-                    cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
-                    cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
-                    cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
-                    cmd.Parameters.AddWithValue("@Address", currentUser.Address);
-                    cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
-                    cmd.Parameters.AddWithValue("@City", currentUser.City);
-                    cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = currentUser.FirstName;
+                    cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = currentUser.LastName;
+                    cmd.Parameters.Add("@Birthdate", SqlDbType.DateTime).Value = currentUser.BirthDate;
+                    cmd.Parameters.Add("@Sex", SqlDbType.Char).Value = currentUser.UserGender;
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = currentUser.EmailAddress;
+                    cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = currentUser.Address;
+                    cmd.Parameters.Add("@PostalCode", SqlDbType.NChar).Value = currentUser.PostalCode;
+                    cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = currentUser.City;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = currentUser.UserId;
+                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
+
+
+                    //cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
+                    //cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
+                    //cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
+                    //cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
+                    //cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
+                    //cmd.Parameters.AddWithValue("@Address", currentUser.Address);
+                    //cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
+                    //cmd.Parameters.AddWithValue("@City", currentUser.City);
+                    //cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
+                    //cmd.Parameters.AddWithValue("@Password", password);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -91,6 +103,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
             finally
             {
+                MessageBox.Show("epic win");
                 _conn.Close();
             }
         }

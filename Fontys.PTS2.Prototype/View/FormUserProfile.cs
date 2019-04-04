@@ -36,6 +36,7 @@ namespace Fontys.PTS2.Prototype.View
             tbAddress.Text = currentUser.Address;
             tbPostalCode.Text = currentUser.PostalCode;
             tbCity.Text = currentUser.City;
+            cboxSex.Text = currentUser.UserGender.ToString();
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -93,7 +94,11 @@ namespace Fontys.PTS2.Prototype.View
                 editUser = new Classes.Volunteer(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
 
             if (password == passwordValidate)
+            {
                 UserLogic.EditUser(editUser, password);
+                LoginPrototype.currentUser = editUser;
+            }
+                
             else
             {
                 MessageBox.Show("Het wachtwoord komt niet overeen");

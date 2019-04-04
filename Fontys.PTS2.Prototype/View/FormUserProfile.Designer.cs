@@ -274,7 +274,7 @@
             // 
             // tbSex
             // 
-            this.tbSex.Location = new System.Drawing.Point(190, 232);
+            this.tbSex.Location = new System.Drawing.Point(191, 232);
             this.tbSex.Margin = new System.Windows.Forms.Padding(4);
             this.tbSex.Name = "tbSex";
             this.tbSex.ReadOnly = true;
