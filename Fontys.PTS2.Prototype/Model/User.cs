@@ -38,7 +38,7 @@ namespace Fontys.PTS2.Prototype.Classes
             UserAccountType = accountType;
         }
 
-        protected User(int userId, string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime dateTime, Gender userGender, bool status, AccountType accountType)
+        protected User(int userId, string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime birthDate, Gender userGender, bool status, AccountType accountType)
         {
             UserId = userId;
             FirstName = firstName;
@@ -47,7 +47,7 @@ namespace Fontys.PTS2.Prototype.Classes
             City = city;
             PostalCode = postalCode;
             EmailAddress = emailAddress;
-            DateTime = dateTime;
+            BirthDate = birthDate;
             UserGender = userGender;
             Status = status;
             UserAccountType = accountType;

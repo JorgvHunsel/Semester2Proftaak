@@ -29,8 +29,8 @@ namespace Fontys.PTS2.Prototype.View
             lblTitle.Text = $"Welkom {currentUser.FirstName}";
             tbFirstName.Text = currentUser.FirstName;
             tbLastName.Text = currentUser.LastName;
-            tbDateOfBirth.Text = currentUser.DateTime.ToString();
-            dateOfBirth.Value = currentUser.DateTime;
+            tbDateOfBirth.Text = currentUser.BirthDate.ToString();
+            dateOfBirth.Value = currentUser.BirthDate;
             tbSex.Text = currentUser.UserGender.ToString();
             tbEmail.Text = currentUser.EmailAddress;
             tbAddress.Text = currentUser.Address;
@@ -85,9 +85,9 @@ namespace Fontys.PTS2.Prototype.View
             DateTime birthdate = dateOfBirth.Value;
             User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
 
-            if (LoginPrototype.CurrentUser.UserAccountType == User.AccountType.CareRecipient)
-                editUser = new CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
-            else if (LoginPrototype.CurrentUser.UserAccountType == User.AccountType.Volunteer)
+            if (LoginPrototype.currentUser.UserAccountType == User.AccountType.CareRecipient)
+                editUser = new Classes.CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
+            else if (LoginPrototype.currentUser.UserAccountType == User.AccountType.Volunteer)
        
 
 

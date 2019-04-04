@@ -18,7 +18,6 @@ namespace Fontys.PTS2.Prototype.View
     {
         private List<ChatLog> chatLogs;
         // Logged in user @@@@ HARDCODED @@@@
-        private int userid = LoginPrototype.CurrentUserId;
         ChatLogic chatLogic = new ChatLogic();
 
         public FormVolunteerChatOverview()
@@ -29,7 +28,7 @@ namespace Fontys.PTS2.Prototype.View
         // Load listview with items.
         private void FormVolunteerChatOverview_Load(object sender, EventArgs e)
         {
-            chatLogs = chatLogic.GetAllOpenChatsWithVolunteerID(userid);
+            chatLogs = chatLogic.GetAllOpenChatsWithVolunteerID(LoginPrototype.currentUser.UserId);
             for (int i = 0; i < chatLogs.Count; i++)
             {
                 ChatLog chatlog = chatLogs[i];
@@ -57,7 +56,7 @@ namespace Fontys.PTS2.Prototype.View
                 int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
                 
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, selectedName, userid, receiverID));
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChat(selectedChatId, selectedName, LoginPrototype.currentUser.UserId, receiverID));
             }
             else
             {
@@ -77,7 +76,7 @@ namespace Fontys.PTS2.Prototype.View
                 int questionID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[5].Text);
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
 
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormAppointmentVolunteer(questionID, receiverID, userid, selectedName));
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormAppointmentVolunteer(questionID, receiverID, LoginPrototype.currentUser.UserId, selectedName));
             }
             else
             {
