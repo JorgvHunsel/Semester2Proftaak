@@ -37,7 +37,6 @@
             this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnMakeAppointment = new System.Windows.Forms.Button();
             this.btnOpenChat = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -109,16 +108,6 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click_1);
             // 
-            // btnMakeAppointment
-            // 
-            this.btnMakeAppointment.Location = new System.Drawing.Point(516, 313);
-            this.btnMakeAppointment.Margin = new System.Windows.Forms.Padding(2);
-            this.btnMakeAppointment.Name = "btnMakeAppointment";
-            this.btnMakeAppointment.Size = new System.Drawing.Size(118, 58);
-            this.btnMakeAppointment.TabIndex = 8;
-            this.btnMakeAppointment.Text = "Maak afspraak";
-            this.btnMakeAppointment.UseVisualStyleBackColor = true;
-            // 
             // btnOpenChat
             // 
             this.btnOpenChat.Location = new System.Drawing.Point(81, 313);
@@ -139,7 +128,6 @@
             this.Controls.Add(this.lvChats);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnMakeAppointment);
             this.Controls.Add(this.btnOpenChat);
             this.Name = "FormCareRecipientChatOverview";
             this.Text = "FormCareRecipientChatOverview";
@@ -160,7 +148,6 @@
         private System.Windows.Forms.ColumnHeader QuestionID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnMakeAppointment;
         private System.Windows.Forms.Button btnOpenChat;
     }
 }
