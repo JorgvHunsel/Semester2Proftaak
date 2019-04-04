@@ -17,7 +17,6 @@ namespace Fontys.PTS2.Prototype.View
     public partial class FormVolunteerChatOverview : Form
     {
         private List<ChatLog> chatLogs;
-        // Logged in user @@@@ HARDCODED @@@@
         ChatLogic chatLogic = new ChatLogic();
 
         public FormVolunteerChatOverview()

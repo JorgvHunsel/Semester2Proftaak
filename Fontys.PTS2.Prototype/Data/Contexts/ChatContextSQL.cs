@@ -21,39 +21,14 @@ namespace Fontys.PTS2.Prototype.Data
             List<ChatLog> chatLogList = new List<ChatLog>();
             try
             {
-                string query = "SELECT Chatlog.[ChatLogID]" +
-                               ", Chatlog.[ReactionID]" +
-                               ", Chatlog.[CareRecipientID]" +
-                               ", Chatlog.[VolunteerID]" +
-                               ", Chatlog.[TimeStamp]" +
-                               ", Question.[Title]" +
-                               ", Question.[QuestionID] "+
+                SqlCommand cmd = new SqlCommand("GetChatsByVolunteerID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@UserId", SqlDbType.Int).Value = userid;
 
-
-                               ", [Volunteer].Firstname as VolunteerFirstName" +
-                               ", [Volunteer].LastName as VolunteerLastName" +
-
-                               ", [CareRecipient].Firstname as CareRecipientFirstName" +
-                               ", [CareRecipient].LastName as CareRecipientLastName" +
-
-                               " FROM[dbo].[ChatLog] AS Chatlog" +
-
-                               " INNER JOIN[User] As Volunteer ON Volunteer.UserID = VolunteerID" +
-                               " INNER JOIN[User] As CareRecipient ON CareRecipient.UserID = CareRecipientID" +
-                               " INNER JOIN[Reaction] As Reaction on Reaction.ReactionID = Chatlog.ReactionID" +
-                               " INNER JOIN[Question] AS Question ON Question.QuestionID = Reaction.QuestionID" +
-                               " WHERE Chatlog.[VolunteerID] = @UserId";
-
-                     _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
-                sqlAdapter.SelectCommand.Parameters.Add(new SqlParameter
-                {
-                    ParameterName = "@UserId",
-                    Value = userid
-                });
+                _conn.Open();
 
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+                dt.Load(cmd.ExecuteReader());
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -179,13 +154,13 @@ namespace Fontys.PTS2.Prototype.Data
                 {
                     int chatlogID = Convert.ToInt32(dr["ChatID"].ToString());
                     string content = (dr["Content"].ToString());
-                    
+
                     int senderID = Convert.ToInt32(dr["SenderID"].ToString());
                     int receiverID = Convert.ToInt32(dr["ReceiverID"].ToString());
 
                     DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
 
-                    ChatMessage chatMessage = new ChatMessage(chatlogID, receiverID, senderID, content, timeStamp );
+                    ChatMessage chatMessage = new ChatMessage(chatlogID, receiverID, senderID, content, timeStamp);
                     chatMessageList.Add(chatMessage);
                 }
 
