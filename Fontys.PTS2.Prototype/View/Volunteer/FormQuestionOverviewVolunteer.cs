@@ -79,6 +79,7 @@ namespace Fontys.PTS2.Prototype.View
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
                 
+
                 Form questionReaction = new FormQuestionReaction(ql.GetSingleQuestion(selectedId));
                 questionReaction.Show();
             }

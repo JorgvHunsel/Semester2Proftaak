@@ -53,11 +53,44 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
+        public void EditUser(User currentUser)
+        {
+            try
+            {
+                string query = "UPDATE [User] " +
+                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City " +
+                               "WHERE UserID = @UserID";
+                _conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, _conn))
+                {
+                    cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
+                    cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
+                    cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
+                    cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
+                    cmd.Parameters.AddWithValue("@Address", currentUser.Address);
+                    cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
+                    cmd.Parameters.AddWithValue("@City", currentUser.City);
+                    cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
         public List<string> GetAllUsers()
         {
             try
             {
-                string query = "SELECT [FirstName] FROM [User] ";
+                string query = "SELECT [FirstName] FROM [User]";
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
@@ -89,9 +122,15 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT [UserID] FROM [User] WHERE [Email] = '" + email + "'";
+                string query = "SELECT [UserID] FROM [User] WHERE [Email] = @email";
                 _conn.Open();
+
+                SqlParameter emailParam = new SqlParameter();
+                emailParam.ParameterName = "@email";
+
                 SqlCommand cmd = new SqlCommand(query, _conn);
+                emailParam.Value = email;
+                cmd.Parameters.Add(emailParam);
 
                 int UserId = (int)cmd.ExecuteScalar();
 
@@ -110,12 +149,21 @@ namespace Fontys.PTS2.Prototype.Data
 
         public bool CheckValidityUser(string email, string password)
         {
-            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = '" + email + "' AND [Password] = '" + password + "'";
+            string query = "SELECT [Email], [Password] FROM [User] WHERE [Email] = @email AND [Password] = @password";
             _conn.Open();
+
+            SqlParameter emailParam = new SqlParameter();
+            emailParam.ParameterName = "@email";
+            SqlParameter passParam = new SqlParameter();
+            passParam.ParameterName = "@password";
+
             SqlCommand cmd = new SqlCommand(query, _conn);
+            emailParam.Value = email;
+            passParam.Value = password;
+            cmd.Parameters.Add(emailParam);
+            cmd.Parameters.Add(passParam);
 
             SqlDataReader reader = cmd.ExecuteReader();
-
 
             if (reader.HasRows)
             {
@@ -141,15 +189,17 @@ namespace Fontys.PTS2.Prototype.Data
             _conn.Close();
             return false;
         }
-        public User getCurrentUserInfo(int userId)
+        public User getCurrentUserInfo(string email)
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE [UserID] = " + userId;
+                string query = "SELECT * FROM [User] WHERE [Email] = @email";
                 _conn.Open();
                 SqlParameter useridParameter = new SqlParameter();
-                useridParameter.ParameterName = "@UserId";
+                useridParameter.ParameterName = "@email";
                 SqlCommand cmd = new SqlCommand(query, _conn);
+                useridParameter.Value = email;
+                cmd.Parameters.Add(useridParameter);
                 User currentUser = new Admin("a","b","c,","d","e","f", Convert.ToDateTime("1988/12/20"), User.Gender.M,true, User.AccountType.CareRecipient);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -159,7 +209,7 @@ namespace Fontys.PTS2.Prototype.Data
 
                         if (accountType == "Admin")
                         {
-                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
                             currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
@@ -167,7 +217,7 @@ namespace Fontys.PTS2.Prototype.Data
                         }
                         else if (accountType == "Professional")
                         {
-                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
                             currentUser = new Professional(reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),
@@ -176,7 +226,7 @@ namespace Fontys.PTS2.Prototype.Data
                         }
                         else if (accountType == "Volunteer")
                         {
-                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
                             currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
                                 reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
@@ -184,7 +234,7 @@ namespace Fontys.PTS2.Prototype.Data
                         }
                         else
                         {
-                            User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
                             bool status = true;
                             currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
                                 reader.GetString(7),

@@ -18,6 +18,17 @@ namespace Fontys.PTS2.Prototype.Classes
         private string Urgency { get; set; }
         public Category Category { get; private set; }
 
+        public Question(int questionId, string title, string content, QuestionStatus status, DateTime date, string urgency, Category category)
+        {
+            QuestionId = questionId;
+            Title = title;
+            Content = content;
+            Status = status;
+            Date = date;
+            Urgency = urgency;
+            Category = category;
+        }
+
         public Question(string title, string content, QuestionStatus status, DateTime date, string urgency, Category category)
         {
             Title = title;
@@ -27,6 +38,7 @@ namespace Fontys.PTS2.Prototype.Classes
             Urgency = urgency;
             Category = category;
         }
+
 
         public void PostQuestion(Question askedQuestion)
         {

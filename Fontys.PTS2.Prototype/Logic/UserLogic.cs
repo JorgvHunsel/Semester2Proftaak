@@ -56,9 +56,14 @@ namespace Fontys.PTS2.Prototype.Logic
             userRepo.AddNewUser(firstName, lastName, birthDate, genderString, email, address, postalCode, city, password, accountType);
         }
 
-        public static User getCurrentUserInfo(int userId)
+        public static User getCurrentUserInfo(string email)
         {
-            return userRepo.getCurrentUserInfo(userId);
+            return userRepo.getCurrentUserInfo(email);
+        }
+
+        public static void EditUser(User currentUser)
+        {
+            userRepo.EditUser(currentUser);
         }
 
     }

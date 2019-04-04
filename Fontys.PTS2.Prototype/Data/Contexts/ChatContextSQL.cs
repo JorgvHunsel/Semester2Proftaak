@@ -92,7 +92,7 @@ namespace Fontys.PTS2.Prototype.Data
 
                 _conn.Open();
                 SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
-
+                
                 DataTable dt = new DataTable();
                 sqlAdapter.Fill(dt);
 
