@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.CareRecipient;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -62,8 +63,9 @@ namespace Fontys.PTS2.Prototype.View
 
         }
 
-        private void btnLogOff_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
         }
     }
 }

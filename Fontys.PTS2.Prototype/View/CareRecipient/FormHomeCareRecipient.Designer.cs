@@ -107,7 +107,8 @@
             // btnLogOff
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogOff.Location = new System.Drawing.Point(769, 29);
+            this.btnLogOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOff.Location = new System.Drawing.Point(784, 29);
             this.btnLogOff.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOff.Name = "btnLogOff";
             this.btnLogOff.Size = new System.Drawing.Size(144, 45);

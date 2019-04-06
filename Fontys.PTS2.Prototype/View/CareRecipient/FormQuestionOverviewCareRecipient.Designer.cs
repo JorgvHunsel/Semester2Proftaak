@@ -36,7 +36,7 @@
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnEditQuestion = new System.Windows.Forms.Button();
-            this.btnLogOff = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -48,7 +48,7 @@
             this.Urgency,
             this.Category});
             this.lvOpenQuestions.Location = new System.Drawing.Point(16, 71);
-            this.lvOpenQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvOpenQuestions.Margin = new System.Windows.Forms.Padding(4);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
             this.lvOpenQuestions.Size = new System.Drawing.Size(881, 467);
             this.lvOpenQuestions.TabIndex = 0;
@@ -89,8 +89,9 @@
             // 
             // btnEditQuestion
             // 
-            this.btnEditQuestion.Location = new System.Drawing.Point(909, 492);
-            this.btnEditQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditQuestion.Location = new System.Drawing.Point(905, 439);
+            this.btnEditQuestion.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditQuestion.Name = "btnEditQuestion";
             this.btnEditQuestion.Size = new System.Drawing.Size(144, 46);
             this.btnEditQuestion.TabIndex = 4;
@@ -98,17 +99,17 @@
             this.btnEditQuestion.UseVisualStyleBackColor = true;
             this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
             // 
-            // btnLogOff
+            // btnBack
             // 
-            this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogOff.Location = new System.Drawing.Point(905, 71);
-            this.btnLogOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnLogOff.Name = "btnLogOff";
-            this.btnLogOff.Size = new System.Drawing.Size(144, 45);
-            this.btnLogOff.TabIndex = 7;
-            this.btnLogOff.Text = "Uitloggen";
-            this.btnLogOff.UseVisualStyleBackColor = false;
-            this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(905, 492);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(144, 46);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Terug";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FormQuestionOverviewCareRecipient
             // 
@@ -116,11 +117,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1061, 554);
-            this.Controls.Add(this.btnLogOff);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.lblOpenRequests);
             this.Controls.Add(this.lvOpenQuestions);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormQuestionOverviewCareRecipient";
             this.Text = "Gemeente Eindhoven";
             this.ResumeLayout(false);
@@ -138,6 +139,6 @@
         private System.Windows.Forms.Label lblOpenRequests;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.Button btnEditQuestion;
-        private System.Windows.Forms.Button btnLogOff;
+        private System.Windows.Forms.Button btnBack;
     }
 }

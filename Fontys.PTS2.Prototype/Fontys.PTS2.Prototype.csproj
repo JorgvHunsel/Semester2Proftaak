@@ -186,6 +186,12 @@
     <Compile Include="View\Volunteer\FormAppointmentVolunteer.Designer.cs">
       <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Volunteer\FormHomeVolunteer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Volunteer\FormHomeVolunteer.Designer.cs">
+      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormAppointmentVolunteer.resx">
       <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Volunteer\FormHomeVolunteer.resx">
+      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormQuestionOverviewVolunteer.resx">
       <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>

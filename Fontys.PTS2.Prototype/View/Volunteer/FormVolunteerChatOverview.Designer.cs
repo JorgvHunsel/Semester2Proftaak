@@ -35,20 +35,19 @@
             this.Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChatID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ReceiverID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnOpenChat = new System.Windows.Forms.Button();
             this.btnMakeAppointment = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(86, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(17, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 46);
+            this.label1.Size = new System.Drawing.Size(230, 58);
             this.label1.TabIndex = 0;
             this.label1.Text = "Uw chats";
             // 
@@ -61,10 +60,10 @@
             this.ChatID,
             this.ReceiverID,
             this.QuestionID});
-            this.lvChats.Location = new System.Drawing.Point(94, 81);
-            this.lvChats.Margin = new System.Windows.Forms.Padding(2);
+            this.lvChats.Location = new System.Drawing.Point(27, 70);
+            this.lvChats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvChats.Name = "lvChats";
-            this.lvChats.Size = new System.Drawing.Size(646, 243);
+            this.lvChats.Size = new System.Drawing.Size(860, 298);
             this.lvChats.TabIndex = 1;
             this.lvChats.UseCompatibleStateImageBehavior = false;
             this.lvChats.View = System.Windows.Forms.View.Details;
@@ -93,12 +92,17 @@
             this.ReceiverID.Text = "Receiver ID";
             this.ReceiverID.Width = 0;
             // 
+            // QuestionID
+            // 
+            this.QuestionID.Text = "Question ID";
+            this.QuestionID.Width = 91;
+            // 
             // btnOpenChat
             // 
-            this.btnOpenChat.Location = new System.Drawing.Point(94, 328);
-            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOpenChat.Location = new System.Drawing.Point(27, 374);
+            this.btnOpenChat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenChat.Name = "btnOpenChat";
-            this.btnOpenChat.Size = new System.Drawing.Size(118, 58);
+            this.btnOpenChat.Size = new System.Drawing.Size(157, 71);
             this.btnOpenChat.TabIndex = 2;
             this.btnOpenChat.Text = "Open chat";
             this.btnOpenChat.UseVisualStyleBackColor = true;
@@ -106,10 +110,10 @@
             // 
             // btnMakeAppointment
             // 
-            this.btnMakeAppointment.Location = new System.Drawing.Point(529, 328);
-            this.btnMakeAppointment.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMakeAppointment.Location = new System.Drawing.Point(190, 374);
+            this.btnMakeAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMakeAppointment.Name = "btnMakeAppointment";
-            this.btnMakeAppointment.Size = new System.Drawing.Size(118, 58);
+            this.btnMakeAppointment.Size = new System.Drawing.Size(157, 71);
             this.btnMakeAppointment.TabIndex = 3;
             this.btnMakeAppointment.Text = "Maak afspraak";
             this.btnMakeAppointment.UseVisualStyleBackColor = true;
@@ -117,32 +121,27 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(94, 390);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBack.Location = new System.Drawing.Point(730, 375);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(118, 58);
+            this.btnBack.Size = new System.Drawing.Size(157, 71);
             this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Ga terug";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // QuestionID
-            // 
-            this.QuestionID.Text = "Question ID";
-            this.QuestionID.Width = 91;
-            // 
             // FormVolunteerChatOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(909, 457);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnMakeAppointment);
             this.Controls.Add(this.btnOpenChat);
             this.Controls.Add(this.lvChats);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormVolunteerChatOverview";
             this.Text = "FormVolunteerChatOverview";
             this.Load += new System.EventHandler(this.FormVolunteerChatOverview_Load);
