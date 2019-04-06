@@ -18,5 +18,7 @@ namespace Fontys.PTS2.Prototype.Logic
             reactionRepo.PostReaction(reaction);
         }
 
+        public List<Reaction> GetAllCommentsWithQuestionID(int id) => reactionRepo.GetAllCommentsWithQuestionID(id);
+
     }
 }

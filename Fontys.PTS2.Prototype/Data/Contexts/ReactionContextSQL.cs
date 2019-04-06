@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,45 @@ namespace Fontys.PTS2.Prototype.Data
             {
                 Console.WriteLine(e.Message);
                 throw e;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+        public List<Reaction> GetAllCommentsWithQuestionID(int questionid)
+        {
+            List<Reaction> reactionList = new List<Reaction>();
+            try
+            {
+                SqlCommand cmd = new SqlCommand("GetAllCommentsByQuestionID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionid;
+
+                _conn.Open();
+
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    string volunteerName = dr["VolunteerName"].ToString();
+                    string description = dr["Description"].ToString();
+                    int volunteerID = Convert.ToInt32(dr["SenderID"].ToString());
+
+                    DateTime timeStamp = Convert.ToDateTime(dr["Timestamp"].ToString());
+
+                    
+                    reactionList.Add(new Reaction(questionid, volunteerID, description, volunteerName));
+                }
+
+                return reactionList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
             }
             finally
             {

@@ -11,5 +11,6 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
     {
         //hier komen de methodes van reactioncontextsql
         void PostReaction(Reaction reaction);
+        List<Reaction> GetAllCommentsWithQuestionID(int id);
     }
 }

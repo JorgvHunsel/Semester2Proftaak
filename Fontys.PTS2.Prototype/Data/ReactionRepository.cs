@@ -24,5 +24,7 @@ namespace Fontys.PTS2.Prototype.Data
 
         //hier komen de methodes die gegevens doorgeven aan context.
         public void PostReaction(Reaction reaction) => context.PostReaction(reaction);
+
+        public List<Reaction> GetAllCommentsWithQuestionID(int id) => context.GetAllCommentsWithQuestionID(id);
     }
 }

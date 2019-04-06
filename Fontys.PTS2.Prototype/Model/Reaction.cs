@@ -12,12 +12,14 @@ namespace Fontys.PTS2.Prototype.Classes
        public int QuestionId { get; set; }
        public int SenderId { get; set; }
        public string Description { get; set; }
+       public string VolunteerName { get; set; }
 
-       public Reaction(int questionId, int senderId, string description)
+       public Reaction(int questionId, int senderId, string description, string volunteerName)
        {
            QuestionId = questionId;
            SenderId = senderId;
            Description = description;
+           VolunteerName = volunteerName;
        }
 
        public override string ToString()
