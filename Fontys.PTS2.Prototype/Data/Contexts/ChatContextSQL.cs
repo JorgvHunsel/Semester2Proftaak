@@ -161,7 +161,8 @@ namespace Fontys.PTS2.Prototype.Data
                 cmd.Parameters.Add("@senderid", SqlDbType.Int).Value = senderid;
                 cmd.Parameters.Add("@receiverid", SqlDbType.Int).Value = receiverid;
                 cmd.Parameters.Add("@message", SqlDbType.NVarChar).Value = message;
-
+                
+                _conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -184,6 +185,7 @@ namespace Fontys.PTS2.Prototype.Data
                 cmd.Parameters.Add("@volunteerID", SqlDbType.Int).Value = volunteerID;
                 cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = careRecipientID;
 
+                _conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)

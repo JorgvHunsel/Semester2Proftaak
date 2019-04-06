@@ -134,7 +134,10 @@ namespace Fontys.PTS2.Prototype.Data
                 cmd.Parameters.Add("@urgency", SqlDbType.NVarChar).Value = askedQuestion.Urgency;
                 cmd.Parameters.Add("@categoryID", SqlDbType.Int).Value = askedQuestion.Category.CategoryID;
                 cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = askedQuestion.CareRecipientId;
-                
+                cmd.Parameters.Add("@datetime", SqlDbType.DateTime).Value = DateTime.Now;
+
+
+                _conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -224,7 +227,8 @@ namespace Fontys.PTS2.Prototype.Data
                 cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = contentNew;
                 cmd.Parameters.Add("@urgency", SqlDbType.NVarChar).Value = urgency;
                 cmd.Parameters.Add("@questionid", SqlDbType.Int).Value = questionID;
-
+                
+                _conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
