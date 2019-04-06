@@ -33,18 +33,21 @@
             // 
             // lvQuestionOverview
             // 
-            this.lvQuestionOverview.Location = new System.Drawing.Point(12, 58);
+            this.lvQuestionOverview.Location = new System.Drawing.Point(16, 71);
+            this.lvQuestionOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvQuestionOverview.Name = "lvQuestionOverview";
-            this.lvQuestionOverview.Size = new System.Drawing.Size(662, 380);
+            this.lvQuestionOverview.Size = new System.Drawing.Size(881, 467);
             this.lvQuestionOverview.TabIndex = 1;
             this.lvQuestionOverview.UseCompatibleStateImageBehavior = false;
             // 
             // QuestionOverviewAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.lvQuestionOverview);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "QuestionOverviewAdminForm";
             this.Text = "QuestionOverviewAdminForm";
             this.ResumeLayout(false);

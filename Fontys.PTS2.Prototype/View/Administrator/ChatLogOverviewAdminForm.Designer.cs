@@ -33,18 +33,21 @@
             // 
             // lvChatLogOverview
             // 
-            this.lvChatLogOverview.Location = new System.Drawing.Point(12, 58);
+            this.lvChatLogOverview.Location = new System.Drawing.Point(16, 71);
+            this.lvChatLogOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvChatLogOverview.Name = "lvChatLogOverview";
-            this.lvChatLogOverview.Size = new System.Drawing.Size(662, 380);
+            this.lvChatLogOverview.Size = new System.Drawing.Size(881, 467);
             this.lvChatLogOverview.TabIndex = 0;
             this.lvChatLogOverview.UseCompatibleStateImageBehavior = false;
             // 
             // ChatLogOverviewAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1061, 554);
             this.Controls.Add(this.lvChatLogOverview);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ChatLogOverviewAdminForm";
             this.Text = "ChatLogOverviewAdminForm";
             this.ResumeLayout(false);

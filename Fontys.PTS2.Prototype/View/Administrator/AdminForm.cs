@@ -31,5 +31,20 @@ namespace Fontys.PTS2.Prototype.View.Administrator
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new QuestionOverviewAdminForm());
         }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAccountType_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogOff_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
+        }
     }
 }

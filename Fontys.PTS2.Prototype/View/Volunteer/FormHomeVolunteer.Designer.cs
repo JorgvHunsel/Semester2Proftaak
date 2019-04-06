@@ -40,7 +40,7 @@
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOff.Location = new System.Drawing.Point(806, 31);
+            this.btnLogOff.Location = new System.Drawing.Point(284, 26);
             this.btnLogOff.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOff.Name = "btnLogOff";
             this.btnLogOff.Size = new System.Drawing.Size(144, 45);
@@ -52,10 +52,10 @@
             // btnAccount
             // 
             this.btnAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Location = new System.Drawing.Point(28, 335);
+            this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccount.Location = new System.Drawing.Point(28, 244);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(691, 80);
+            this.btnAccount.Size = new System.Drawing.Size(400, 65);
             this.btnAccount.TabIndex = 14;
             this.btnAccount.Text = "Mijn account";
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -64,10 +64,10 @@
             // btnOpenQuestion
             // 
             this.btnOpenQuestion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOpenQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenQuestion.Location = new System.Drawing.Point(28, 220);
+            this.btnOpenQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenQuestion.Location = new System.Drawing.Point(28, 173);
             this.btnOpenQuestion.Name = "btnOpenQuestion";
-            this.btnOpenQuestion.Size = new System.Drawing.Size(691, 80);
+            this.btnOpenQuestion.Size = new System.Drawing.Size(400, 65);
             this.btnOpenQuestion.TabIndex = 12;
             this.btnOpenQuestion.Text = "Chat overzicht";
             this.btnOpenQuestion.UseVisualStyleBackColor = false;
@@ -76,7 +76,7 @@
             // lblAccountType
             // 
             this.lblAccountType.AutoSize = true;
-            this.lblAccountType.Location = new System.Drawing.Point(802, 10);
+            this.lblAccountType.Location = new System.Drawing.Point(280, 5);
             this.lblAccountType.Name = "lblAccountType";
             this.lblAccountType.Size = new System.Drawing.Size(148, 17);
             this.lblAccountType.TabIndex = 11;
@@ -85,10 +85,10 @@
             // btnOpenQuestions
             // 
             this.btnOpenQuestions.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOpenQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpenQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpenQuestions.Location = new System.Drawing.Point(28, 102);
             this.btnOpenQuestions.Name = "btnOpenQuestions";
-            this.btnOpenQuestions.Size = new System.Drawing.Size(691, 80);
+            this.btnOpenQuestions.Size = new System.Drawing.Size(400, 65);
             this.btnOpenQuestions.TabIndex = 10;
             this.btnOpenQuestions.Text = "Open hulpvragen";
             this.btnOpenQuestions.UseVisualStyleBackColor = false;
@@ -109,7 +109,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(962, 435);
+            this.ClientSize = new System.Drawing.Size(467, 343);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnOpenQuestion);

@@ -33,8 +33,8 @@
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AccountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AccountStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AccountStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvAccountOverview
@@ -46,9 +46,10 @@
             this.AccountType,
             this.Rating,
             this.AccountStatus});
-            this.lvAccountOverview.Location = new System.Drawing.Point(12, 58);
+            this.lvAccountOverview.Location = new System.Drawing.Point(16, 71);
+            this.lvAccountOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvAccountOverview.Name = "lvAccountOverview";
-            this.lvAccountOverview.Size = new System.Drawing.Size(662, 380);
+            this.lvAccountOverview.Size = new System.Drawing.Size(881, 467);
             this.lvAccountOverview.TabIndex = 0;
             this.lvAccountOverview.UseCompatibleStateImageBehavior = false;
             this.lvAccountOverview.View = System.Windows.Forms.View.Details;
@@ -73,22 +74,24 @@
             this.AccountType.Text = "Type Account";
             this.AccountType.Width = 82;
             // 
-            // AccountStatus
-            // 
-            this.AccountStatus.Text = "Status";
-            this.AccountStatus.Width = 48;
-            // 
             // Rating
             // 
             this.Rating.Text = "Beoordeling";
             this.Rating.Width = 71;
             // 
+            // AccountStatus
+            // 
+            this.AccountStatus.Text = "Status";
+            this.AccountStatus.Width = 48;
+            // 
             // AccountOverviewAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1061, 554);
             this.Controls.Add(this.lvAccountOverview);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AccountOverviewAdminForm";
             this.Text = "AccountOverviewAdminForm";
             this.ResumeLayout(false);
