@@ -14,5 +14,6 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
         List<ChatLog> GetAllOpenChatsWithCareRecipientID(int userid);
         List<ChatMessage> LoadMessageAsListUsingChatLogID(int chatID);
         void SendMessage(int chatid, int receiverid, int senderid, string message);
+        void CreateNewChatLog(int reactionID, int volunteerID, int careRecipientID);
     }
 }

@@ -207,5 +207,27 @@ namespace Fontys.PTS2.Prototype.Data
                 _conn.Close();
             }
         }
+
+        public void CreateNewChatLog(int reactionID, int volunteerID, int careRecipientID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("CreateNewChatLog", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@reactionID", SqlDbType.Int).Value = reactionID;
+                cmd.Parameters.Add("@volunteerID", SqlDbType.Int).Value = volunteerID;
+                cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = careRecipientID;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
     }
 }

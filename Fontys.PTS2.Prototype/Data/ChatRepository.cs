@@ -37,5 +37,9 @@ namespace Fontys.PTS2.Prototype.Data
 
         public void SendMessage(int chatid, int receiverid, int senderid, string message) =>
            context.SendMessage(chatid, receiverid, senderid, message);
+
+        public void CreateNewChatLog(int reactionID, int volunteerID, int careRecipientID) =>
+            context.CreateNewChatLog(reactionID, volunteerID, careRecipientID);
+
     }
 }
