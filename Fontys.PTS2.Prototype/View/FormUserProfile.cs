@@ -15,6 +15,7 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormUserProfile : Form
     {
+        User currentUser = LoginPrototype.currentUser;
 
         public FormUserProfile()
         {
@@ -23,9 +24,6 @@ namespace Fontys.PTS2.Prototype.View
 
         private void FormUserProfile_Load(object sender, EventArgs e)
         {
-
-            User currentUser = LoginPrototype.currentUser;
-
             lblTitle.Text = $"Welkom {currentUser.FirstName}";
             tbFirstName.Text = currentUser.FirstName;
             tbLastName.Text = currentUser.LastName;
@@ -88,12 +86,16 @@ namespace Fontys.PTS2.Prototype.View
             string passwordValidate = tbPassValidation.Text;
 
             if (LoginPrototype.currentUser.UserAccountType == User.AccountType.CareRecipient)
-                editUser = new Classes.CareRecipient(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
+                editUser = new Classes.CareRecipient(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
             else if (LoginPrototype.currentUser.UserAccountType == User.AccountType.Volunteer)
-                editUser = new Classes.Volunteer(firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
+                editUser = new Classes.Volunteer(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
 
             if (password == passwordValidate)
+            {
                 UserLogic.EditUser(editUser, password);
+                LoginPrototype.currentUser = editUser;
+            }
+
             else
             {
                 MessageBox.Show("Het wachtwoord komt niet overeen");
@@ -101,6 +103,10 @@ namespace Fontys.PTS2.Prototype.View
             }
 
             btnSave.Visible = false;
+            lblTitle.Text = $"Welkom {currentUser.FirstName}";
+
         }
+
+
     }
 }
