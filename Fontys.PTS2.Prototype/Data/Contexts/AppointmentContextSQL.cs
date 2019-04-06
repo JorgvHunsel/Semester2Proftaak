@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
@@ -15,13 +16,10 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "INSERT INTO [Appointment] " +
-                               "([Question_ID], [CareRecipient_ID], [Volunteer_ID], [TimeStamp_appointment]) " +
-                               "VALUES " +
-                               "(@questionID, @careRecipientID, @volunteerID, @timestampAppointment)";
                 _conn.Open();
-                using (SqlCommand cmd = new SqlCommand(query, _conn))
+                using (SqlCommand cmd = new SqlCommand("CreateAppointment", _conn))
                 {
+                    cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@questionID", appointment.QuestionId);
                     cmd.Parameters.AddWithValue("@careRecipientID", appointment.CareRecipientId);
                     cmd.Parameters.AddWithValue("@volunteerID", appointment.VolunteerId);
@@ -29,8 +27,6 @@ namespace Fontys.PTS2.Prototype.Data
                    
                     cmd.ExecuteNonQuery();
                 }
-
-                
             }
             catch (Exception e)
             {
