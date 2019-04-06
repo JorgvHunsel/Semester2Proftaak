@@ -13,12 +13,13 @@ namespace Fontys.PTS2.Prototype.Classes
         public int QuestionId { get; private set; }
         public string Title { get; private set; }
         public string Content { get; private set; }
-        private QuestionStatus Status { get; set; }
-        private DateTime Date { get; set; }
-        private string Urgency { get; set; }
+        public QuestionStatus Status { get; set; }
+        public DateTime Date { get; set; }
+        public string Urgency { get; set; }
         public Category Category { get; private set; }
+        public int CareRecipientId { get; private set; }
 
-        public Question(int questionId, string title, string content, QuestionStatus status, DateTime date, string urgency, Category category)
+        public Question(int questionId, string title, string content, QuestionStatus status, DateTime date, string urgency, Category category, int careRecipientID)
         {
             QuestionId = questionId;
             Title = title;
@@ -27,9 +28,10 @@ namespace Fontys.PTS2.Prototype.Classes
             Date = date;
             Urgency = urgency;
             Category = category;
+            CareRecipientId = careRecipientID;
         }
 
-        public Question(string title, string content, QuestionStatus status, DateTime date, string urgency, Category category)
+        public Question(string title, string content, QuestionStatus status, DateTime date, string urgency, Category category, int careRecipientID)
         {
             Title = title;
             Content = content;
@@ -37,8 +39,8 @@ namespace Fontys.PTS2.Prototype.Classes
             Date = date;
             Urgency = urgency;
             Category = category;
+            CareRecipientId = careRecipientID;
         }
-
 
         public void PostQuestion(Question askedQuestion)
         {
