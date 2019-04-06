@@ -134,7 +134,7 @@ namespace Fontys.PTS2.Prototype.Data
                 cmd.Parameters.Add("@urgency", SqlDbType.NVarChar).Value = askedQuestion.Urgency;
                 cmd.Parameters.Add("@categoryID", SqlDbType.Int).Value = askedQuestion.Category.CategoryID;
                 cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = askedQuestion.CareRecipientId;
-                cmd.Parameters.Add("@datetime", SqlDbType.DateTime).Value = DateTime.Now;
+                cmd.Parameters.Add("@datetime", SqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy-M-d hh:mm tt");
 
 
                 _conn.Open();
