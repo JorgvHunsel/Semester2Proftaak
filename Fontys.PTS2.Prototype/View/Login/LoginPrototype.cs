@@ -11,6 +11,7 @@ using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
 using Fontys.PTS2.Prototype.View.Administrator;
+using Fontys.PTS2.Prototype.View.CareRecipient;
 using Fontys.PTS2.Prototype.View.Login;
 
 namespace Fontys.PTS2.Prototype.View
@@ -42,7 +43,7 @@ namespace Fontys.PTS2.Prototype.View
                 {
                     currentUser = UserLogic.getCurrentUserInfo(selectedUser);
                     if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
                     else if (currentUser.UserAccountType == User.AccountType.Volunteer)
                         ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
                     else if (currentUser.UserAccountType == User.AccountType.Admin)

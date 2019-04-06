@@ -24,8 +24,6 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            
-
             DataTable dt = ql.GetAllOpenQuestions();
 
             //Adding each row into listview with foreach + for loop
@@ -66,12 +64,6 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnLogOff_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
-        }
-
-        private void btnToUserProfile_Click(object sender, EventArgs e)
-        {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormUserProfile());
         }
     }
 }

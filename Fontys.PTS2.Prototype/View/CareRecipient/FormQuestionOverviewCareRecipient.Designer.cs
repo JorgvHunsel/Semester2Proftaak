@@ -36,9 +36,7 @@
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnEditQuestion = new System.Windows.Forms.Button();
-            this.btnAskQuestion = new System.Windows.Forms.Button();
             this.btnLogOff = new System.Windows.Forms.Button();
-            this.btnToUserProfile = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -49,9 +47,10 @@
             this.Date,
             this.Urgency,
             this.Category});
-            this.lvOpenQuestions.Location = new System.Drawing.Point(12, 58);
+            this.lvOpenQuestions.Location = new System.Drawing.Point(16, 71);
+            this.lvOpenQuestions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
-            this.lvOpenQuestions.Size = new System.Drawing.Size(662, 380);
+            this.lvOpenQuestions.Size = new System.Drawing.Size(881, 467);
             this.lvOpenQuestions.TabIndex = 0;
             this.lvOpenQuestions.UseCompatibleStateImageBehavior = false;
             this.lvOpenQuestions.View = System.Windows.Forms.View.Details;
@@ -82,66 +81,46 @@
             // 
             this.lblOpenRequests.AutoSize = true;
             this.lblOpenRequests.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOpenRequests.Location = new System.Drawing.Point(9, 7);
-            this.lblOpenRequests.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblOpenRequests.Location = new System.Drawing.Point(12, 9);
             this.lblOpenRequests.Name = "lblOpenRequests";
-            this.lblOpenRequests.Size = new System.Drawing.Size(799, 46);
+            this.lblOpenRequests.Size = new System.Drawing.Size(1012, 58);
             this.lblOpenRequests.TabIndex = 2;
             this.lblOpenRequests.Text = "Hulpbehoevende - Openstaande hulpvragen";
             // 
             // btnEditQuestion
             // 
-            this.btnEditQuestion.Location = new System.Drawing.Point(682, 400);
+            this.btnEditQuestion.Location = new System.Drawing.Point(909, 492);
+            this.btnEditQuestion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditQuestion.Name = "btnEditQuestion";
-            this.btnEditQuestion.Size = new System.Drawing.Size(108, 37);
+            this.btnEditQuestion.Size = new System.Drawing.Size(144, 46);
             this.btnEditQuestion.TabIndex = 4;
             this.btnEditQuestion.Text = "Bewerk vraag";
             this.btnEditQuestion.UseVisualStyleBackColor = true;
             this.btnEditQuestion.Click += new System.EventHandler(this.btnEditQuestion_Click);
             // 
-            // btnAskQuestion
-            // 
-            this.btnAskQuestion.Location = new System.Drawing.Point(682, 356);
-            this.btnAskQuestion.Name = "btnAskQuestion";
-            this.btnAskQuestion.Size = new System.Drawing.Size(108, 37);
-            this.btnAskQuestion.TabIndex = 6;
-            this.btnAskQuestion.Text = "Hulpvraag stellen";
-            this.btnAskQuestion.UseVisualStyleBackColor = true;
-            this.btnAskQuestion.Click += new System.EventHandler(this.btnAskQuestion_Click);
-            // 
             // btnLogOff
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnLogOff.Location = new System.Drawing.Point(679, 58);
+            this.btnLogOff.Location = new System.Drawing.Point(905, 71);
+            this.btnLogOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOff.Name = "btnLogOff";
-            this.btnLogOff.Size = new System.Drawing.Size(108, 25);
+            this.btnLogOff.Size = new System.Drawing.Size(144, 45);
             this.btnLogOff.TabIndex = 7;
             this.btnLogOff.Text = "Uitloggen";
             this.btnLogOff.UseVisualStyleBackColor = false;
             this.btnLogOff.Click += new System.EventHandler(this.btnLogOff_Click);
             // 
-            // btnToUserProfile
-            // 
-            this.btnToUserProfile.Location = new System.Drawing.Point(679, 89);
-            this.btnToUserProfile.Name = "btnToUserProfile";
-            this.btnToUserProfile.Size = new System.Drawing.Size(108, 22);
-            this.btnToUserProfile.TabIndex = 8;
-            this.btnToUserProfile.Text = "Accountgegevens";
-            this.btnToUserProfile.UseVisualStyleBackColor = true;
-            this.btnToUserProfile.Click += new System.EventHandler(this.btnToUserProfile_Click);
-            // 
             // FormQuestionOverviewCareRecipient
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(796, 450);
-            this.Controls.Add(this.btnToUserProfile);
+            this.ClientSize = new System.Drawing.Size(1061, 554);
             this.Controls.Add(this.btnLogOff);
-            this.Controls.Add(this.btnAskQuestion);
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.lblOpenRequests);
             this.Controls.Add(this.lvOpenQuestions);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormQuestionOverviewCareRecipient";
             this.Text = "Gemeente Eindhoven";
             this.ResumeLayout(false);
@@ -159,8 +138,6 @@
         private System.Windows.Forms.Label lblOpenRequests;
         private System.Windows.Forms.ColumnHeader Category;
         private System.Windows.Forms.Button btnEditQuestion;
-        private System.Windows.Forms.Button btnAskQuestion;
         private System.Windows.Forms.Button btnLogOff;
-        private System.Windows.Forms.Button btnToUserProfile;
     }
 }

@@ -13,6 +13,7 @@ using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
 using Fontys.PTS2.Prototype.View;
+using Fontys.PTS2.Prototype.View.CareRecipient;
 
 namespace Fontys.PTS2.Prototype
 {
@@ -92,7 +93,7 @@ namespace Fontys.PTS2.Prototype
         // Button to move to FormQuestionOverviewVolunteer
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
         }
     }
 }
