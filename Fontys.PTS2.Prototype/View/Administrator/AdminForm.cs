@@ -16,5 +16,20 @@ namespace Fontys.PTS2.Prototype.View.Administrator
         {
             InitializeComponent();
         }
+
+        private void btnAccountOverview_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new AccountOverviewAdminForm());
+        }
+
+        private void btnChatLogOverview_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new ChatLogOverviewAdminForm());
+        }
+
+        private void btnQuestionOverview_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new QuestionOverviewAdminForm());
+        }
     }
 }

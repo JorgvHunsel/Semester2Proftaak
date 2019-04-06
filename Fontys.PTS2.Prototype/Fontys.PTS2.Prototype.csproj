@@ -118,10 +118,10 @@
     <Compile Include="View\Administrator\ChatLogOverviewAdminForm.Designer.cs">
       <DependentUpon>ChatLogOverviewAdminForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Administrator\EditQuestion.cs">
+    <Compile Include="View\CareRecipient\EditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\EditQuestion.Designer.cs">
+    <Compile Include="View\CareRecipient\EditQuestion.Designer.cs">
       <DependentUpon>EditQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Administrator\QuestionOverviewAdminForm.cs">
@@ -222,11 +222,20 @@
     <Compile Include="View\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Administrator\AccountOverviewAdminForm.resx">
+      <DependentUpon>AccountOverviewAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Administrator\AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Administrator\EditQuestion.resx">
+    <EmbeddedResource Include="View\Administrator\ChatLogOverviewAdminForm.resx">
+      <DependentUpon>ChatLogOverviewAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CareRecipient\EditQuestion.resx">
       <DependentUpon>EditQuestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Administrator\QuestionOverviewAdminForm.resx">
+      <DependentUpon>QuestionOverviewAdminForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChat.resx">
       <DependentUpon>FormCareRecipientChat.cs</DependentUpon>

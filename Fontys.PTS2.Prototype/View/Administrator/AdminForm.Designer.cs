@@ -28,69 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.lblHi = new System.Windows.Forms.Label();
+            this.btnAccountOverview = new System.Windows.Forms.Button();
+            this.btnChatLogOverview = new System.Windows.Forms.Button();
+            this.btnQuestionOverview = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnAccountOverview
             // 
-            this.button1.Location = new System.Drawing.Point(102, 67);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 37);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Accounts beheren";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAccountOverview.Location = new System.Drawing.Point(102, 67);
+            this.btnAccountOverview.Name = "btnAccountOverview";
+            this.btnAccountOverview.Size = new System.Drawing.Size(146, 37);
+            this.btnAccountOverview.TabIndex = 0;
+            this.btnAccountOverview.Text = "Accounts beheren";
+            this.btnAccountOverview.UseVisualStyleBackColor = true;
+            this.btnAccountOverview.Click += new System.EventHandler(this.btnAccountOverview_Click);
             // 
-            // button2
+            // btnChatLogOverview
             // 
-            this.button2.Location = new System.Drawing.Point(102, 110);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(146, 37);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Chatlogs inzien";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnChatLogOverview.Location = new System.Drawing.Point(102, 110);
+            this.btnChatLogOverview.Name = "btnChatLogOverview";
+            this.btnChatLogOverview.Size = new System.Drawing.Size(146, 37);
+            this.btnChatLogOverview.TabIndex = 1;
+            this.btnChatLogOverview.Text = "Chatlogs inzien";
+            this.btnChatLogOverview.UseVisualStyleBackColor = true;
+            this.btnChatLogOverview.Click += new System.EventHandler(this.btnChatLogOverview_Click);
             // 
-            // button3
+            // btnQuestionOverview
             // 
-            this.button3.Location = new System.Drawing.Point(102, 153);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(146, 37);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Hulpvragen inzien";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnQuestionOverview.Location = new System.Drawing.Point(102, 153);
+            this.btnQuestionOverview.Name = "btnQuestionOverview";
+            this.btnQuestionOverview.Size = new System.Drawing.Size(146, 37);
+            this.btnQuestionOverview.TabIndex = 2;
+            this.btnQuestionOverview.Text = "Hulpvragen inzien";
+            this.btnQuestionOverview.UseVisualStyleBackColor = true;
+            this.btnQuestionOverview.Click += new System.EventHandler(this.btnQuestionOverview_Click);
             // 
-            // button4
+            // btnLogout
             // 
-            this.button4.Location = new System.Drawing.Point(102, 196);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(146, 37);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Uitloggen";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLogout.Location = new System.Drawing.Point(102, 196);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(146, 37);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Uitloggen";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // lblHi
+            // lblWelcome
             // 
-            this.lblHi.AutoSize = true;
-            this.lblHi.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.lblHi.Location = new System.Drawing.Point(99, 9);
-            this.lblHi.Name = "lblHi";
-            this.lblHi.Size = new System.Drawing.Size(149, 39);
-            this.lblHi.TabIndex = 4;
-            this.lblHi.Text = "Welkom!";
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblWelcome.Location = new System.Drawing.Point(99, 9);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(149, 39);
+            this.lblWelcome.TabIndex = 4;
+            this.lblWelcome.Text = "Welkom!";
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(370, 262);
-            this.Controls.Add(this.lblHi);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.btnLogout);
+            this.Controls.Add(this.btnQuestionOverview);
+            this.Controls.Add(this.btnChatLogOverview);
+            this.Controls.Add(this.btnAccountOverview);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
             this.ResumeLayout(false);
@@ -100,10 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label lblHi;
+        private System.Windows.Forms.Button btnAccountOverview;
+        private System.Windows.Forms.Button btnChatLogOverview;
+        private System.Windows.Forms.Button btnQuestionOverview;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Label lblWelcome;
     }
 }

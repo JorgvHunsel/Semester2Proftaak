@@ -28,12 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lvQuestionOverview = new System.Windows.Forms.ListView();
+            this.SuspendLayout();
+            // 
+            // lvQuestionOverview
+            // 
+            this.lvQuestionOverview.Location = new System.Drawing.Point(12, 58);
+            this.lvQuestionOverview.Name = "lvQuestionOverview";
+            this.lvQuestionOverview.Size = new System.Drawing.Size(662, 380);
+            this.lvQuestionOverview.TabIndex = 1;
+            this.lvQuestionOverview.UseCompatibleStateImageBehavior = false;
+            // 
+            // QuestionOverviewAdminForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lvQuestionOverview);
+            this.Name = "QuestionOverviewAdminForm";
             this.Text = "QuestionOverviewAdminForm";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.ListView lvQuestionOverview;
     }
 }
