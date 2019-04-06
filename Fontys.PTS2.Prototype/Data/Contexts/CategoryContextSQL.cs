@@ -17,16 +17,16 @@ namespace Fontys.PTS2.Prototype.Data
 
         public List<Category> GetAllCategories()
         {
+            List<Category> categoryList = new List<Category>();
             try
             {
-                string query = "SELECT [CategoryID], [Name], [Description] FROM [Category]";
+
+                SqlCommand cmd = new SqlCommand("GetAllCategories", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
-
-                List<Category> categoryList = new List<Category>();
+                dt.Load(cmd.ExecuteReader());
 
                 foreach (DataRow row in dt.Rows)
                 {

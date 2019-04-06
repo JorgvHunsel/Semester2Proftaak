@@ -68,33 +68,14 @@ namespace Fontys.PTS2.Prototype.Data
             List<ChatLog> chatLogList = new List<ChatLog>();
             try
             {
-                string query = "SELECT Chatlog.[ChatLogID]" +
-                               ", Chatlog.[ReactionID]" +
-                               ", Chatlog.[CareRecipientID]" +
-                               ", Chatlog.[VolunteerID]" +
-                               ", Chatlog.[TimeStamp]" +
-                               ", Question.[Title]" +
-                               ", Question.[QuestionID]" +
-
-                               ", [Volunteer].Firstname as VolunteerFirstName" +
-                               ", [Volunteer].LastName as VolunteerLastName" +
-
-                               ", [CareRecipient].Firstname as CareRecipientFirstName" +
-                               ", [CareRecipient].LastName as CareRecipientLastName" +
-
-                               " FROM[dbo].[ChatLog] AS Chatlog" +
-
-                               " INNER JOIN[User] As Volunteer ON Volunteer.UserID = VolunteerID" +
-                               " INNER JOIN[User] As CareRecipient ON CareRecipient.UserID = CareRecipientID" +
-                               " INNER JOIN[Reaction] As Reaction on Reaction.ReactionID = Chatlog.ReactionID" +
-                               " INNER JOIN[Question] AS Question ON Question.QuestionID = Reaction.QuestionID" +
-                               " WHERE Chatlog.[CareRecipientID] = " + userid + " ;";
+                SqlCommand cmd = new SqlCommand("GetAllChatsByCareRecipientID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@userid", SqlDbType.Int).Value = userid;
 
                 _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
-                
+
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+                dt.Load(cmd.ExecuteReader());
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -134,21 +115,13 @@ namespace Fontys.PTS2.Prototype.Data
             List<ChatMessage> chatMessageList = new List<ChatMessage>();
             try
             {
-                string query = "SELECT" +
-                               " M.ChatID" +
-                               ", M.SenderID" +
-                               ", M.ReceiverID" +
-                               ", M.Content" +
-                               ", M.TimeStamp" +
-                               " FROM [Message] M " +
-                               "INNER JOIN ChatLog C ON C.ChatLogID = M.ChatID " +
-                               "WHERE M.ChatID = " + chatID + "" +
-                               "ORDER BY M.TimeStamp asc";
+                SqlCommand cmd = new SqlCommand("LoadMessagesByChatLogID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
                 _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+                dt.Load(cmd.ExecuteReader());
 
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -182,25 +155,18 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                _conn.Open();
-                SqlCommand cmd = new SqlCommand
-                {
+                SqlCommand cmd = new SqlCommand("InsertMessage", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@chatid", SqlDbType.Int).Value = chatid;
+                cmd.Parameters.Add("@senderid", SqlDbType.Int).Value = senderid;
+                cmd.Parameters.Add("@receiverid", SqlDbType.Int).Value = receiverid;
+                cmd.Parameters.Add("@message", SqlDbType.NVarChar).Value = message;
 
-                    CommandType = System.Data.CommandType.Text,
-                    CommandText =
-                        "INSERT INTO [Message] ([ChatID], [Content], [SenderID], [ReceiverID])" +
-                        $"VALUES ({chatid}, '{message}', {senderid}, {receiverid})"
-
-
-                };
-
-                cmd.Connection = _conn;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw;
+
             }
             finally
             {
