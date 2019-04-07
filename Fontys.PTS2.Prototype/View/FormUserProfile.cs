@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.CareRecipient;
+using Fontys.PTS2.Prototype.View.Volunteer;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -65,9 +67,9 @@ namespace Fontys.PTS2.Prototype.View
         {
             User currentUser = LoginPrototype.currentUser;
             if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
             if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeVolunteer());
         }
 
         private void btnSave_Click(object sender, EventArgs e)

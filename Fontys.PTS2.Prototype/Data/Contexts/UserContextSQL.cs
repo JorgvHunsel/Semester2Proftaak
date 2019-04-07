@@ -26,7 +26,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "INSERT INTO [User] (FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Password, AccountType, Status) VALUES (@FirstName, @LastName, @Birthdate, @Sex, @Email, @Address, @PostalCode, @City, @Password, @AccountType, true)";
+                string query = "INSERT INTO [User] (FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Password, AccountType, Status) VALUES (@FirstName, @LastName, @Birthdate, @Sex, @Email, @Address, @PostalCode, @City, @Password, @AccountType, 'true')";
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
@@ -72,7 +72,7 @@ namespace Fontys.PTS2.Prototype.Data
                             "Address = @Address, " +
                             "PostalCode = @PostalCode, " +
                             "City = @City, " +
-                            "Password = @Password " +
+                            "Password = @Password, " +
                             "Status = @Status " +
                             "WHERE UserID = @UserID";
                 }
@@ -259,11 +259,10 @@ namespace Fontys.PTS2.Prototype.Data
                     Value = email
                 });
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                int numberofAccounts = (int) cmd.ExecuteScalar();
 
-                if (reader.HasRows)
+                if (numberofAccounts == 1)
                 {
-                    reader.Close();
                     return false;
                 }
             }
