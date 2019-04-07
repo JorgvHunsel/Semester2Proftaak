@@ -22,9 +22,10 @@ namespace Fontys.PTS2.Prototype.Data
                 SqlCommand cmd = new SqlCommand("InsertReaction", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.Add("@senderid", SqlDbType.Int).Value = reaction.SenderId;
+                cmd.Parameters.Add("@questionid", SqlDbType.Int).Value = reaction.QuestionId;
                 cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = reaction.Description;
-
-                cmd.Connection = _conn;
+                
+                _conn.Open();
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)

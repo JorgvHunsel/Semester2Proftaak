@@ -25,7 +25,7 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            DataTable dt = ql.GetAllOpenQuestions();
+            DataTable dt = ql.GetAllOpenQuestionCareRecipientID(LoginPrototype.currentUser.UserId);
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)

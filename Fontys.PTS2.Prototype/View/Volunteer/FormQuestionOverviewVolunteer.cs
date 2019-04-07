@@ -21,8 +21,6 @@ namespace Fontys.PTS2.Prototype.View
         {
             InitializeComponent();
             LoadQuestionsToList();
-
-            
         }
 
 
