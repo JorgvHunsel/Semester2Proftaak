@@ -26,7 +26,7 @@ namespace Fontys.PTS2.Prototype.Data
 
         public int GetUserId(string firstName) => context.GetUserId(firstName);
 
-        public List<string> GetAllUsers() => context.GetAllUsers();
+        public List<User> GetAllUsers() => context.GetAllUsers();
 
         public void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email,
             string address, string postalCode, string city, string password, string accountType) =>

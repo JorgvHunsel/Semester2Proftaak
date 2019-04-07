@@ -25,7 +25,7 @@ namespace Fontys.PTS2.Prototype.Logic
             return userRepo.GetUserId(firstName);
         }
 
-        public static List<string> GetAllUsers()
+        public static List<User> GetAllUsers()
         {
             return userRepo.GetAllUsers();
         }

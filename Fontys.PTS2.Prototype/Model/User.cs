@@ -22,7 +22,7 @@ namespace Fontys.PTS2.Prototype.Classes
         public DateTime BirthDate { get; private set; }
         public Gender UserGender { get;  private set; }
         public AccountType UserAccountType { get; private set; }
-        private bool Status { get; set; }
+        public bool Status { get; set; }
 
         protected User(string firstName, string lastName, string address, string city, string postalCode, string emailAddress, DateTime birthDate, Gender userGender, bool status, AccountType accountType)
         {

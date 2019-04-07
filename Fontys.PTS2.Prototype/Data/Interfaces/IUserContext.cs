@@ -12,7 +12,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
         void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email,
             string address, string postalCode, string city, string password, string accountType);
 
-        List<string> GetAllUsers();
+        List<User> GetAllUsers();
 
         int GetUserId(string firstName);
 
