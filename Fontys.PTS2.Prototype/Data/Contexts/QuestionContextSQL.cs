@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
+using Fontys.PTS2.Prototype.View;
 
 namespace Fontys.PTS2.Prototype.Data
 {
@@ -125,23 +126,23 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
+                SqlCommand cmd = new SqlCommand("InsertQuestion", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@status", SqlDbType.VarChar).Value = askedQuestion.Status;
+                cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = askedQuestion.Title;
+                cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = askedQuestion.Content;
+                cmd.Parameters.Add("@urgency", SqlDbType.NVarChar).Value = askedQuestion.Urgency;
+                cmd.Parameters.Add("@categoryID", SqlDbType.Int).Value = askedQuestion.Category.CategoryID;
+                cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = askedQuestion.CareRecipientId;
+                cmd.Parameters.Add("@datetime", SqlDbType.DateTime).Value = DateTime.Now.ToString("yyyy-M-d hh:mm tt");
+
+
                 _conn.Open();
-                SqlCommand cmd = new SqlCommand
-                {
-
-                    CommandType = System.Data.CommandType.Text,
-                    CommandText =
-                        "INSERT INTO [Question] ([Status], [Title], [Description], [Datetime], [Urgency], [CategoryID], [CareRecipientID])" +
-                        $"VALUES ({askedQuestion.ToString() + ", '1'"})"
-                };
-
-                cmd.Connection = _conn;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw e;
+
             }
             finally
             {
@@ -153,12 +154,39 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT  Q.[Title], Q.[CareRecipientID], Q.[Datetime], Q.[Urgency], C.[Name], Q.[QuestionID] FROM[Question] as Q INNER JOIN[Category] as C ON Q.CategoryId = C.CategoryID  WHERE[Status] = 'Open'";
+                SqlCommand cmd = new SqlCommand("SelectAllOpenQuestions", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
                 _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+                dt.Load(cmd.ExecuteReader());
+                
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+        public DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SelectAllOpenQuestionsCareRecipientID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = careRecipientID;
+                _conn.Open();
+
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+
                 return dt;
 
             }
@@ -177,31 +205,31 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query =
-                    "SELECT  * FROM [Question] AS Q " +
-                    "INNER JOIN [Category] AS C ON Q.CategoryId = C.CategoryID WHERE Q.[QuestionID] = '" + questionID + "'";
+                SqlCommand cmd = new SqlCommand("GetQuestionById", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@questionid", SqlDbType.Int).Value = questionID;
                 _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
 
                 DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
+                dt.Load(cmd.ExecuteReader());
 
-                int QuestionID = Convert.ToInt32(dt.Rows[0].ItemArray[0]);
-                string status = dt.Rows[0].ItemArray[3].ToString();
-                string title = dt.Rows[0].ItemArray[4].ToString();
-                string content = dt.Rows[0].ItemArray[5].ToString();
-                DateTime dateTime = Convert.ToDateTime(dt.Rows[0].ItemArray[6]);
-                string urgency = dt.Rows[0].ItemArray[7].ToString();
+                
+                    int CategoryID = Convert.ToInt32(dt.Rows[0]["CategoryId"].ToString());
+                    string CategoryName = (dt.Rows[0]["Name"].ToString());
+                    string CategoryDescription = (dt.Rows[0]["Description"].ToString());
+                    int CareRecipientID = Convert.ToInt32(dt.Rows[0]["CareRecipientID"].ToString());
 
-                int CategoryID = Convert.ToInt32(dt.Rows[0].ItemArray[2]);
-                string CategoryName = dt.Rows[0].ItemArray[9].ToString();
-                string CategoryDescription = dt.Rows[0].ItemArray[10].ToString();
+                    int QuestionID = Convert.ToInt32(dt.Rows[0]["QuestionID"].ToString());
+                    string title = (dt.Rows[0]["Title"].ToString());
+                    string content = (dt.Rows[0]["Description"].ToString());
+                    string urgency = (dt.Rows[0]["Urgency"].ToString());
+                
+                    DateTime timeStamp = Convert.ToDateTime(dt.Rows[0]["TimeStamp"].ToString());
 
-                Category category = new Category(CategoryID, CategoryName, CategoryDescription);
-
-                Question question = new Question(QuestionID, title, content, Question.QuestionStatus.Open, dateTime, urgency, category);
-                return question;
-
+                    Category category = new Category(CategoryID, CategoryName, CategoryDescription);
+                    Question question = new Question(QuestionID, title, content, Question.QuestionStatus.Open, timeStamp, urgency, category, CareRecipientID);
+                    return question;
+                
             }
             catch (Exception e)
             {
@@ -218,22 +246,21 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
+                SqlCommand cmd = new SqlCommand("EditQuestion", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@categoryid", SqlDbType.Int).Value = category.CategoryID;
+                cmd.Parameters.Add("@title", SqlDbType.NVarChar).Value = subjectNew;
+                cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = contentNew;
+                cmd.Parameters.Add("@urgency", SqlDbType.NVarChar).Value = urgency;
+                cmd.Parameters.Add("@questionid", SqlDbType.Int).Value = questionID;
+                
                 _conn.Open();
-                SqlCommand cmd = new SqlCommand
-                {
-
-                    CommandType = System.Data.CommandType.Text,
-                    CommandText =
-                        "UPDATE Question SET CategoryId = '" + category.CategoryID + "', Title = '" + subjectNew + "', Description = '" + contentNew + "', Urgency = '" + urgency + "' WHERE QuestionID = '" + questionID + "'"
-                };
-
-                cmd.Connection = _conn;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw e;
+
+
             }
             finally
             {

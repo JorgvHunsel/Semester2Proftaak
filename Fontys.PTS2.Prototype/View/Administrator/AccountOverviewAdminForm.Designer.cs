@@ -28,30 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lvAccountOverview = new System.Windows.Forms.ListView();
+            this.lvUserOverview = new System.Windows.Forms.ListView();
             this.AccountID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AccountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.AccountStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Rating = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.BirthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Gender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PostalCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnBlockUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lvAccountOverview
+            // lvUserOverview
             // 
-            this.lvAccountOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvUserOverview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.AccountID,
-            this.FirstName,
-            this.Email,
             this.AccountType,
-            this.Rating,
-            this.AccountStatus});
-            this.lvAccountOverview.Location = new System.Drawing.Point(12, 58);
-            this.lvAccountOverview.Name = "lvAccountOverview";
-            this.lvAccountOverview.Size = new System.Drawing.Size(662, 380);
-            this.lvAccountOverview.TabIndex = 0;
-            this.lvAccountOverview.UseCompatibleStateImageBehavior = false;
-            this.lvAccountOverview.View = System.Windows.Forms.View.Details;
+            this.FirstName,
+            this.LastName,
+            this.BirthDate,
+            this.Gender,
+            this.Email,
+            this.Address,
+            this.PostalCode,
+            this.City,
+            this.Status});
+            this.lvUserOverview.Location = new System.Drawing.Point(16, 71);
+            this.lvUserOverview.Margin = new System.Windows.Forms.Padding(4);
+            this.lvUserOverview.Name = "lvUserOverview";
+            this.lvUserOverview.Size = new System.Drawing.Size(906, 467);
+            this.lvUserOverview.TabIndex = 0;
+            this.lvUserOverview.UseCompatibleStateImageBehavior = false;
+            this.lvUserOverview.View = System.Windows.Forms.View.Details;
             // 
             // AccountID
             // 
@@ -73,36 +87,106 @@
             this.AccountType.Text = "Type Account";
             this.AccountType.Width = 82;
             // 
-            // AccountStatus
+            // City
             // 
-            this.AccountStatus.Text = "Status";
-            this.AccountStatus.Width = 48;
+            this.City.Text = "Woonplaats";
+            this.City.Width = 96;
             // 
-            // Rating
+            // lblTitle
             // 
-            this.Rating.Text = "Beoordeling";
-            this.Rating.Width = 71;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(16, 13);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(460, 58);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Gebruiker overzicht";
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(930, 496);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(144, 45);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "Terug";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // LastName
+            // 
+            this.LastName.Text = "Achternaam";
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.Text = "Geboortedatum";
+            // 
+            // Gender
+            // 
+            this.Gender.Text = "Geslacht";
+            // 
+            // Address
+            // 
+            this.Address.Text = "Adres";
+            // 
+            // PostalCode
+            // 
+            this.PostalCode.Text = "Postcode";
+            // 
+            // Status
+            // 
+            this.Status.Text = "Status";
+            // 
+            // btnBlockUser
+            // 
+            this.btnBlockUser.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBlockUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBlockUser.Location = new System.Drawing.Point(930, 443);
+            this.btnBlockUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBlockUser.Name = "btnBlockUser";
+            this.btnBlockUser.Size = new System.Drawing.Size(144, 45);
+            this.btnBlockUser.TabIndex = 17;
+            this.btnBlockUser.Text = "Block / unblock";
+            this.btnBlockUser.UseVisualStyleBackColor = false;
+            this.btnBlockUser.Click += new System.EventHandler(this.btnBlockUser_Click);
             // 
             // AccountOverviewAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 450);
-            this.Controls.Add(this.lvAccountOverview);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1087, 554);
+            this.Controls.Add(this.btnBlockUser);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.lvUserOverview);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccountOverviewAdminForm";
             this.Text = "AccountOverviewAdminForm";
+            this.Load += new System.EventHandler(this.AccountOverviewAdminForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView lvAccountOverview;
+        private System.Windows.Forms.ListView lvUserOverview;
         private System.Windows.Forms.ColumnHeader AccountID;
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader Email;
         private System.Windows.Forms.ColumnHeader AccountType;
-        private System.Windows.Forms.ColumnHeader AccountStatus;
-        private System.Windows.Forms.ColumnHeader Rating;
+        private System.Windows.Forms.ColumnHeader City;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader BirthDate;
+        private System.Windows.Forms.ColumnHeader Gender;
+        private System.Windows.Forms.ColumnHeader Address;
+        private System.Windows.Forms.ColumnHeader PostalCode;
+        private System.Windows.Forms.ColumnHeader Status;
+        private System.Windows.Forms.Button btnBlockUser;
     }
 }

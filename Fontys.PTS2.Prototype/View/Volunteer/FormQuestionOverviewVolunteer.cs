@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.Volunteer;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -20,8 +21,6 @@ namespace Fontys.PTS2.Prototype.View
         {
             InitializeComponent();
             LoadQuestionsToList();
-
-            
         }
 
 
@@ -93,6 +92,12 @@ namespace Fontys.PTS2.Prototype.View
         private void ChatOverview_Click(object sender, EventArgs e)
         {
             ((MainForm)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeVolunteer());
+
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.CareRecipient;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -24,9 +25,7 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            
-
-            DataTable dt = ql.GetAllOpenQuestions();
+            DataTable dt = ql.GetAllOpenQuestionCareRecipientID(LoginPrototype.currentUser.UserId);
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
@@ -64,14 +63,9 @@ namespace Fontys.PTS2.Prototype.View
 
         }
 
-        private void btnLogOff_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new LoginPrototype());
-        }
-
-        private void btnToUserProfile_Click(object sender, EventArgs e)
-        {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormUserProfile());
+            ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
         }
     }
 }

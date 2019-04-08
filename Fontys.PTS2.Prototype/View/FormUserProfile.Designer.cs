@@ -54,7 +54,6 @@
             this.tbDateOfBirth = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // lblPaswordValidation
@@ -99,7 +98,7 @@
             // 
             // btnEditUser
             // 
-            this.btnEditUser.Location = new System.Drawing.Point(794, 579);
+            this.btnEditUser.Location = new System.Drawing.Point(346, 510);
             this.btnEditUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditUser.Name = "btnEditUser";
             this.btnEditUser.Size = new System.Drawing.Size(147, 62);
@@ -292,7 +291,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(949, 579);
+            this.btnBack.Location = new System.Drawing.Point(501, 510);
             this.btnBack.Margin = new System.Windows.Forms.Padding(4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(147, 62);
@@ -303,7 +302,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(39, 579);
+            this.btnSave.Location = new System.Drawing.Point(31, 510);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(147, 62);
@@ -313,22 +312,12 @@
             this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(642, 104);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 51;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1109, 654);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(670, 595);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.tbDateOfBirth);
@@ -391,6 +380,5 @@
         private System.Windows.Forms.TextBox tbDateOfBirth;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

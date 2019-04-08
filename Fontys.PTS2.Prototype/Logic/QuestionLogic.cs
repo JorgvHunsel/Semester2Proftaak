@@ -23,6 +23,9 @@ namespace Fontys.PTS2.Prototype.Logic
             return questionRepo.GetAllOpenQuestions();
         }
 
+        public DataTable GetAllOpenQuestionCareRecipientID(int careRecipientID) =>
+            questionRepo.GetAllOpenQuestionsCareRecipientID(careRecipientID);
+
         public Question GetSingleQuestion(int questionID)
         {
             return questionRepo.GetSingleQuestion(questionID);

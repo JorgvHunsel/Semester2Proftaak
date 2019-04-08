@@ -17,7 +17,6 @@ namespace Fontys.PTS2.Prototype.Data
 {
     class UserContextSQL : IUserContext
     {
-        //er mogen hier geen static methodes zijn. deze worden pas gemaakt in de logic layer.
         private const string ConnectionString =
             @"Data Source=mssql.fhict.local;Initial Catalog=dbi423244;User ID=dbi423244;Password=wsx234;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
@@ -27,7 +26,7 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "INSERT INTO [User] (FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Password, AccountType) VALUES (@FirstName, @LastName, @Birthdate, @Sex, @Email, @Address, @PostalCode, @City, @Password, @AccountType)";
+                string query = "INSERT INTO [User] (FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Password, AccountType, Status) VALUES (@FirstName, @LastName, @Birthdate, @Sex, @Email, @Address, @PostalCode, @City, @Password, @AccountType, 'true')";
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
@@ -60,33 +59,44 @@ namespace Fontys.PTS2.Prototype.Data
             try
             {
                 string query = "UPDATE [User] " +
-                               "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City " +
+                               "SET FirstName = @FirstName, LastName = @LastName, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostalCode, City = @City, Status = @Status " +
                                "WHERE UserID = @UserID";
                 if (password != "")
                 {
                     query = "UPDATE [User] " +
-                            "SET FirstName = @FirstName, LastName = @LastName, Birthdate = @Birthdate, Sex = @Sex, Email = @Email, Address = @Address, PostalCode = @PostCode, City = @City, Password = @Password" +
+                            "SET FirstName = @FirstName," +
+                            " LastName = @LastName, " +
+                            "Birthdate = @Birthdate, " +
+                            "Sex = @Sex, " +
+                            "Email = @Email, " +
+                            "Address = @Address, " +
+                            "PostalCode = @PostalCode, " +
+                            "City = @City, " +
+                            "Password = @Password, " +
+                            "Status = @Status " +
                             "WHERE UserID = @UserID";
                 }
                 _conn.Open();
                 using (SqlCommand cmd = new SqlCommand(query, _conn))
                 {
-                    cmd.Parameters.AddWithValue("@FirstName", currentUser.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", currentUser.LastName);
-                    cmd.Parameters.AddWithValue("@Birthdate", currentUser.BirthDate);
-                    cmd.Parameters.AddWithValue("@Sex", currentUser.UserGender);
-                    cmd.Parameters.AddWithValue("@Email", currentUser.EmailAddress);
-                    cmd.Parameters.AddWithValue("@Address", currentUser.Address);
-                    cmd.Parameters.AddWithValue("@PostalCode", currentUser.PostalCode);
-                    cmd.Parameters.AddWithValue("@City", currentUser.City);
-                    cmd.Parameters.AddWithValue("@UserID", currentUser.UserId);
-                    cmd.Parameters.AddWithValue("@Password", password);
+                    cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar).Value = currentUser.FirstName;
+                    cmd.Parameters.Add("@LastName", SqlDbType.NVarChar).Value = currentUser.LastName;
+                    cmd.Parameters.Add("@Birthdate", SqlDbType.DateTime).Value = currentUser.BirthDate;
+                    cmd.Parameters.Add("@Sex", SqlDbType.Char).Value = currentUser.UserGender;
+                    cmd.Parameters.Add("@Email", SqlDbType.NVarChar).Value = currentUser.EmailAddress;
+                    cmd.Parameters.Add("@Address", SqlDbType.NVarChar).Value = currentUser.Address;
+                    cmd.Parameters.Add("@PostalCode", SqlDbType.NChar).Value = currentUser.PostalCode;
+                    cmd.Parameters.Add("@City", SqlDbType.NVarChar).Value = currentUser.City;
+                    cmd.Parameters.Add("@UserID", SqlDbType.Int).Value = currentUser.UserId;
+                    cmd.Parameters.Add("@Password", SqlDbType.NVarChar).Value = password;
+                    cmd.Parameters.Add("@Status", SqlDbType.Bit).Value = currentUser.Status;
+
                     cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                MessageBox.Show("Account wijzigen is niet gelukt:" + e);
                 throw;
             }
             finally
@@ -95,37 +105,60 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-       
-        public List<string> GetAllUsers()
+
+        public List<User> GetAllUsers()
         {
-            try
+            string query =
+                "SELECT UserID, AccountType, FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Status " +
+                "FROM [User]";
+
+            _conn.Open();
+            SqlCommand cmd = new SqlCommand(query, _conn);
+
+            List<User> Users = new List<User>();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                string query = "SELECT [FirstName] FROM [User]";
-                _conn.Open();
-                SqlDataAdapter sqlAdapter = new SqlDataAdapter(query, _conn);
-
-                DataTable dt = new DataTable();
-                sqlAdapter.Fill(dt);
-
-                List<string> userNames = new List<string>();
-
-                foreach (DataRow row in dt.Rows)
+                while (reader.Read())
                 {
-                    string userName = row["FirstName"].ToString();
-                    userNames.Add(userName);
-                }
+                    int userID = reader.GetInt32(0);
+                    string accountType = reader.GetString(1);
+                    string firstName = reader.GetString(2);
+                    string lastName = reader.GetString(3);
+                    DateTime birthDate = reader.GetDateTime(4);
+                    User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+                    string email = reader.GetString(6);
+                    string address = reader.GetString(7);
+                    string postalCode = reader.GetString(8);
+                    string city = reader.GetString(9);
+                    bool status = reader.GetBoolean(10);
 
-                return userNames;
+
+                    if (accountType == "CareRecipient")
+                    {
+
+                        User user = new CareRecipient(userID, firstName, lastName, address, city, postalCode, email,
+                            birthDate, gender, status, User.AccountType.CareRecipient);
+                        Users.Add(user);
+                    }
+
+                    else if (accountType == "Volunteer")
+                    {
+                        User user = new CareRecipient(userID, firstName, lastName, address, city, postalCode, email,
+                            birthDate, gender, status, User.AccountType.Volunteer);
+                        Users.Add(user);
+                    }
+                    else
+                    {
+                        User user = new CareRecipient(userID, firstName, lastName, address, city, postalCode, email,
+                            birthDate, gender, status, User.AccountType.Admin);
+                        Users.Add(user);
+                    }
+                }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
-            finally
-            {
-                _conn.Close();
-            }
+
+            _conn.Close();
+            return Users;
         }
 
         public int GetUserId(string email)
@@ -226,11 +259,10 @@ namespace Fontys.PTS2.Prototype.Data
                     Value = email
                 });
 
-                SqlDataReader reader = cmd.ExecuteReader();
+                int numberofAccounts = (int) cmd.ExecuteScalar();
 
-                if (reader.HasRows)
+                if (numberofAccounts == 1)
                 {
-                    reader.Close();
                     return false;
                 }
             }
@@ -250,7 +282,11 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                string query = "SELECT * FROM [User] WHERE [Email] = @email";
+                string query =
+                    "SELECT UserID, AccountType, FirstName, LastName, Birthdate, Sex, Email, Address, PostalCode, City, Status " +
+                    "FROM [User] " +
+                    "WHERE Email = @email";
+
                 _conn.Open();
                 SqlParameter emailParam = new SqlParameter();
                 emailParam.ParameterName = "@email";
@@ -263,40 +299,28 @@ namespace Fontys.PTS2.Prototype.Data
                     while (reader.Read())
                     {
                         string accountType = reader.GetString(1);
+                        User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
+
 
                         if (accountType == "Admin")
                         {
-                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                            bool status = true;
-                            currentUser = new Admin(reader.GetString(2), reader.GetString(3), reader.GetString(7),
-                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status, User.AccountType.Admin);
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.Admin);
                         }
                         else if (accountType == "Professional")
                         {
-                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                            bool status = true;
-                            currentUser = new Professional(reader.GetString(2), reader.GetString(3),
-                                reader.GetString(7),
-                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status, User.AccountType.Professional);
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.Professional);
                         }
                         else if (accountType == "Volunteer")
                         {
-                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                            bool status = true;
-                            currentUser = new Volunteer(reader.GetString(2), reader.GetString(3), reader.GetString(7),
-                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status, User.AccountType.Volunteer);
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.CareRecipient);
                         }
                         else
                         {
-                            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), reader.GetString(5));
-                            bool status = true;
-                            currentUser = new CareRecipient(reader.GetString(2), reader.GetString(3),
-                                reader.GetString(7),
-                                reader.GetString(9), reader.GetString(8), reader.GetString(6), reader.GetDateTime(4),
-                                gender, status, User.AccountType.CareRecipient);
+                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.CareRecipient);
                         }
                         return currentUser;
                     }

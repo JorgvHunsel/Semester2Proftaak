@@ -19,23 +19,19 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
+                SqlCommand cmd = new SqlCommand("InsertReaction", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@senderid", SqlDbType.Int).Value = reaction.SenderId;
+                cmd.Parameters.Add("@questionid", SqlDbType.Int).Value = reaction.QuestionId;
+                cmd.Parameters.Add("@description", SqlDbType.NVarChar).Value = reaction.Description;
+                
                 _conn.Open();
-                SqlCommand cmd = new SqlCommand
-                {
-
-                    CommandType = System.Data.CommandType.Text,
-                    CommandText =
-                        "INSERT INTO [Reaction] ([QuestionID], [SenderID], [Description])" +
-                        $"VALUES ({reaction.ToString()})"
-                };
-
-                cmd.Connection = _conn;
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw e;
+
+                throw;
             }
             finally
             {
@@ -73,7 +69,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+
                 throw;
             }
             finally

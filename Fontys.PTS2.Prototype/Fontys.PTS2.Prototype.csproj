@@ -142,6 +142,12 @@
     <Compile Include="View\CareRecipient\FormCareRecipientChatOverview.Designer.cs">
       <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\CareRecipient\FormHomeCareRecipient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormHomeCareRecipient.Designer.cs">
+      <DependentUpon>FormHomeCareRecipient.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\CareRecipient\FormQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,12 @@
     </Compile>
     <Compile Include="View\Volunteer\FormAppointmentVolunteer.Designer.cs">
       <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Volunteer\FormHomeVolunteer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Volunteer\FormHomeVolunteer.Designer.cs">
+      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.cs">
       <SubType>Form</SubType>
@@ -243,6 +255,9 @@
     <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChatOverview.resx">
       <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\CareRecipient\FormHomeCareRecipient.resx">
+      <DependentUpon>FormHomeCareRecipient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\CareRecipient\FormQuestion.resx">
       <DependentUpon>FormQuestion.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormAppointmentVolunteer.resx">
       <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Volunteer\FormHomeVolunteer.resx">
+      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Volunteer\FormQuestionOverviewVolunteer.resx">
       <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>

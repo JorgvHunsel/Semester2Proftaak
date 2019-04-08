@@ -14,5 +14,6 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
         DataTable GetAllOpenQuestions();
         Question GetSingleQuestion(int questionID);
         void EditQuestion(int questionID, string subjectNew, string contentNew, Category category, string urgency);
+        DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID);
     }
 }
