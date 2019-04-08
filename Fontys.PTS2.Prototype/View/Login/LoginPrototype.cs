@@ -42,14 +42,17 @@ namespace Fontys.PTS2.Prototype.View
                 string password = tbPassword.Text;
                 if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
-                    currentUser = UserLogic.getCurrentUserInfo(selectedUser);
-                    if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
-                    else if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                        ((MainForm)this.Parent.Parent).ReplaceForm(new FormHomeVolunteer());
-                    else if (currentUser.UserAccountType == User.AccountType.Admin)
+                    if (UserLogic.CheckIfAccountIsActive(selectedUser))
                     {
-                        ((MainForm)this.Parent.Parent).ReplaceForm(new AdminForm());
+                        currentUser = UserLogic.getCurrentUserInfo(selectedUser);
+                        if (currentUser.UserAccountType == User.AccountType.CareRecipient)
+                            ((MainForm) this.Parent.Parent).ReplaceForm(new FormHomeCareRecipient());
+                        else if (currentUser.UserAccountType == User.AccountType.Volunteer)
+                            ((MainForm) this.Parent.Parent).ReplaceForm(new FormHomeVolunteer());
+                        else if (currentUser.UserAccountType == User.AccountType.Admin)
+                        {
+                            ((MainForm) this.Parent.Parent).ReplaceForm(new AdminForm());
+                        }
                     }
                 }
                 else
@@ -60,7 +63,7 @@ namespace Fontys.PTS2.Prototype.View
             catch (Exception exception)
             {
                 MessageBox.Show("Er is geen gebruiker ingevoerd");
-                return;
+                throw;
             }
         }
 

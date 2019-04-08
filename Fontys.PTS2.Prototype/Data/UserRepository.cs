@@ -40,5 +40,8 @@ namespace Fontys.PTS2.Prototype.Data
         public bool CheckIfUserAlreadyExists(string email) => context.CheckIfUserAlreadyExists(email);
 
         public bool IsEmailValid(string email) => context.IsEmailValid(email);
+
+        public bool CheckIfAccountIsActive(string email) =>
+            context.CheckIfAccountIsActive(email);
     }
 }

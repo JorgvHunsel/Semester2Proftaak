@@ -77,5 +77,10 @@ namespace Fontys.PTS2.Prototype.Logic
         {
             return userRepo.IsEmailValid(email);
         }
+
+        public static bool CheckIfAccountIsActive(string email)
+        {
+            return userRepo.CheckIfAccountIsActive(email);
+        }
     }
 }

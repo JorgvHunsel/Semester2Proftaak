@@ -25,5 +25,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
         bool CheckIfUserAlreadyExists(string email);
 
         bool IsEmailValid(string email);
+
+        bool CheckIfAccountIsActive(string email);
     }
 }

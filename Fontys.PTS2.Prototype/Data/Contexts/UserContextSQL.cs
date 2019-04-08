@@ -190,12 +190,61 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
+        public bool CheckIfAccountIsActive(string email)
+        {
+            try
+            {
+                string query = "SELECT [Status] FROM [User] WHERE [Email] = @email";
+                _conn.Open();
+
+                SqlParameter emailParam = new SqlParameter();
+                emailParam.ParameterName = "@email";
+
+                SqlCommand cmd = new SqlCommand(query, _conn);
+                emailParam.Value = email;
+                cmd.Parameters.Add(emailParam);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        if (reader.GetBoolean(0) == true)
+                        {
+                            MessageBox.Show("user active");
+                            _conn.Close();
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Account not active!");
+                    return false;
+                }
+
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+
+            return false;
+        }
+
         public bool CheckValidityUser(string email, string password)
         {
             try
             {
                 string query =
-                    "SELECT [Email], [Password] FROM [User] WHERE [Email] = @email AND [Password] = @password";
+                    "SELECT [Email], [Password], [Status] FROM [User] WHERE [Email] = @email AND [Password] = @password";
                 _conn.Open();
 
                 SqlParameter emailParam = new SqlParameter();
@@ -259,7 +308,7 @@ namespace Fontys.PTS2.Prototype.Data
                     Value = email
                 });
 
-                int numberofAccounts = (int) cmd.ExecuteScalar();
+                int numberofAccounts = (int)cmd.ExecuteScalar();
 
                 if (numberofAccounts == 1)
                 {
