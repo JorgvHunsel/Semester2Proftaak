@@ -58,11 +58,12 @@ namespace Fontys.PTS2.Prototype.Data
                     string volunteerName = dr["VolunteerName"].ToString();
                     string description = dr["Description"].ToString();
                     int volunteerID = Convert.ToInt32(dr["SenderID"].ToString());
+                    int reactionID = Convert.ToInt32(dr["ReactionID"].ToString());
 
                     DateTime timeStamp = Convert.ToDateTime(dr["Timestamp"].ToString());
 
                     
-                    reactionList.Add(new Reaction(questionId, volunteerID, description, volunteerName, timeStamp));
+                    reactionList.Add(new Reaction(reactionID, questionId, volunteerID, description, volunteerName, timeStamp));
                 }
 
                 return reactionList;

@@ -230,12 +230,12 @@ namespace Fontys.PTS2.Prototype.Data
                 
                     int CategoryID = Convert.ToInt32(dt.Rows[0]["CategoryId"].ToString());
                     string CategoryName = (dt.Rows[0]["Name"].ToString());
-                    string CategoryDescription = (dt.Rows[0]["Description"].ToString());
+                    string CategoryDescription = (dt.Rows[0]["CDescription"].ToString());
                     int CareRecipientID = Convert.ToInt32(dt.Rows[0]["CareRecipientID"].ToString());
 
                     int QuestionID = Convert.ToInt32(dt.Rows[0]["QuestionID"].ToString());
                     string title = (dt.Rows[0]["Title"].ToString());
-                    string content = (dt.Rows[0]["Description"].ToString());
+                    string content = (dt.Rows[0]["QDescription"].ToString());
                     string urgency = (dt.Rows[0]["Urgency"].ToString());
                 
                     DateTime timeStamp = Convert.ToDateTime(dt.Rows[0]["TimeStamp"].ToString());

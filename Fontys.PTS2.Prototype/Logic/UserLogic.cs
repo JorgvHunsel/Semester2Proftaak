@@ -30,32 +30,9 @@ namespace Fontys.PTS2.Prototype.Logic
             return userRepo.GetAllUsers();
         }
 
-        public static void AddNewUser(string firstName, string lastName, DateTime birthDate, User.Gender gender, string email,
-            string address, string postalCode, string city, string password, string accountType)
+        public static void AddNewUser(User newUser, string password)
         {
-            if (accountType == "Volunteer")
-            {
-                Volunteer currentUser = new Volunteer(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true, User.AccountType.Volunteer);
-            }
-            else if (accountType == "Admin")
-            {
-                Admin currentUser = new Admin(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true, User.AccountType.Admin);
-            }
-            else if (accountType == "CareRecipient")
-            {
-                CareRecipient currentUser = new CareRecipient(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true, User.AccountType.CareRecipient);
-            }
-            else if (accountType == "Professional")
-            {
-                Professional currentUser = new Professional(firstName, lastName, address, city, postalCode, address, birthDate, gender,
-                    true, User.AccountType.Professional);
-            }
-
-            string genderString = gender.ToString();
-            userRepo.AddNewUser(firstName, lastName, birthDate, genderString, email, address, postalCode, city, password, accountType);
+            userRepo.AddNewUser(newUser, password);
         }
 
         public static User getCurrentUserInfo(string email)

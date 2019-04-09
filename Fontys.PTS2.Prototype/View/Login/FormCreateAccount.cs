@@ -45,16 +45,14 @@ namespace Fontys.PTS2.Prototype.View.Login
                         string accountType = "CareRecipient";
                         if (rbtnVolunteer.Checked)
                         {
-                            accountType = "Volunteer";
+                            Classes.Volunteer currentUser = new Classes.Volunteer(tbFirstName.Text, tbLastName.Text, tbAddress.Text, tbCity.Text, tbPostalCode.Text, tbEmail.Text, dateOfBirth.Value, (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text), true, User.AccountType.Volunteer);
+                            UserLogic.AddNewUser(currentUser, tbPassword.Text);
                         }
                         else if (rbtnCareRecipient.Checked)
                         {
-                            accountType = "CareRecipient";
+                            Classes.CareRecipient currentUser = new Classes.CareRecipient(tbFirstName.Text, tbLastName.Text, tbAddress.Text, tbCity.Text, tbPostalCode.Text, tbEmail.Text, dateOfBirth.Value, (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text), true, User.AccountType.CareRecipient);
+                            UserLogic.AddNewUser(currentUser, tbPassword.Text);
                         }
-
-                        User.Gender gender = (User.Gender) Enum.Parse(typeof(User.Gender), cboxSex.Text);
-                        UserLogic.AddNewUser(tbFirstName.Text, tbLastName.Text, dateOfBirth.Value, gender, tbEmail.Text,
-                            tbAddress.Text, tbPostalCode.Text, tbCity.Text, tbPassword.Text, accountType);
                         ((FormMain) this.Parent.Parent).ReplaceForm(new FormLogin());
                     }
                     else

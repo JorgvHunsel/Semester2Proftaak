@@ -32,6 +32,9 @@ namespace Fontys.PTS2.Prototype.Logic
                 ListViewItem item = new ListViewItem(reaction.VolunteerName);
                 item.SubItems.Add(reaction.Description);
                 item.SubItems.Add(reaction.TimeStamp.ToString());
+                item.SubItems.Add(reaction.QuestionId.ToString());
+                item.SubItems.Add(reaction.ReactionId.ToString());
+                item.SubItems.Add(reaction.SenderId.ToString());
                 items.Add(item);
                 
             }
