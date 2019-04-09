@@ -42,6 +42,8 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
 
                 ChatLogic cl = new ChatLogic();
                 cl.CreateNewChatLog(reactionID, senderID, FormLogin.currentUser.UserId);
+                MessageBox.Show("Chat aangemaakt");
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareChatOverview());
             }
             else
             {

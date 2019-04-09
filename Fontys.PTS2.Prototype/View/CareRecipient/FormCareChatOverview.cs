@@ -17,7 +17,6 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
     public partial class FormCareChatOverview : Form
     {
         private List<ChatLog> chatLogs;
-        private int userid = 5;
         ChatLogic chatLogic = new ChatLogic();
 
         public FormCareChatOverview()
@@ -26,7 +25,7 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
         }
         private void FormCareRecipientChatOverview_Load_1(object sender, EventArgs e)
         {
-            chatLogs = chatLogic.GetAllOpenChatsWithCareRecipientID(userid);
+            chatLogs = chatLogic.GetAllOpenChatsWithCareRecipientID(FormLogin.currentUser.UserId);
             for (int i = 0; i < chatLogs.Count; i++)
             {
                 ChatLog chatlog = chatLogs[i];
@@ -50,11 +49,11 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
                 int selectedRow = lvChats.SelectedItems[0].Index;
 
                 // Parameters
-                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text) - 1;
+                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text);
                 int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
 
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareChat(selectedChatId, selectedName, userid, receiverID));
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareChat(selectedChatId, selectedName, FormLogin.currentUser.UserId, receiverID));
             }
             else
             {

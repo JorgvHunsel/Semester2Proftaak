@@ -49,5 +49,10 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
         {
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormLogin());
         }
+
+        private void btnChatOverview_Click(object sender, EventArgs e)
+        {
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareChatOverview());
+        }
     }
 }
