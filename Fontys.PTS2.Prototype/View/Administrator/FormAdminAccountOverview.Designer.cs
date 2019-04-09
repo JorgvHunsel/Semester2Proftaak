@@ -59,10 +59,9 @@
             this.PostalCode,
             this.City,
             this.Status});
-            this.lvUserOverview.Location = new System.Drawing.Point(16, 71);
-            this.lvUserOverview.Margin = new System.Windows.Forms.Padding(4);
+            this.lvUserOverview.Location = new System.Drawing.Point(12, 58);
             this.lvUserOverview.Name = "lvUserOverview";
-            this.lvUserOverview.Size = new System.Drawing.Size(906, 467);
+            this.lvUserOverview.Size = new System.Drawing.Size(680, 380);
             this.lvUserOverview.TabIndex = 0;
             this.lvUserOverview.UseCompatibleStateImageBehavior = false;
             this.lvUserOverview.View = System.Windows.Forms.View.Details;
@@ -120,9 +119,10 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(16, 13);
+            this.lblTitle.Location = new System.Drawing.Point(12, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(460, 58);
+            this.lblTitle.Size = new System.Drawing.Size(365, 46);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Gebruiker overzicht";
             // 
@@ -130,10 +130,9 @@
             // 
             this.btnBack.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(930, 496);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Location = new System.Drawing.Point(698, 403);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(144, 45);
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
             this.btnBack.TabIndex = 16;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -143,10 +142,9 @@
             // 
             this.btnBlockUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnBlockUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlockUser.Location = new System.Drawing.Point(930, 443);
-            this.btnBlockUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBlockUser.Location = new System.Drawing.Point(698, 360);
             this.btnBlockUser.Name = "btnBlockUser";
-            this.btnBlockUser.Size = new System.Drawing.Size(144, 45);
+            this.btnBlockUser.Size = new System.Drawing.Size(108, 37);
             this.btnBlockUser.TabIndex = 17;
             this.btnBlockUser.Text = "Block / unblock";
             this.btnBlockUser.UseVisualStyleBackColor = false;
@@ -154,10 +152,10 @@
             // 
             // FormAdminAccountOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1087, 554);
+            this.ClientSize = new System.Drawing.Size(815, 450);
             this.Controls.Add(this.btnBlockUser);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTitle);

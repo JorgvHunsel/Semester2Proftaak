@@ -17,25 +17,14 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormCareQuestionOverview : Form
     {
-        QuestionLogic ql = new QuestionLogic();
 
         public FormCareQuestionOverview()
         {
             InitializeComponent();
-            LoadQuestionsToList();
-        }
+            List<ListViewItem> items = QuestionLogic.LoadQuestionsToList(QuestionLogic.GetAllOpenQuestionCareRecipientID(FormLogin.currentUser.UserId));
 
-        public void LoadQuestionsToList()
-        {
-            DataTable dt = QuestionLogic.GetAllOpenQuestionCareRecipientID(FormLogin.currentUser.UserId);
-
-            foreach (DataRow row in dt.Rows)
+            foreach (ListViewItem item in items)
             {
-                ListViewItem item = new ListViewItem(row[0].ToString());
-                for (int i = 1; i < dt.Columns.Count; i++)
-                {
-                    item.SubItems.Add(row[i].ToString());
-                }
                 lvOpenQuestions.Items.Add(item);
             }
         }
@@ -65,6 +54,13 @@ namespace Fontys.PTS2.Prototype.View
         private void btnBack_Click(object sender, EventArgs e)
         {
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());
+        }
+
+        private void btnReactions_Click(object sender, EventArgs e)
+        {
+            int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
+            int currentQuestionID = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[0].Text);
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionReaction(currentQuestionID));            
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 using Fontys.PTS2.Prototype.View;
+using Microsoft.Win32.SafeHandles;
 
 namespace Fontys.PTS2.Prototype.Data
 {
@@ -175,8 +176,10 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID)
+        public List<Question> GetAllOpenQuestionsCareRecipientID(int careRecipientID)
         {
+            List<Question> questionList = new List<Question>();
+
             try
             {
                 SqlCommand cmd = new SqlCommand("SelectAllOpenQuestionsCareRecipientID", _conn);
@@ -187,8 +190,19 @@ namespace Fontys.PTS2.Prototype.Data
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
 
-                return dt;
-
+                foreach (DataRow dr in dt.Rows)
+                {
+                    int questionId = Convert.ToInt32(dr["QuestionID"]);
+                    string title = dr["Title"].ToString();
+                    string content = dr["Description"].ToString();
+                    Question.QuestionStatus status = Question.QuestionStatus.Open;
+                    DateTime date = Convert.ToDateTime(dr["Datetime"]);
+                    string urgency = dr["Urgency"].ToString();
+                    int careRecipientId = Convert.ToInt32(dr["CareRecipientID"]);
+                    Category category = new Category(1, "hoi", "doei");
+                    questionList.Add(new Question(questionId, title, content, status, date, urgency, category, careRecipientId));
+                }
+                return questionList;
             }
             catch (Exception e)
             {
@@ -216,12 +230,12 @@ namespace Fontys.PTS2.Prototype.Data
                 
                     int CategoryID = Convert.ToInt32(dt.Rows[0]["CategoryId"].ToString());
                     string CategoryName = (dt.Rows[0]["Name"].ToString());
-                    string CategoryDescription = (dt.Rows[0]["Description"].ToString());
+                    string CategoryDescription = (dt.Rows[0]["CDescription"].ToString());
                     int CareRecipientID = Convert.ToInt32(dt.Rows[0]["CareRecipientID"].ToString());
 
                     int QuestionID = Convert.ToInt32(dt.Rows[0]["QuestionID"].ToString());
                     string title = (dt.Rows[0]["Title"].ToString());
-                    string content = (dt.Rows[0]["Description"].ToString());
+                    string content = (dt.Rows[0]["QDescription"].ToString());
                     string urgency = (dt.Rows[0]["Urgency"].ToString());
                 
                     DateTime timeStamp = Convert.ToDateTime(dt.Rows[0]["TimeStamp"].ToString());

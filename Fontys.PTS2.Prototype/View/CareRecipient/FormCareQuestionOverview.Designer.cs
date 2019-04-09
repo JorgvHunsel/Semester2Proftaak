@@ -33,20 +33,27 @@
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Urgency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnEditQuestion = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnReactions = new System.Windows.Forms.Button();
+            this.QuestionContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CareRecipientID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvOpenQuestions
             // 
             this.lvOpenQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.QuestionID,
             this.QuestionTitle,
+            this.QuestionContent,
+            this.QuestionStatus,
             this.Date,
             this.Urgency,
             this.Category,
-            this.QuestionID});
+            this.CareRecipientID});
             this.lvOpenQuestions.Location = new System.Drawing.Point(12, 58);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
             this.lvOpenQuestions.Size = new System.Drawing.Size(662, 380);
@@ -57,7 +64,7 @@
             // QuestionTitle
             // 
             this.QuestionTitle.Text = "Onderwerp";
-            this.QuestionTitle.Width = 80;
+            this.QuestionTitle.Width = 81;
             // 
             // Date
             // 
@@ -71,6 +78,11 @@
             // 
             this.Category.Text = "Categorie";
             this.Category.Width = 90;
+            // 
+            // QuestionID
+            // 
+            this.QuestionID.Text = "ID";
+            this.QuestionID.Width = 109;
             // 
             // lblOpenRequests
             // 
@@ -105,12 +117,36 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnReactions
+            // 
+            this.btnReactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReactions.Location = new System.Drawing.Point(680, 314);
+            this.btnReactions.Name = "btnReactions";
+            this.btnReactions.Size = new System.Drawing.Size(108, 37);
+            this.btnReactions.TabIndex = 9;
+            this.btnReactions.Text = "Bekijk reacties";
+            this.btnReactions.UseVisualStyleBackColor = true;
+            this.btnReactions.Click += new System.EventHandler(this.btnReactions_Click);
+            // 
+            // QuestionContent
+            // 
+            this.QuestionContent.Text = "Inhoud";
+            // 
+            // QuestionStatus
+            // 
+            this.QuestionStatus.Text = "Status";
+            // 
+            // CareRecipientID
+            // 
+            this.CareRecipientID.Text = "YourID";
+            // 
             // FormCareQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(796, 450);
+            this.Controls.Add(this.btnReactions);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnEditQuestion);
             this.Controls.Add(this.lblOpenRequests);
@@ -134,5 +170,9 @@
         private System.Windows.Forms.Button btnEditQuestion;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ColumnHeader QuestionID;
+        private System.Windows.Forms.Button btnReactions;
+        private System.Windows.Forms.ColumnHeader QuestionContent;
+        private System.Windows.Forms.ColumnHeader QuestionStatus;
+        private System.Windows.Forms.ColumnHeader CareRecipientID;
     }
 }

@@ -13,6 +13,7 @@ namespace Fontys.PTS2.Prototype.Classes
        public int SenderId { get; set; }
        public string Description { get; set; }
        public string VolunteerName { get; set; }
+       public DateTime TimeStamp { get; set; }
 
        public Reaction(int questionId, int senderId, string description, string volunteerName)
        {
@@ -22,7 +23,16 @@ namespace Fontys.PTS2.Prototype.Classes
            VolunteerName = volunteerName;
        }
 
-       public override string ToString()
+       public Reaction( int questionId, int senderId, string description, string volunteerName, DateTime timeStamp)
+       {
+           QuestionId = questionId;
+           SenderId = senderId;
+           Description = description;
+           VolunteerName = volunteerName;
+           TimeStamp = timeStamp;
+       }
+
+        public override string ToString()
        {
            return $" '{QuestionId}', '{SenderId}', '{Description}' ";
        }

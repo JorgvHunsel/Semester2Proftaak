@@ -26,7 +26,7 @@ namespace Fontys.PTS2.Prototype.Data
         public void WriteQuestionToDatabase(Question askedQuestion) => context.WriteQuestionToDatabase(askedQuestion);
         public DataTable GetAllOpenQuestions() => context.GetAllOpenQuestions();
 
-        public DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID) =>
+        public List<Question> GetAllOpenQuestionsCareRecipientID(int careRecipientID) =>
             context.GetAllOpenQuestionsCareRecipientID(careRecipientID);
 
         public Question GetSingleQuestion(int questionID) => context.GetSingleQuestion(questionID);

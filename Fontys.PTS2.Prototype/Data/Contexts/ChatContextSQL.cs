@@ -167,7 +167,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
             catch (Exception e)
             {
-
+                ;
             }
             finally
             {
@@ -197,5 +197,54 @@ namespace Fontys.PTS2.Prototype.Data
                 _conn.Close();
             }
         }
+
+        //Wesley
+        public List<ChatLog> LoadOpenChatsList()
+        {
+            List<ChatLog> openChatsList = new List<ChatLog>();
+            try
+            {
+                //SqlCommand cmd = new SqlCommand("GetAllChatsByCareRecipientID", _conn);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                //cmd.Parameters.Add("@userid", SqlDbType.Int).Value = userid;
+
+                //_conn.Open();
+
+                //DataTable dt = new DataTable();
+                //dt.Load(cmd.ExecuteReader());
+
+                //foreach (DataRow dr in dt.Rows)
+                //{
+                //    int chatLogID = Convert.ToInt32(dr["ChatLogID"].ToString());
+                //    string questionTitle = (dr["Title"].ToString());
+                //    int careRecipientID = Convert.ToInt32(dr["CareRecipientID"].ToString());
+                //    int volunteerID = Convert.ToInt32(dr["VolunteerID"].ToString());
+                //    string careRecipientFirstName = dr["CareRecipientFirstName"].ToString();
+                //    string careRecipientLastName = dr["CareRecipientLastName"].ToString();
+                //    int questionID = Convert.ToInt32(dr["QuestionID"].ToString());
+                //    string volunteerFirstName = dr["VolunteerFirstName"].ToString();
+                //    string volunteerLastName = dr["VolunteerLastName"].ToString();
+                //    DateTime timeStamp = Convert.ToDateTime(dr["TimeStamp"].ToString());
+
+
+                //    ChatLog chatLog = new ChatLog(chatLogID, questionTitle, careRecipientID, volunteerID, careRecipientFirstName, careRecipientLastName, volunteerFirstName, volunteerLastName, timeStamp, questionID);
+                //    openMessageList.Add(chatLog);
+                //}
+
+                return openChatsList;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+        //End Wesley
+
+
     }
 }
