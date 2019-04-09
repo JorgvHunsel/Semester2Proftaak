@@ -199,7 +199,7 @@ namespace Fontys.PTS2.Prototype.Data
                     DateTime date = Convert.ToDateTime(dr["Datetime"]);
                     string urgency = dr["Urgency"].ToString();
                     int careRecipientId = Convert.ToInt32(dr["CareRecipientID"]);
-                    Category category = new Category(1, "hoi", "doei");
+                    Category category = new Category(dr["Name"].ToString());
                     questionList.Add(new Question(questionId, title, content, status, date, urgency, category, careRecipientId));
                 }
                 return questionList;

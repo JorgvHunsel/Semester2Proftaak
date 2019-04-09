@@ -32,6 +32,7 @@ namespace Fontys.PTS2.Prototype.Classes
            TimeStamp = timeStamp;
        }
 
+
         public override string ToString()
        {
            return $" '{QuestionId}', '{SenderId}', '{Description}' ";
