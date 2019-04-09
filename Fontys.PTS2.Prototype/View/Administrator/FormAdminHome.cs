@@ -46,5 +46,10 @@ namespace Fontys.PTS2.Prototype.View.Administrator
         {
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormLogin());
         }
+
+        private void btnAddProf_Click(object sender, EventArgs e)
+        {
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormAdminAddProfessional());
+        }
     }
 }

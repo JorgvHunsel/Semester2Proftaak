@@ -9,8 +9,7 @@ namespace Fontys.PTS2.Prototype.Data.Contexts
 {
     public interface IUserContext
     {
-        void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email,
-            string address, string postalCode, string city, string password, string accountType);
+        void AddNewUser(User newUser, string password);
 
         List<User> GetAllUsers();
 

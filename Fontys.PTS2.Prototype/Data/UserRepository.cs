@@ -28,10 +28,8 @@ namespace Fontys.PTS2.Prototype.Data
 
         public List<User> GetAllUsers() => context.GetAllUsers();
 
-        public void AddNewUser(string firstName, string lastName, DateTime birthDate, string gender, string email,
-            string address, string postalCode, string city, string password, string accountType) =>
-            context.AddNewUser(firstName, lastName, birthDate, gender, email, address, postalCode, city, password,
-                accountType);
+        public void AddNewUser(User newUser, string password) =>
+            context.AddNewUser(newUser, password);
 
         public User getCurrentUserInfo(string email) => context.getCurrentUserInfo(email);
 
