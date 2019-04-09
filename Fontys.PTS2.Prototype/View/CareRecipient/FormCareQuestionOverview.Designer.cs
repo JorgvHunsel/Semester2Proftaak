@@ -38,16 +38,22 @@
             this.btnEditQuestion = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnReactions = new System.Windows.Forms.Button();
+            this.QuestionContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CareRecipientID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvOpenQuestions
             // 
             this.lvOpenQuestions.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.QuestionID,
             this.QuestionTitle,
+            this.QuestionContent,
+            this.QuestionStatus,
             this.Date,
             this.Urgency,
             this.Category,
-            this.QuestionID});
+            this.CareRecipientID});
             this.lvOpenQuestions.Location = new System.Drawing.Point(12, 58);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
             this.lvOpenQuestions.Size = new System.Drawing.Size(662, 380);
@@ -75,7 +81,7 @@
             // 
             // QuestionID
             // 
-            this.QuestionID.Text = "QuestionID";
+            this.QuestionID.Text = "ID";
             this.QuestionID.Width = 109;
             // 
             // lblOpenRequests
@@ -111,7 +117,7 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // FormCareQuestionOverview
+            // btnReactions
             // 
             this.btnReactions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReactions.Location = new System.Drawing.Point(680, 314);
@@ -122,7 +128,19 @@
             this.btnReactions.UseVisualStyleBackColor = true;
             this.btnReactions.Click += new System.EventHandler(this.btnReactions_Click);
             // 
-            // FormQuestionOverviewCareRecipient
+            // QuestionContent
+            // 
+            this.QuestionContent.Text = "Inhoud";
+            // 
+            // QuestionStatus
+            // 
+            this.QuestionStatus.Text = "Status";
+            // 
+            // CareRecipientID
+            // 
+            this.CareRecipientID.Text = "YourID";
+            // 
+            // FormCareQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -153,5 +171,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ColumnHeader QuestionID;
         private System.Windows.Forms.Button btnReactions;
+        private System.Windows.Forms.ColumnHeader QuestionContent;
+        private System.Windows.Forms.ColumnHeader QuestionStatus;
+        private System.Windows.Forms.ColumnHeader CareRecipientID;
     }
 }

@@ -51,7 +51,6 @@ namespace Fontys.PTS2.Prototype.Logic
                 item.SubItems.Add(question.Date.ToString());
                 item.SubItems.Add(question.Urgency);
                 item.SubItems.Add(question.Category.ToString());
-                item.SubItems.Add(question.CareRecipientId.ToString());
                 items.Add(item);
             }
             return items;

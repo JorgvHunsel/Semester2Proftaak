@@ -18,15 +18,6 @@ namespace Fontys.PTS2.Prototype.View.Administrator
         public FormAdminAddProfessional()
         {
             InitializeComponent();
-            LoadListview();
-        }
-
-        void LoadListview()
-        {
-            //foreach (ChatLog chat in )
-            //{
-            //    LbChatOverView.Items.Add(chat.VolunteerFirstName);
-            //}
         }
     }
 }

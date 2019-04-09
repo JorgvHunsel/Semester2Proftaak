@@ -195,12 +195,12 @@ namespace Fontys.PTS2.Prototype.Data
                     int questionId = Convert.ToInt32(dr["QuestionID"]);
                     string title = dr["Title"].ToString();
                     string content = dr["Description"].ToString();
-                    Question.QuestionStatus status = (Question.QuestionStatus)Enum.Parse(typeof(Question.QuestionStatus),dr["Status"].ToString());
+                    Question.QuestionStatus status = Question.QuestionStatus.Open;
                     DateTime date = Convert.ToDateTime(dr["Datetime"]);
                     string urgency = dr["Urgency"].ToString();
                     int careRecipientId = Convert.ToInt32(dr["CareRecipientID"]);
                     Category category = new Category(1, "hoi", "doei");
-                    questionList.Add(new Question(questionId, title, content, status, date, urgency, category, careRecipientID));
+                    questionList.Add(new Question(questionId, title, content, status, date, urgency, category, careRecipientId));
                 }
                 return questionList;
             }

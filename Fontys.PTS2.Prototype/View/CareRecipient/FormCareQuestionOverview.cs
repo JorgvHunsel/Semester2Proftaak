@@ -59,7 +59,7 @@ namespace Fontys.PTS2.Prototype.View
         private void btnReactions_Click(object sender, EventArgs e)
         {
             int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-            int currentQuestionID = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[4].Text);
+            int currentQuestionID = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[0].Text);
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionReaction(currentQuestionID));            
         }
     }
