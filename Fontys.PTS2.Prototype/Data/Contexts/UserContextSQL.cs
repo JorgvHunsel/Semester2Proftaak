@@ -210,7 +210,7 @@ namespace Fontys.PTS2.Prototype.Data
                 {
                     while (reader.Read())
                     {
-                        if (reader.GetBoolean(0) == true)
+                        if (reader.GetBoolean(0))
                         {
                             MessageBox.Show("user active");
                             _conn.Close();
@@ -353,18 +353,18 @@ namespace Fontys.PTS2.Prototype.Data
 
                         if (accountType == "Admin")
                         {
-                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                            currentUser = new Admin(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
                                 reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.Admin);
                         }
                         else if (accountType == "Professional")
                         {
-                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                            currentUser = new Professional(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
                                 reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.Professional);
                         }
                         else if (accountType == "Volunteer")
                         {
-                            currentUser = new CareRecipient(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
-                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.CareRecipient);
+                            currentUser = new Volunteer(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(7), reader.GetString(9), reader.GetString(8), email,
+                                reader.GetDateTime(4), gender, reader.GetBoolean(10), User.AccountType.Volunteer);
                         }
                         else
                         {

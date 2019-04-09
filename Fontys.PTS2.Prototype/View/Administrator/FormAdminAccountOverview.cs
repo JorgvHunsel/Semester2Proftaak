@@ -72,7 +72,7 @@ namespace Fontys.PTS2.Prototype.View.Administrator
             catch (Exception exception)
             {
                 MessageBox.Show("Selecteer een gebruiker");
-                return;
+                throw;
             }
             finally
             {
