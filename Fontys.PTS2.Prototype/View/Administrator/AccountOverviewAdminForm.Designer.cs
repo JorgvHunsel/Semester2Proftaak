@@ -30,18 +30,18 @@
         {
             this.lvUserOverview = new System.Windows.Forms.ListView();
             this.AccountID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.AccountType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.BirthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Gender = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Email = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PostalCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.City = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.btnBlockUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -59,10 +59,9 @@
             this.PostalCode,
             this.City,
             this.Status});
-            this.lvUserOverview.Location = new System.Drawing.Point(16, 71);
-            this.lvUserOverview.Margin = new System.Windows.Forms.Padding(4);
+            this.lvUserOverview.Location = new System.Drawing.Point(12, 58);
             this.lvUserOverview.Name = "lvUserOverview";
-            this.lvUserOverview.Size = new System.Drawing.Size(906, 467);
+            this.lvUserOverview.Size = new System.Drawing.Size(680, 380);
             this.lvUserOverview.TabIndex = 0;
             this.lvUserOverview.UseCompatibleStateImageBehavior = false;
             this.lvUserOverview.View = System.Windows.Forms.View.Details;
@@ -72,48 +71,15 @@
             this.AccountID.Text = "ID";
             this.AccountID.Width = 26;
             // 
-            // FirstName
-            // 
-            this.FirstName.Text = "Voornaam";
-            this.FirstName.Width = 65;
-            // 
-            // Email
-            // 
-            this.Email.Text = "EmailAdres";
-            this.Email.Width = 70;
-            // 
             // AccountType
             // 
             this.AccountType.Text = "Type Account";
             this.AccountType.Width = 82;
             // 
-            // City
+            // FirstName
             // 
-            this.City.Text = "Woonplaats";
-            this.City.Width = 96;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(16, 13);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(460, 58);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "Gebruiker overzicht";
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(930, 496);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(144, 45);
-            this.btnBack.TabIndex = 16;
-            this.btnBack.Text = "Terug";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.FirstName.Text = "Voornaam";
+            this.FirstName.Width = 65;
             // 
             // LastName
             // 
@@ -127,6 +93,11 @@
             // 
             this.Gender.Text = "Geslacht";
             // 
+            // Email
+            // 
+            this.Email.Text = "EmailAdres";
+            this.Email.Width = 70;
+            // 
             // Address
             // 
             this.Address.Text = "Adres";
@@ -135,18 +106,45 @@
             // 
             this.PostalCode.Text = "Postcode";
             // 
+            // City
+            // 
+            this.City.Text = "Woonplaats";
+            this.City.Width = 96;
+            // 
             // Status
             // 
             this.Status.Text = "Status";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(12, 11);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(365, 46);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Gebruiker overzicht";
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(698, 403);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 16;
+            this.btnBack.Text = "Terug";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnBlockUser
             // 
             this.btnBlockUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnBlockUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlockUser.Location = new System.Drawing.Point(930, 443);
-            this.btnBlockUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBlockUser.Location = new System.Drawing.Point(698, 360);
             this.btnBlockUser.Name = "btnBlockUser";
-            this.btnBlockUser.Size = new System.Drawing.Size(144, 45);
+            this.btnBlockUser.Size = new System.Drawing.Size(108, 37);
             this.btnBlockUser.TabIndex = 17;
             this.btnBlockUser.Text = "Block / unblock";
             this.btnBlockUser.UseVisualStyleBackColor = false;
@@ -154,15 +152,14 @@
             // 
             // AccountOverviewAdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1087, 554);
+            this.ClientSize = new System.Drawing.Size(815, 450);
             this.Controls.Add(this.btnBlockUser);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lvUserOverview);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AccountOverviewAdminForm";
             this.Text = "AccountOverviewAdminForm";
             this.Load += new System.EventHandler(this.AccountOverviewAdminForm_Load);

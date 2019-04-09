@@ -20,8 +20,14 @@ namespace Fontys.PTS2.Prototype.Logic
         }
 
         public List<ChatMessage> LoadMessageListWithChatID(int chatID) => chatRepo.LoadMessageListWithChatID(chatID);
-        
 
+        //Wesley
+        public static List<ChatLog> LoadOpenMessageList()
+        {
+            ChatRepository chatRepo = new ChatRepository();
+            return chatRepo.LoadOpenChatsList();
+        }
+        //End Wesley
         public void SendMessage(int chatid, int receiverid, int senderid, string message)
         {
             chatRepo.SendMessage(chatid, receiverid, senderid, message);

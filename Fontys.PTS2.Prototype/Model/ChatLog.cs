@@ -20,6 +20,7 @@ namespace Fontys.PTS2.Prototype.Classes
         public List<ChatMessage> Messages = new List<ChatMessage>();
         public int QuestionID { get; private set; }
 
+
         public ChatLog(int chatLogId, string questionTitle, int careRecipientId, int volunteerId, string careRecipientFirstName, string careRecipientLastName, string volunteerFirstName, string volunteerLastName, DateTime timeStamp, int questionID)
         {
             ChatLogID = chatLogId;
