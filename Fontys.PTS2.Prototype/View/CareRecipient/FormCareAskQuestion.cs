@@ -48,7 +48,7 @@ namespace Fontys.PTS2.Prototype
                     Category category = categories[categorySelectedIndex];
                     string urgency = cbUrgent.Checked ? "Urgent" : "NotUrgent";
                     Question newQuestion = new Question(tbSubject.Text, tbDescription.Text,
-                        Question.QuestionStatus.Open, DateTime.Now, urgency, category, LoginPrototype.currentUser.UserId);
+                        Question.QuestionStatus.Open, DateTime.Now, urgency, category, FormLogin.currentUser.UserId);
                     QuestionLogic.WriteQuestionToDatabase(newQuestion);
 
                     MessageBox.Show("De hulpvraag is succesvol aangemaakt");

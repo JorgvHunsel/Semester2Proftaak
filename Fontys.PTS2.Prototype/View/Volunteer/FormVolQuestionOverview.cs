@@ -57,7 +57,7 @@ namespace Fontys.PTS2.Prototype.View
             {
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(ql.GetSingleQuestion(selectedId)));
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(QuestionLogic.GetSingleQuestion(selectedId)));
             }
             else
             {

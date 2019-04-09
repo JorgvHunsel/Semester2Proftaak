@@ -10,14 +10,16 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View;
 using Fontys.PTS2.Prototype.View.CareRecipient;
 
 namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormCareQuestionOverview : Form
     {
+        QuestionLogic ql = new QuestionLogic();
 
-        public FormQuestionOverviewCareRecipient()
+        public FormCareQuestionOverview()
         {
             InitializeComponent();
             LoadQuestionsToList();
@@ -25,7 +27,7 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            DataTable dt = QuestionLogic.GetAllOpenQuestionCareRecipientID(LoginPrototype.currentUser.UserId);
+            DataTable dt = QuestionLogic.GetAllOpenQuestionCareRecipientID(FormLogin.currentUser.UserId);
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
@@ -49,7 +51,8 @@ namespace Fontys.PTS2.Prototype.View
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
 
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(ql.GetSingleQuestion(selectedId)));
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(QuestionLogic.GetSingleQuestion(selectedId)));
+
             }
             else
             {

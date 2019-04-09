@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Fontys.PTS2.Prototype.View.CareRecipient
 {
-    public partial class FormCareQuestoinReaction : Form
+    public partial class FormCareQuestionReaction : Form
     {
-        public FormCareQuestoinReaction()
+        public FormCareQuestionReaction()
         {
             InitializeComponent();
         }

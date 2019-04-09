@@ -1,6 +1,6 @@
 ﻿namespace Fontys.PTS2.Prototype.View.CareRecipient
 {
-    partial class FormCareQuestoinReaction
+    partial class FormCareQuestionReaction
     {
         /// <summary>
         /// Required designer variable.
