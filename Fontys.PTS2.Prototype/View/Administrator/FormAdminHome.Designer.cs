@@ -34,6 +34,7 @@
             this.lblWelcome = new System.Windows.Forms.Label();
             this.btnLogOff = new System.Windows.Forms.Button();
             this.lblAccountType = new System.Windows.Forms.Label();
+            this.btnAddProf = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAccountOverview
@@ -109,12 +110,26 @@
             this.lblAccountType.Text = "Ingelogd als administrator\r\n";
             this.lblAccountType.Click += new System.EventHandler(this.lblAccountType_Click);
             // 
+            // btnAddProf
+            // 
+            this.btnAddProf.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAddProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProf.Location = new System.Drawing.Point(21, 238);
+            this.btnAddProf.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddProf.Name = "btnAddProf";
+            this.btnAddProf.Size = new System.Drawing.Size(443, 46);
+            this.btnAddProf.TabIndex = 18;
+            this.btnAddProf.Text = "Professional toevoegen";
+            this.btnAddProf.UseVisualStyleBackColor = false;
+            this.btnAddProf.Click += new System.EventHandler(this.btnAddProf_Click);
+            // 
             // FormAdminHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(498, 266);
+            this.ClientSize = new System.Drawing.Size(498, 302);
+            this.Controls.Add(this.btnAddProf);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.lblAccountType);
             this.Controls.Add(this.lblWelcome);
@@ -138,5 +153,6 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnLogOff;
         private System.Windows.Forms.Label lblAccountType;
+        private System.Windows.Forms.Button btnAddProf;
     }
 }

@@ -237,6 +237,9 @@
     <EmbeddedResource Include="View\Administrator\FormAdminAccountOverview.resx">
       <DependentUpon>FormAdminAccountOverview.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Administrator\FormAdminAddProfessional.resx">
+      <DependentUpon>FormAdminAddProfessional.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Administrator\FormAdminHome.resx">
       <DependentUpon>FormAdminHome.cs</DependentUpon>
     </EmbeddedResource>

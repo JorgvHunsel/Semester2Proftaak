@@ -79,27 +79,16 @@ namespace Fontys.PTS2.Prototype.View
                 User editUser = new Classes.CareRecipient("a", "b", "c,", "d", "e", "f",
                     Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
 
-                string firstname = tbFirstName.Text;
-                string lastname = tbLastName.Text;
-                string address = tbAddress.Text;
-                string city = tbCity.Text;
-                string postalCode = tbPostalCode.Text;
-                string email = tbEmail.Text;
-                DateTime birthdate = dateOfBirth.Value;
-                User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-                string password = tbPassword.Text;
-                string passwordValidate = tbPassValidation.Text;
+                if (FormLogin.currentUser.UserAccountType == User.AccountType.CareRecipient)
+                    editUser = new Classes.CareRecipient(FormLogin.currentUser.UserId, tbFirstName.Text, tbLastName.Text, tbAddress.Text, tbCity.Text, tbPostalCode.Text, tbEmail.Text, dateOfBirth.Value, (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text), true, User.AccountType.CareRecipient);
+                else if (FormLogin.currentUser.UserAccountType == User.AccountType.Volunteer)
+                    editUser = new Classes.Volunteer(FormLogin.currentUser.UserId, tbFirstName.Text, tbLastName.Text, tbAddress.Text, tbCity.Text, tbPostalCode.Text, tbEmail.Text, dateOfBirth.Value, (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text), true, User.AccountType.Volunteer);
 
-            if (FormLogin.currentUser.UserAccountType == User.AccountType.CareRecipient)
-                editUser = new Classes.CareRecipient(FormLogin.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
-            else if (FormLogin.currentUser.UserAccountType == User.AccountType.Volunteer)
-                editUser = new Classes.Volunteer(FormLogin.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
-
-            if (password == passwordValidate)
-            {
-                UserLogic.EditUser(editUser, password);
-                FormLogin.currentUser = editUser;
-            }
+                if (tbPassword.Text == tbPassValidation.Text)
+                {
+                    UserLogic.EditUser(editUser, tbPassword.Text);
+                    FormLogin.currentUser = editUser;
+                }
 
                 else
                 {
@@ -116,7 +105,5 @@ namespace Fontys.PTS2.Prototype.View
             }
 
         }
-
-
     }
 }
