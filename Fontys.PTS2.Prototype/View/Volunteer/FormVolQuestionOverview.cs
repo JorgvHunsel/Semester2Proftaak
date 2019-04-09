@@ -15,14 +15,12 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormQuestionOverviewVolunteer : Form
     {
-        QuestionLogic ql = new QuestionLogic();
+
 
         public FormQuestionOverviewVolunteer()
         {
             InitializeComponent();
             LoadQuestionsToList();
-
-            
         }
 
 
@@ -30,7 +28,7 @@ namespace Fontys.PTS2.Prototype.View
         {
             DataTable dt = new DataTable();
 
-            dt = ql.GetAllOpenQuestions();
+            dt = QuestionLogic.GetAllOpenQuestions();
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
@@ -81,7 +79,7 @@ namespace Fontys.PTS2.Prototype.View
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
                 
 
-                Form questionReaction = new FormQuestionReaction(ql.GetSingleQuestion(selectedId));
+                Form questionReaction = new FormQuestionReaction(QuestionLogic.GetSingleQuestion(selectedId));
                 questionReaction.Show();
             }
         }

@@ -60,7 +60,7 @@ namespace Fontys.PTS2.Prototype.View
             catch (Exception exception)
             {
                 MessageBox.Show("Er is geen gebruiker ingevoerd");
-                return;
+                throw;
             }
         }
 

@@ -154,13 +154,39 @@ namespace Fontys.PTS2.Prototype.Data
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("GetAllCategories", _conn);
+                SqlCommand cmd = new SqlCommand("SelectAllOpenQuestions", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 _conn.Open();
 
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 
+                return dt;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            finally
+            {
+                _conn.Close();
+            }
+        }
+
+        public DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SelectAllOpenQuestionsCareRecipientID", _conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@careRecipientID", SqlDbType.Int).Value = careRecipientID;
+                _conn.Open();
+
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+
                 return dt;
 
             }

@@ -16,8 +16,8 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormCareQuestionOverview : Form
     {
-        QuestionLogic ql = new QuestionLogic();
-        public FormCareQuestionOverview()
+
+        public FormQuestionOverviewCareRecipient()
         {
             InitializeComponent();
             LoadQuestionsToList();
@@ -25,7 +25,7 @@ namespace Fontys.PTS2.Prototype.View
 
         public void LoadQuestionsToList()
         {
-            DataTable dt = ql.GetAllOpenQuestions();
+            DataTable dt = QuestionLogic.GetAllOpenQuestionCareRecipientID(LoginPrototype.currentUser.UserId);
 
             //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)

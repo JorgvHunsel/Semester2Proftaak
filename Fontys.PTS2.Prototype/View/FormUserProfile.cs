@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data;
 using Fontys.PTS2.Prototype.Logic;
+using Fontys.PTS2.Prototype.View.CareRecipient;
+using Fontys.PTS2.Prototype.View.Volunteer;
 
 namespace Fontys.PTS2.Prototype.View
 {
@@ -72,18 +74,21 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            User editUser = new Classes.CareRecipient("a", "b", "c,", "d", "e", "f", Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
+            if (UserLogic.IsEmailValid(tbEmail.Text))
+            {
+                User editUser = new Classes.CareRecipient("a", "b", "c,", "d", "e", "f",
+                    Convert.ToDateTime("1988/12/20"), User.Gender.M, true, User.AccountType.CareRecipient);
 
-            string firstname = tbFirstName.Text;
-            string lastname = tbLastName.Text;
-            string address = tbAddress.Text;
-            string city = tbCity.Text;
-            string postalCode = tbPostalCode.Text;
-            string email = tbEmail.Text;
-            DateTime birthdate = dateOfBirth.Value;
-            User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
-            string password = tbPassword.Text;
-            string passwordValidate = tbPassValidation.Text;
+                string firstname = tbFirstName.Text;
+                string lastname = tbLastName.Text;
+                string address = tbAddress.Text;
+                string city = tbCity.Text;
+                string postalCode = tbPostalCode.Text;
+                string email = tbEmail.Text;
+                DateTime birthdate = dateOfBirth.Value;
+                User.Gender gender = (User.Gender)Enum.Parse(typeof(User.Gender), cboxSex.Text);
+                string password = tbPassword.Text;
+                string passwordValidate = tbPassValidation.Text;
 
             if (FormLogin.currentUser.UserAccountType == User.AccountType.CareRecipient)
                 editUser = new Classes.CareRecipient(FormLogin.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
@@ -96,14 +101,19 @@ namespace Fontys.PTS2.Prototype.View
                 FormLogin.currentUser = editUser;
             }
 
+                else
+                {
+                    MessageBox.Show("Het wachtwoord komt niet overeen");
+                    return;
+                }
+
+                btnSave.Visible = false;
+                lblTitle.Text = $"Welkom {currentUser.FirstName}";
+            }
             else
             {
-                MessageBox.Show("Het wachtwoord komt niet overeen");
-                return;
+                MessageBox.Show("Inserted email value is not valid");
             }
-
-            btnSave.Visible = false;
-            lblTitle.Text = $"Welkom {currentUser.FirstName}";
 
         }
 
