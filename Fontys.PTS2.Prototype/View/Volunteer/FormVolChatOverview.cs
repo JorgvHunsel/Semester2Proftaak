@@ -14,18 +14,18 @@ using Fontys.PTS2.Prototype.View.Volunteer;
 
 namespace Fontys.PTS2.Prototype.View
 {
-    public partial class FormVolunteerChatOverview : Form
+    public partial class FormVolChatOverview : Form
     {
         private List<ChatLog> chatLogs;
         ChatLogic chatLogic = new ChatLogic();
 
-        public FormVolunteerChatOverview()
+        public FormVolChatOverview()
         {
             InitializeComponent();
         }
 
         // Load listview with items.
-        private void FormVolunteerChatOverview_Load(object sender, EventArgs e)
+        private void FormVolChatOverview_Load(object sender, EventArgs e)
         {
             chatLogs = chatLogic.GetAllOpenChatsWithVolunteerID(FormLogin.currentUser.UserId);
             for (int i = 0; i < chatLogs.Count; i++)

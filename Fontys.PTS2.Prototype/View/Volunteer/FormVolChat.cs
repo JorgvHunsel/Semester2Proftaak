@@ -69,7 +69,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
 
         private void btnBackToChats_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolChatOverview());
         }
     }
 }

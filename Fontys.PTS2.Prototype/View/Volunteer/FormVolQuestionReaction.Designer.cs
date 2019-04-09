@@ -1,6 +1,6 @@
 ﻿namespace Fontys.PTS2.Prototype.View
 {
-    partial class FormQuestionReaction
+    partial class FormVolQuestionReaction
     {
         /// <summary>
         /// Required designer variable.
@@ -114,7 +114,7 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FormQuestionReaction
+            // FormVolQuestionReaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -128,8 +128,8 @@
             this.Controls.Add(this.richtbDescription);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.lblQuestionTitle);
-            this.Name = "FormQuestionReaction";
-            this.Text = "FormQuestionReaction";
+            this.Name = "FormVolQuestionReaction";
+            this.Text = "FormVolQuestionReaction";
             this.ResumeLayout(false);
             this.PerformLayout();
 

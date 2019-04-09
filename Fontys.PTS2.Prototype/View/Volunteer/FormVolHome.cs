@@ -27,12 +27,12 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
 
         private void btnOpenQuestion_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolChatOverview());
         }
 
         private void btnOpenQuestions_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
         }
 
         private void btnLogOff_Click(object sender, EventArgs e)

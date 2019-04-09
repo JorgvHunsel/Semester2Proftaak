@@ -89,7 +89,7 @@ namespace Fontys.PTS2.Prototype
             return false;
         }
 
-        // Button to move to FormQuestionOverviewVolunteer
+        // Button to move to FormVolQuestionOverview
         private void btnQuestionOverview_Click(object sender, EventArgs e)
         {
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());

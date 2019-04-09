@@ -1,6 +1,6 @@
 ﻿namespace Fontys.PTS2.Prototype.View
 {
-    partial class FormVolunteerChatOverview
+    partial class FormVolChatOverview
     {
         /// <summary>
         /// Required designer variable.
@@ -130,7 +130,7 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // FormVolunteerChatOverview
+            // FormVolChatOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,9 +142,9 @@
             this.Controls.Add(this.lvChats);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FormVolunteerChatOverview";
-            this.Text = "FormVolunteerChatOverview";
-            this.Load += new System.EventHandler(this.FormVolunteerChatOverview_Load);
+            this.Name = "FormVolChatOverview";
+            this.Text = "FormVolChatOverview";
+            this.Load += new System.EventHandler(this.FormVolChatOverview_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,6 +1,6 @@
 ﻿namespace Fontys.PTS2.Prototype.View
 {
-    partial class FormQuestionOverviewVolunteer
+    partial class FormVolQuestionOverview
     {
         /// <summary>
         /// Required designer variable.
@@ -120,7 +120,7 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // FormQuestionOverviewVolunteer
+            // FormVolQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -131,8 +131,8 @@
             this.Controls.Add(this.lblOpenRequests);
             this.Controls.Add(this.lvOpenQuestions);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "FormQuestionOverviewVolunteer";
-            this.Text = "FormQuestionOverviewVolunteer";
+            this.Name = "FormVolQuestionOverview";
+            this.Text = "FormVolQuestionOverview";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,11 +13,11 @@ using Fontys.PTS2.Prototype.View.Volunteer;
 
 namespace Fontys.PTS2.Prototype.View
 {
-    public partial class FormQuestionOverviewVolunteer : Form
+    public partial class FormVolQuestionOverview : Form
     {
 
 
-        public FormQuestionOverviewVolunteer()
+        public FormVolQuestionOverview()
         {
             InitializeComponent();
             LoadQuestionsToList();
@@ -79,7 +79,7 @@ namespace Fontys.PTS2.Prototype.View
                 int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
                 
 
-                Form questionReaction = new FormQuestionReaction(QuestionLogic.GetSingleQuestion(selectedId));
+                Form questionReaction = new FormVolQuestionReaction(QuestionLogic.GetSingleQuestion(selectedId));
                 questionReaction.Show();
             }
         }
@@ -91,7 +91,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void ChatOverview_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolChatOverview());
         }
 
         private void btnBack_Click(object sender, EventArgs e)

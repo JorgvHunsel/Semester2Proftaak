@@ -63,13 +63,13 @@ namespace Fontys.PTS2.Prototype.View
                 //                QuestionContextSQL.FormCareEditQuestion(questionID, subjectNew, contentNew, category, urgency);
 
                 //MessageBox.Show("Hulpvraag bewerkt.");
-                //((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                //((MainForm)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
         }
     }
 }

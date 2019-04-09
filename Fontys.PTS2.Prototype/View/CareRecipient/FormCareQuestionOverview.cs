@@ -29,14 +29,11 @@ namespace Fontys.PTS2.Prototype.View
         {
             DataTable dt = QuestionLogic.GetAllOpenQuestionCareRecipientID(FormLogin.currentUser.UserId);
 
-            //Adding each row into listview with foreach + for loop
             foreach (DataRow row in dt.Rows)
             {
-                //Standard adding item, only add the primary key as main item
                 ListViewItem item = new ListViewItem(row[0].ToString());
                 for (int i = 1; i < dt.Columns.Count; i++)
                 {
-                    //each item that follow the primary key will be added as sub item
                     item.SubItems.Add(row[i].ToString());
                 }
                 lvOpenQuestions.Items.Add(item);
@@ -49,7 +46,7 @@ namespace Fontys.PTS2.Prototype.View
             if (lvOpenQuestions.SelectedItems.Count == 1)
             {
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
+                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[4].Text);
 
                 ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(QuestionLogic.GetSingleQuestion(selectedId)));
 
@@ -63,7 +60,6 @@ namespace Fontys.PTS2.Prototype.View
         private void btnAskQuestion_Click(object sender, EventArgs e)
         {
             ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareAskQuestion());
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)

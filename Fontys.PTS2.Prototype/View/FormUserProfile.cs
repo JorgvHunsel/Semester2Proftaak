@@ -69,7 +69,7 @@ namespace Fontys.PTS2.Prototype.View
             if (currentUser.UserAccountType == User.AccountType.CareRecipient)
                 ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionOverview());
             if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
         }
 
         private void btnSave_Click(object sender, EventArgs e)

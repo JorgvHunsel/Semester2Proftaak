@@ -13,12 +13,12 @@ using Fontys.PTS2.Prototype.Logic;
 
 namespace Fontys.PTS2.Prototype.View
 {
-    public partial class FormQuestionReaction : Form
+    public partial class FormVolQuestionReaction : Form
     {   
 
         private Question _question;
 
-        public FormQuestionReaction(Question question)
+        public FormVolQuestionReaction(Question question)
         {
             InitializeComponent();
             _question = question;

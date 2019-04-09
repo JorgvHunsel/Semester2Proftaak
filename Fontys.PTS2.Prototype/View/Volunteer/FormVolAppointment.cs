@@ -40,7 +40,7 @@ namespace Fontys.PTS2.Prototype.View.Volunteer
             AL.CreateAppointment(appointment);
 
             MessageBox.Show("Afspraak gemaakt.");
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolunteerChatOverview());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolChatOverview());
 
         }
     }

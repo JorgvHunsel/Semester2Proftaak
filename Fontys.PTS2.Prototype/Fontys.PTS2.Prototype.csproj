@@ -271,7 +271,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\CareRecipient\FormCareQuestionReaction.resx" />
     <EmbeddedResource Include="View\FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
     </EmbeddedResource>
