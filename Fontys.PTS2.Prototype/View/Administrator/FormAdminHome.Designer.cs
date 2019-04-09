@@ -108,7 +108,6 @@
             this.lblAccountType.Size = new System.Drawing.Size(170, 17);
             this.lblAccountType.TabIndex = 16;
             this.lblAccountType.Text = "Ingelogd als administrator\r\n";
-            this.lblAccountType.Click += new System.EventHandler(this.lblAccountType_Click);
             // 
             // btnAddProf
             // 
@@ -139,7 +138,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdminHome";
             this.Text = "FormAdminHome";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

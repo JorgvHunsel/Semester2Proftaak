@@ -41,12 +41,12 @@ namespace Fontys.PTS2.Prototype.View
                     {
                         currentUser = UserLogic.getCurrentUserInfo(selectedUser);
                         if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormCareHome());
+                            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());
                         else if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormVolHome());
+                            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolHome());
                         else if (currentUser.UserAccountType == User.AccountType.Admin)
                         {
-                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormAdminHome());
+                            ((FormMain)this.Parent.Parent).ReplaceForm(new FormAdminHome());
                         }
                     }
                     else

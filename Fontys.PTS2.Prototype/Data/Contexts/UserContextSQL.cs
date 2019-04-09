@@ -212,7 +212,6 @@ namespace Fontys.PTS2.Prototype.Data
                     {
                         if (reader.GetBoolean(0))
                         {
-                            MessageBox.Show("user active");
                             _conn.Close();
                             return true;
                         }

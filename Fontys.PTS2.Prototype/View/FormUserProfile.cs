@@ -36,6 +36,13 @@ namespace Fontys.PTS2.Prototype.View
             tbAddress.Text = currentUser.Address;
             tbPostalCode.Text = currentUser.PostalCode;
             tbCity.Text = currentUser.City;
+
+            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
+            {
+                cboxSex.Items.Add(gender);
+            }
+
+            cboxSex.SelectedIndex = cboxSex.FindStringExact(currentUser.UserGender.ToString());
         }
 
         private void btnEditUser_Click(object sender, EventArgs e)
@@ -56,20 +63,16 @@ namespace Fontys.PTS2.Prototype.View
             lblPassword.Visible = true;
             lblPaswordValidation.Visible = true;
             btnSave.Visible = true;
-
-            foreach (string gender in Enum.GetNames(typeof(User.Gender)))
-            {
-                cboxSex.Items.Add(gender);
-            }
+            btnEditUser.Visible = false;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             User currentUser = FormLogin.currentUser;
             if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionOverview());
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());
             if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolHome());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -97,12 +100,16 @@ namespace Fontys.PTS2.Prototype.View
                 }
 
                 btnSave.Visible = false;
+                btnEditUser.Visible = true;
                 lblTitle.Text = $"Welkom {currentUser.FirstName}";
             }
             else
             {
                 MessageBox.Show("Inserted email value is not valid");
+                return;
             }
+
+            MessageBox.Show("Account succesvol gewijzigd.");
 
         }
     }
