@@ -167,7 +167,7 @@ namespace Fontys.PTS2.Prototype.Data
             }
             catch (Exception e)
             {
-
+                ;
             }
             finally
             {
