@@ -15,7 +15,7 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormUserProfile : Form
     {
-        User currentUser = LoginPrototype.currentUser;
+        User currentUser = FormLogin.currentUser;
 
         public FormUserProfile()
         {
@@ -63,11 +63,11 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            User currentUser = LoginPrototype.currentUser;
+            User currentUser = FormLogin.currentUser;
             if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewCareRecipient());
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionOverview());
             if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                ((MainForm)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormQuestionOverviewVolunteer());
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -85,15 +85,15 @@ namespace Fontys.PTS2.Prototype.View
             string password = tbPassword.Text;
             string passwordValidate = tbPassValidation.Text;
 
-            if (LoginPrototype.currentUser.UserAccountType == User.AccountType.CareRecipient)
-                editUser = new Classes.CareRecipient(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
-            else if (LoginPrototype.currentUser.UserAccountType == User.AccountType.Volunteer)
-                editUser = new Classes.Volunteer(LoginPrototype.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
+            if (FormLogin.currentUser.UserAccountType == User.AccountType.CareRecipient)
+                editUser = new Classes.CareRecipient(FormLogin.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.CareRecipient);
+            else if (FormLogin.currentUser.UserAccountType == User.AccountType.Volunteer)
+                editUser = new Classes.Volunteer(FormLogin.currentUser.UserId, firstname, lastname, address, city, postalCode, email, birthdate, gender, true, User.AccountType.Volunteer);
 
             if (password == passwordValidate)
             {
                 UserLogic.EditUser(editUser, password);
-                LoginPrototype.currentUser = editUser;
+                FormLogin.currentUser = editUser;
             }
 
             else

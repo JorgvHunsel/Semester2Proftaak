@@ -100,67 +100,73 @@
     <Compile Include="Data\Contexts\QuestionContextSQL.cs" />
     <Compile Include="Data\Contexts\UserContextSQL.cs" />
     <Compile Include="Data\Contexts\ReactionContextSQL.cs" />
-    <Compile Include="View\Administrator\AccountOverviewAdminForm.cs">
+    <Compile Include="View\Administrator\FormAdminAccountOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\AccountOverviewAdminForm.Designer.cs">
-      <DependentUpon>AccountOverviewAdminForm.cs</DependentUpon>
+    <Compile Include="View\Administrator\FormAdminAccountOverview.Designer.cs">
+      <DependentUpon>FormAdminAccountOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Administrator\AdminForm.cs">
+    <Compile Include="View\Administrator\FormAdminHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\AdminForm.Designer.cs">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <Compile Include="View\Administrator\FormAdminHome.Designer.cs">
+      <DependentUpon>FormAdminHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Administrator\ChatLogOverviewAdminForm.cs">
+    <Compile Include="View\Administrator\FormAdminChatLogOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\ChatLogOverviewAdminForm.Designer.cs">
-      <DependentUpon>ChatLogOverviewAdminForm.cs</DependentUpon>
+    <Compile Include="View\Administrator\FormAdminChatLogOverview.Designer.cs">
+      <DependentUpon>FormAdminChatLogOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\EditQuestion.cs">
+    <Compile Include="View\Administrator\FormAdminAddProfessional.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\EditQuestion.Designer.cs">
-      <DependentUpon>EditQuestion.cs</DependentUpon>
+    <Compile Include="View\Administrator\FormAdminAddProfessional.Designer.cs">
+      <DependentUpon>FormAdminAddProfessional.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Administrator\QuestionOverviewAdminForm.cs">
+    <Compile Include="View\CareRecipient\FormCareEditQuestion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Administrator\QuestionOverviewAdminForm.Designer.cs">
-      <DependentUpon>QuestionOverviewAdminForm.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareEditQuestion.Designer.cs">
+      <DependentUpon>FormCareEditQuestion.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\FormCareRecipientChat.cs">
+    <Compile Include="View\Administrator\FormAdminQuestionOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormCareRecipientChat.Designer.cs">
-      <DependentUpon>FormCareRecipientChat.cs</DependentUpon>
+    <Compile Include="View\Administrator\FormAdminQuestionOverview.Designer.cs">
+      <DependentUpon>FormAdminQuestionOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\FormCareRecipientChatOverview.cs">
+    <Compile Include="View\CareRecipient\FormCareChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormCareRecipientChatOverview.Designer.cs">
-      <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareChat.Designer.cs">
+      <DependentUpon>FormCareChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\FormHomeCareRecipient.cs">
+    <Compile Include="View\CareRecipient\FormCareChatOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormHomeCareRecipient.Designer.cs">
-      <DependentUpon>FormHomeCareRecipient.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareChatOverview.Designer.cs">
+      <DependentUpon>FormCareChatOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\FormQuestion.cs">
+    <Compile Include="View\CareRecipient\FormCareHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormQuestion.Designer.cs">
-      <DependentUpon>FormQuestion.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareHome.Designer.cs">
+      <DependentUpon>FormCareHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormCareAskQuestion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CareRecipient\FormCareAskQuestion.Designer.cs">
+      <DependentUpon>FormCareAskQuestion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\CareRecipient\FormReactionQuestionCareRecipient.cs">
+    <Compile Include="View\CareRecipient\FormCareQuestoinReaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormReactionQuestionCareRecipient.Designer.cs">
-      <DependentUpon>FormReactionQuestionCareRecipient.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareQuestoinReaction.Designer.cs">
+      <DependentUpon>FormCareQuestoinReaction.cs</DependentUpon>
     </Compile>
     <Compile Include="View\FormUserProfile.cs">
       <SubType>Form</SubType>
@@ -168,98 +174,92 @@
     <Compile Include="View\FormUserProfile.Designer.cs">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\FormUserInformation.cs">
+    <Compile Include="View\Login\FormCreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Login\FormUserInformation.Designer.cs">
-      <DependentUpon>FormUserInformation.cs</DependentUpon>
+    <Compile Include="View\Login\FormCreateAccount.Designer.cs">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\NewUser.cs">
+    <Compile Include="View\Volunteer\FormVolAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Login\NewUser.Designer.cs">
-      <DependentUpon>NewUser.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolAppointment.Designer.cs">
+      <DependentUpon>FormVolAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormAppointmentVolunteer.cs">
+    <Compile Include="View\Volunteer\FormVolHome.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormAppointmentVolunteer.Designer.cs">
-      <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolHome.Designer.cs">
+      <DependentUpon>FormVolHome.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormHomeVolunteer.cs">
+    <Compile Include="View\Volunteer\FormVolQuestionOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormHomeVolunteer.Designer.cs">
-      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolQuestionOverview.Designer.cs">
+      <DependentUpon>FormVolQuestionOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.cs">
+    <Compile Include="View\Volunteer\FormVolQuestionReaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionOverviewVolunteer.Designer.cs">
-      <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolQuestionReaction.Designer.cs">
+      <DependentUpon>FormVolQuestionReaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionReaction.cs">
+    <Compile Include="View\CareRecipient\FormCareQuestionOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormQuestionReaction.Designer.cs">
-      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    <Compile Include="View\CareRecipient\FormCareQuestionOverview.Designer.cs">
+      <DependentUpon>FormCareQuestionOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\CareRecipient\FormQuestionOverviewCareRecipient.cs">
+    <Compile Include="View\Login\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\CareRecipient\FormQuestionOverviewCareRecipient.Designer.cs">
-      <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
+    <Compile Include="View\Login\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Login\LoginPrototype.cs">
+    <Compile Include="View\Volunteer\FormVolChat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Login\LoginPrototype.Designer.cs">
-      <DependentUpon>LoginPrototype.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolChat.Designer.cs">
+      <DependentUpon>FormVolChat.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormVolunteerChat.cs">
+    <Compile Include="View\Volunteer\FormVolChatOverview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormVolunteerChat.Designer.cs">
-      <DependentUpon>FormVolunteerChat.cs</DependentUpon>
+    <Compile Include="View\Volunteer\FormVolChatOverview.Designer.cs">
+      <DependentUpon>FormVolChatOverview.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Volunteer\FormVolunteerChatOverview.cs">
+    <Compile Include="View\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Volunteer\FormVolunteerChatOverview.Designer.cs">
-      <DependentUpon>FormVolunteerChatOverview.cs</DependentUpon>
+    <Compile Include="View\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="View\Administrator\AccountOverviewAdminForm.resx">
-      <DependentUpon>AccountOverviewAdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Administrator\FormAdminAccountOverview.resx">
+      <DependentUpon>FormAdminAccountOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Administrator\AdminForm.resx">
-      <DependentUpon>AdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Administrator\FormAdminHome.resx">
+      <DependentUpon>FormAdminHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Administrator\ChatLogOverviewAdminForm.resx">
-      <DependentUpon>ChatLogOverviewAdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Administrator\FormAdminChatLogOverview.resx">
+      <DependentUpon>FormAdminChatLogOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\EditQuestion.resx">
-      <DependentUpon>EditQuestion.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareEditQuestion.resx">
+      <DependentUpon>FormCareEditQuestion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Administrator\QuestionOverviewAdminForm.resx">
-      <DependentUpon>QuestionOverviewAdminForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\Administrator\FormAdminQuestionOverview.resx">
+      <DependentUpon>FormAdminQuestionOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChat.resx">
-      <DependentUpon>FormCareRecipientChat.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareChat.resx">
+      <DependentUpon>FormCareChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\FormCareRecipientChatOverview.resx">
-      <DependentUpon>FormCareRecipientChatOverview.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareChatOverview.resx">
+      <DependentUpon>FormCareChatOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\FormHomeCareRecipient.resx">
-      <DependentUpon>FormHomeCareRecipient.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareHome.resx">
+      <DependentUpon>FormCareHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\FormQuestion.resx">
-      <DependentUpon>FormQuestion.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareAskQuestion.resx">
+      <DependentUpon>FormCareAskQuestion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -274,38 +274,35 @@
     <EmbeddedResource Include="View\FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Login\FormUserInformation.resx">
-      <DependentUpon>FormUserInformation.cs</DependentUpon>
+    <EmbeddedResource Include="View\Login\FormCreateAccount.resx">
+      <DependentUpon>FormCreateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Login\NewUser.resx">
-      <DependentUpon>NewUser.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolAppointment.resx">
+      <DependentUpon>FormVolAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormAppointmentVolunteer.resx">
-      <DependentUpon>FormAppointmentVolunteer.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolHome.resx">
+      <DependentUpon>FormVolHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormHomeVolunteer.resx">
-      <DependentUpon>FormHomeVolunteer.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolQuestionOverview.resx">
+      <DependentUpon>FormVolQuestionOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormQuestionOverviewVolunteer.resx">
-      <DependentUpon>FormQuestionOverviewVolunteer.cs</DependentUpon>
+    <EmbeddedResource Include="View\CareRecipient\FormCareQuestionOverview.resx">
+      <DependentUpon>FormCareQuestionOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\CareRecipient\FormQuestionOverviewCareRecipient.resx">
-      <DependentUpon>FormQuestionOverviewCareRecipient.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolQuestionReaction.resx">
+      <DependentUpon>FormVolQuestionReaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormQuestionReaction.resx">
-      <DependentUpon>FormQuestionReaction.cs</DependentUpon>
+    <EmbeddedResource Include="View\Login\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Login\LoginPrototype.resx">
-      <DependentUpon>LoginPrototype.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolChat.resx">
+      <DependentUpon>FormVolChat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormVolunteerChat.resx">
-      <DependentUpon>FormVolunteerChat.cs</DependentUpon>
+    <EmbeddedResource Include="View\Volunteer\FormVolChatOverview.resx">
+      <DependentUpon>FormVolChatOverview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Volunteer\FormVolunteerChatOverview.resx">
-      <DependentUpon>FormVolunteerChatOverview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -338,6 +335,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\Professional\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
