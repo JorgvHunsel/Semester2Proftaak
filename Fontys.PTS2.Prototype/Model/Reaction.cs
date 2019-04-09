@@ -23,9 +23,10 @@ namespace Fontys.PTS2.Prototype.Classes
            VolunteerName = volunteerName;
        }
 
-       public Reaction( int questionId, int senderId, string description, string volunteerName, DateTime timeStamp)
+       public Reaction(int reactionId, int questionId, int senderId, string description, string volunteerName, DateTime timeStamp)
        {
-           QuestionId = questionId;
+           ReactionId = reactionId;
+            QuestionId = questionId;
            SenderId = senderId;
            Description = description;
            VolunteerName = volunteerName;

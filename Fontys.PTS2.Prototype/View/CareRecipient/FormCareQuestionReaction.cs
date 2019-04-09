@@ -26,6 +26,32 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
             {
                 lvQuestionReaction.Items.Add(item);
             }
+
+
+        }
+
+        private void btnCreateChatlog_Click(object sender, EventArgs e)
+        {
+
+            if (lvQuestionReaction.SelectedItems.Count == 1)
+            {
+                int selectedRow = lvQuestionReaction.SelectedItems[0].Index;
+                int selectedId = Convert.ToInt32(lvQuestionReaction.Items[selectedRow].SubItems[3].Text);
+                int reactionID = Convert.ToInt32(lvQuestionReaction.Items[selectedRow].SubItems[4].Text);
+                int senderID = Convert.ToInt32(lvQuestionReaction.Items[selectedRow].SubItems[5].Text);
+
+                ChatLogic cl = new ChatLogic();
+                cl.CreateNewChatLog(reactionID, senderID, FormLogin.currentUser.UserId);
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());
         }
     }
 }

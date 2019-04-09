@@ -51,7 +51,7 @@ namespace Fontys.PTS2.Prototype.View
                 int selectedRow = lvChats.SelectedItems[0].Index;
 
                 // Parameters
-                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text) -1;
+                int selectedChatId = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[3].Text);
                 int receiverID = Convert.ToInt32(lvChats.Items[selectedRow].SubItems[4].Text);
                 string selectedName = lvChats.Items[selectedRow].SubItems[0].Text;
                 

@@ -117,6 +117,7 @@ namespace Fontys.PTS2.Prototype.Data
             {
                 SqlCommand cmd = new SqlCommand("LoadMessagesByChatLogID", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@chatid", SqlDbType.Int).Value = chatID;
 
                 _conn.Open();
 
