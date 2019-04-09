@@ -37,14 +37,22 @@ namespace Fontys.PTS2.Prototype.View
                 string password = tbPassword.Text;
                 if (UserLogic.CheckValidityUser(selectedUser, password))
                 {
-                    currentUser = UserLogic.getCurrentUserInfo(selectedUser);
-                    if (currentUser.UserAccountType == User.AccountType.CareRecipient)
-                        ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareHome());
-                    else if (currentUser.UserAccountType == User.AccountType.Volunteer)
-                        ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolHome());
-                    else if (currentUser.UserAccountType == User.AccountType.Admin)
+                    if (UserLogic.CheckIfAccountIsActive(selectedUser))
                     {
-                        ((FormMain)this.Parent.Parent).ReplaceForm(new FormAdminHome());
+                        currentUser = UserLogic.getCurrentUserInfo(selectedUser);
+                        if (currentUser.UserAccountType == User.AccountType.CareRecipient)
+                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormCareHome());
+                        else if (currentUser.UserAccountType == User.AccountType.Volunteer)
+                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormVolHome());
+                        else if (currentUser.UserAccountType == User.AccountType.Admin)
+                        {
+                            ((FormMain) this.Parent.Parent).ReplaceForm(new FormAdminHome());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(
+                            "Het lijkt erop dat uw account is gedeactiveerd. Neem contact op met de administratie");
                     }
                 }
                 else

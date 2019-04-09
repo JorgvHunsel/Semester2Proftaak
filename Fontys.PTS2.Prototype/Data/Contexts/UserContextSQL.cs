@@ -266,7 +266,6 @@ namespace Fontys.PTS2.Prototype.Data
                     {
                         if (password == (string)reader[1])
                         {
-                            MessageBox.Show("User found");
                             _conn.Close();
                             return true;
                         }

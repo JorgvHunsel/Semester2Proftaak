@@ -24,8 +24,7 @@ namespace Fontys.PTS2.Prototype.Data
                     cmd.Parameters.AddWithValue("@careRecipientID", appointment.CareRecipientId);
                     cmd.Parameters.AddWithValue("@volunteerID", appointment.VolunteerId);
                     cmd.Parameters.AddWithValue("@timestampAppointment", appointment.TimeStamp);
-                    
-                    _conn.Open();
+
                     cmd.ExecuteNonQuery();
                 }
             }

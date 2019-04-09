@@ -34,7 +34,7 @@ namespace Fontys.PTS2.Prototype.Logic
 
         public static void EditQuestion(int questionID, string subjectNew, string contentNew, Category category, string urgency)
         {
-            EditQuestion(questionID, subjectNew, contentNew, category, urgency);
+            questionRepo.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
         }
 
         public static List<ListViewItem> LoadQuestionsToList(List<Question> questionList)

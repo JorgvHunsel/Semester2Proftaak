@@ -35,7 +35,7 @@ namespace Fontys.PTS2.Prototype.View
             if (lvOpenQuestions.SelectedItems.Count == 1)
             {
                 int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[4].Text);
+                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[0].Text);
 
                 ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareEditQuestion(QuestionLogic.GetSingleQuestion(selectedId)));
 

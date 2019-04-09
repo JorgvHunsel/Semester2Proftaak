@@ -16,7 +16,7 @@ namespace Fontys.PTS2.Prototype.View
 {
     public partial class FormCareEditQuestion : Form
     {
-        private List<Category> categories;
+        private List<Category> categories = new List<Category>();
         private Question _question;
         CategoryLogic db = new CategoryLogic();
 
@@ -30,6 +30,7 @@ namespace Fontys.PTS2.Prototype.View
             foreach (Category category in db.GetAllCategories())
             {
                 cmbCategory.Items.Add(category.Name);
+                categories.Add(category);
             }
         }
 
@@ -60,16 +61,16 @@ namespace Fontys.PTS2.Prototype.View
             else
             {
                 Category category = categories[categorySelectedIndex];
-                //                QuestionContextSQL.FormCareEditQuestion(questionID, subjectNew, contentNew, category, urgency);
+                QuestionLogic.EditQuestion(_question.QuestionId, subjectNew, contentNew, category, urgency);
 
-                //MessageBox.Show("Hulpvraag bewerkt.");
-                //((MainForm)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
+                MessageBox.Show("Hulpvraag bewerkt.");
+                ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionOverview());
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            ((FormMain)this.Parent.Parent).ReplaceForm(new FormVolQuestionOverview());
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionOverview());
         }
     }
 }
