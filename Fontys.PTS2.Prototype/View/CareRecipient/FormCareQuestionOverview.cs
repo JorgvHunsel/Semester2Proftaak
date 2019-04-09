@@ -21,7 +21,7 @@ namespace Fontys.PTS2.Prototype.View
         public FormCareQuestionOverview()
         {
             InitializeComponent();
-            List<ListViewItem> items = QuestionLogic.LoadQuestionsToList(QuestionLogic.GetAllOpenQuestionCareRecipientID(LoginPrototype.currentUser.UserId));
+            List<ListViewItem> items = QuestionLogic.LoadQuestionsToList(QuestionLogic.GetAllOpenQuestionCareRecipientID(FormLogin.currentUser.UserId));
 
             foreach (ListViewItem item in items)
             {
@@ -60,7 +60,7 @@ namespace Fontys.PTS2.Prototype.View
         {
             int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
             int currentQuestionID = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[4].Text);
-            ((MainForm)this.Parent.Parent).ReplaceForm(new FormReactionQuestionCareRecipient(currentQuestionID));            
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormCareQuestionReaction(currentQuestionID));            
         }
     }
 }

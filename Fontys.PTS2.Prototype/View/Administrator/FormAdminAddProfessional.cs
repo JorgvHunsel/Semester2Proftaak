@@ -23,7 +23,6 @@ namespace Fontys.PTS2.Prototype.View.Administrator
 
         void LoadListview()
         {
-            LbChatOverView.Items.Clear();
             //foreach (ChatLog chat in )
             //{
             //    LbChatOverView.Items.Add(chat.VolunteerFirstName);

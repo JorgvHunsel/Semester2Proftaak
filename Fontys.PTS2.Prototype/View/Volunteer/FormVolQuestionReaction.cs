@@ -28,7 +28,7 @@ namespace Fontys.PTS2.Prototype.View
 
         private void btnPostReaction_Click(object sender, EventArgs e)
         {
-            Reaction newReaction = new Reaction(_question.QuestionId, LoginPrototype.currentUser.UserId, richtbReaction.Text, LoginPrototype.currentUser.FirstName + " " + LoginPrototype.currentUser.LastName);
+            Reaction newReaction = new Reaction(_question.QuestionId, FormLogin.currentUser.UserId, richtbReaction.Text, FormLogin.currentUser.FirstName + " " + FormLogin.currentUser.LastName);
             ReactionLogic.PostReaction(newReaction);
 
             MessageBox.Show("Reactie verstuurd");

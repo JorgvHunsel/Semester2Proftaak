@@ -16,7 +16,7 @@ namespace Fontys.PTS2.Prototype.View.CareRecipient
     {
         private int _questionID;
 
-        public FormReactionQuestionCareRecipient(int questionID)
+        public FormCareQuestionReaction(int questionID)
         {
             InitializeComponent();
             _questionID = questionID;
