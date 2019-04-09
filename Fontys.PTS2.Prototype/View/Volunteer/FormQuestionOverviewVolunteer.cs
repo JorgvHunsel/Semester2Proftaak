@@ -43,27 +43,6 @@ namespace Fontys.PTS2.Prototype.View
                 lvOpenQuestions.Items.Add(item);
             }
         }
-
-        // Re-open Create Question
-        private void btnCreateQuestion_Click(object sender, EventArgs e)
-        {
-            ((MainForm)this.Parent.Parent).ReplaceForm(new Form1());
-        }
-
-        // Edit Question
-        private void btnEditQuestion_Click(object sender, EventArgs e)
-        {
-            if (lvOpenQuestions.SelectedItems.Count == 1)
-            {
-                int selectedRow = lvOpenQuestions.SelectedItems[0].Index;
-                int selectedId = Convert.ToInt32(lvOpenQuestions.Items[selectedRow].SubItems[5].Text);
-                ((MainForm)this.Parent.Parent).ReplaceForm(new EditQuestion(QuestionLogic.GetSingleQuestion(selectedId)));
-            }
-            else
-            {
-                MessageBox.Show("Error");
-            }
-        }
         
         //React to Question
         private void btnReactToQuestion_Click(object sender, EventArgs e)

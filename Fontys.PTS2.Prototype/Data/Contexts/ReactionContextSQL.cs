@@ -39,14 +39,14 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public List<Reaction> GetAllCommentsWithQuestionID(int questionid)
+        public List<Reaction> GetAllCommentsWithQuestionID(int questionId)
         {
             List<Reaction> reactionList = new List<Reaction>();
             try
             {
                 SqlCommand cmd = new SqlCommand("GetAllCommentsByQuestionID", _conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionid;
+                cmd.Parameters.Add("@questionID", SqlDbType.Int).Value = questionId;
 
                 _conn.Open();
 
@@ -62,7 +62,7 @@ namespace Fontys.PTS2.Prototype.Data
                     DateTime timeStamp = Convert.ToDateTime(dr["Timestamp"].ToString());
 
                     
-                    reactionList.Add(new Reaction(questionid, volunteerID, description, volunteerName));
+                    reactionList.Add(new Reaction(questionId, volunteerID, description, volunteerName, timeStamp));
                 }
 
                 return reactionList;

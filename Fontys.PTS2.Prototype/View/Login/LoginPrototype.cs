@@ -29,11 +29,6 @@ namespace Fontys.PTS2.Prototype.View
             InitializeComponent();
         }
 
-        private void LoginPrototype_Load(object sender, EventArgs e)
-        {
-            ;
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             try

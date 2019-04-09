@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Fontys.PTS2.Prototype.Classes;
 using Fontys.PTS2.Prototype.Data.Contexts;
 using Fontys.PTS2.Prototype.View;
+using Microsoft.Win32.SafeHandles;
 
 namespace Fontys.PTS2.Prototype.Data
 {
@@ -175,8 +176,10 @@ namespace Fontys.PTS2.Prototype.Data
             }
         }
 
-        public DataTable GetAllOpenQuestionsCareRecipientID(int careRecipientID)
+        public List<Question> GetAllOpenQuestionsCareRecipientID(int careRecipientID)
         {
+            List<Question> questionList = new List<Question>();
+
             try
             {
                 SqlCommand cmd = new SqlCommand("SelectAllOpenQuestionsCareRecipientID", _conn);
@@ -187,8 +190,19 @@ namespace Fontys.PTS2.Prototype.Data
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
 
-                return dt;
-
+                foreach (DataRow dr in dt.Rows)
+                {
+                    int questionId = Convert.ToInt32(dr["QuestionID"]);
+                    string title = dr["Title"].ToString();
+                    string content = dr["Description"].ToString();
+                    Question.QuestionStatus status = (Question.QuestionStatus)Enum.Parse(typeof(Question.QuestionStatus),dr["Status"].ToString());
+                    DateTime date = Convert.ToDateTime(dr["Datetime"]);
+                    string urgency = dr["Urgency"].ToString();
+                    int careRecipientId = Convert.ToInt32(dr["CareRecipientID"]);
+                    Category category = new Category(1, "hoi", "doei");
+                    questionList.Add(new Question(questionId, title, content, status, date, urgency, category, careRecipientID));
+                }
+                return questionList;
             }
             catch (Exception e)
             {
