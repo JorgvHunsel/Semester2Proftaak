@@ -73,6 +73,7 @@
             this.btnBack.TabIndex = 75;
             this.btnBack.Text = "Terug";
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // lblTitle
             // 

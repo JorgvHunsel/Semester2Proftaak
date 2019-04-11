@@ -48,5 +48,10 @@ namespace Fontys.PTS2.Prototype.View.Administrator
                 cboxSex.Items.Add(gender);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ((FormMain)this.Parent.Parent).ReplaceForm(new FormAdminHome());
+        }
     }
 }
