@@ -40,9 +40,10 @@
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOff.Location = new System.Drawing.Point(337, 20);
+            this.btnLogOff.Location = new System.Drawing.Point(644, 25);
+            this.btnLogOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOff.Name = "btnLogOff";
-            this.btnLogOff.Size = new System.Drawing.Size(108, 37);
+            this.btnLogOff.Size = new System.Drawing.Size(144, 46);
             this.btnLogOff.TabIndex = 15;
             this.btnLogOff.Text = "Uitloggen";
             this.btnLogOff.UseVisualStyleBackColor = false;
@@ -52,10 +53,10 @@
             // 
             this.btnAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Location = new System.Drawing.Point(21, 198);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccount.Location = new System.Drawing.Point(28, 244);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(424, 53);
+            this.btnAccount.Size = new System.Drawing.Size(760, 65);
             this.btnAccount.TabIndex = 14;
             this.btnAccount.Text = "Mijn account";
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -65,10 +66,10 @@
             // 
             this.btnOpenQuestion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOpenQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenQuestion.Location = new System.Drawing.Point(21, 141);
-            this.btnOpenQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenQuestion.Location = new System.Drawing.Point(28, 174);
+            this.btnOpenQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenQuestion.Name = "btnOpenQuestion";
-            this.btnOpenQuestion.Size = new System.Drawing.Size(424, 53);
+            this.btnOpenQuestion.Size = new System.Drawing.Size(760, 65);
             this.btnOpenQuestion.TabIndex = 12;
             this.btnOpenQuestion.Text = "Chat overzicht";
             this.btnOpenQuestion.UseVisualStyleBackColor = false;
@@ -77,10 +78,9 @@
             // lblAccountType
             // 
             this.lblAccountType.AutoSize = true;
-            this.lblAccountType.Location = new System.Drawing.Point(334, 4);
-            this.lblAccountType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAccountType.Location = new System.Drawing.Point(640, 5);
             this.lblAccountType.Name = "lblAccountType";
-            this.lblAccountType.Size = new System.Drawing.Size(111, 13);
+            this.lblAccountType.Size = new System.Drawing.Size(148, 17);
             this.lblAccountType.TabIndex = 11;
             this.lblAccountType.Text = "Ingelogd als vrijwilliger";
             // 
@@ -88,10 +88,10 @@
             // 
             this.btnOpenQuestions.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOpenQuestions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenQuestions.Location = new System.Drawing.Point(21, 83);
-            this.btnOpenQuestions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenQuestions.Location = new System.Drawing.Point(28, 102);
+            this.btnOpenQuestions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenQuestions.Name = "btnOpenQuestions";
-            this.btnOpenQuestions.Size = new System.Drawing.Size(424, 53);
+            this.btnOpenQuestions.Size = new System.Drawing.Size(760, 65);
             this.btnOpenQuestions.TabIndex = 10;
             this.btnOpenQuestions.Text = "Open hulpvragen";
             this.btnOpenQuestions.UseVisualStyleBackColor = false;
@@ -101,26 +101,25 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(14, 9);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWelcome.Location = new System.Drawing.Point(19, 11);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(165, 46);
+            this.lblWelcome.Size = new System.Drawing.Size(206, 58);
             this.lblWelcome.TabIndex = 9;
             this.lblWelcome.Text = "Welkom";
             // 
             // FormVolHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(457, 279);
+            this.ClientSize = new System.Drawing.Size(801, 343);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnAccount);
             this.Controls.Add(this.btnOpenQuestion);
             this.Controls.Add(this.lblAccountType);
             this.Controls.Add(this.btnOpenQuestions);
             this.Controls.Add(this.lblWelcome);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormVolHome";
             this.Text = "FormHomeVolunteer";
             this.Load += new System.EventHandler(this.FormHomeVolunteer_Load);

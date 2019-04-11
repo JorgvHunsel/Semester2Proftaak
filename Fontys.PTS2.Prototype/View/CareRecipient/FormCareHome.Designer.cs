@@ -42,10 +42,9 @@
             // 
             this.lblWelcome.AutoSize = true;
             this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWelcome.Location = new System.Drawing.Point(22, 7);
-            this.lblWelcome.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWelcome.Location = new System.Drawing.Point(29, 9);
             this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(165, 46);
+            this.lblWelcome.Size = new System.Drawing.Size(206, 58);
             this.lblWelcome.TabIndex = 0;
             this.lblWelcome.Text = "Welkom";
             // 
@@ -53,10 +52,10 @@
             // 
             this.btnNewQuestion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNewQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewQuestion.Location = new System.Drawing.Point(29, 81);
-            this.btnNewQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewQuestion.Location = new System.Drawing.Point(39, 100);
+            this.btnNewQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewQuestion.Name = "btnNewQuestion";
-            this.btnNewQuestion.Size = new System.Drawing.Size(518, 65);
+            this.btnNewQuestion.Size = new System.Drawing.Size(691, 80);
             this.btnNewQuestion.TabIndex = 1;
             this.btnNewQuestion.Text = "Nieuwe vraag";
             this.btnNewQuestion.UseVisualStyleBackColor = false;
@@ -65,10 +64,9 @@
             // lblAccountType
             // 
             this.lblAccountType.AutoSize = true;
-            this.lblAccountType.Location = new System.Drawing.Point(569, 7);
-            this.lblAccountType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAccountType.Location = new System.Drawing.Point(759, 9);
             this.lblAccountType.Name = "lblAccountType";
-            this.lblAccountType.Size = new System.Drawing.Size(147, 13);
+            this.lblAccountType.Size = new System.Drawing.Size(194, 17);
             this.lblAccountType.TabIndex = 2;
             this.lblAccountType.Text = "Ingelogd als hulpbehoevende";
             // 
@@ -76,10 +74,10 @@
             // 
             this.btnOpenQuestion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnOpenQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpenQuestion.Location = new System.Drawing.Point(29, 177);
-            this.btnOpenQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOpenQuestion.Location = new System.Drawing.Point(39, 218);
+            this.btnOpenQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenQuestion.Name = "btnOpenQuestion";
-            this.btnOpenQuestion.Size = new System.Drawing.Size(518, 65);
+            this.btnOpenQuestion.Size = new System.Drawing.Size(691, 80);
             this.btnOpenQuestion.TabIndex = 3;
             this.btnOpenQuestion.Text = "Open vraag";
             this.btnOpenQuestion.UseVisualStyleBackColor = false;
@@ -89,10 +87,10 @@
             // 
             this.btnClosedQuestion.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnClosedQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClosedQuestion.Location = new System.Drawing.Point(29, 247);
-            this.btnClosedQuestion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClosedQuestion.Location = new System.Drawing.Point(39, 304);
+            this.btnClosedQuestion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClosedQuestion.Name = "btnClosedQuestion";
-            this.btnClosedQuestion.Size = new System.Drawing.Size(518, 65);
+            this.btnClosedQuestion.Size = new System.Drawing.Size(691, 80);
             this.btnClosedQuestion.TabIndex = 4;
             this.btnClosedQuestion.Text = "Gesloten vraag";
             this.btnClosedQuestion.UseVisualStyleBackColor = false;
@@ -102,10 +100,10 @@
             // 
             this.btnAccount.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccount.Location = new System.Drawing.Point(29, 348);
-            this.btnAccount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAccount.Location = new System.Drawing.Point(39, 503);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(518, 65);
+            this.btnAccount.Size = new System.Drawing.Size(691, 80);
             this.btnAccount.TabIndex = 5;
             this.btnAccount.Text = "Mijn account";
             this.btnAccount.UseVisualStyleBackColor = false;
@@ -115,9 +113,10 @@
             // 
             this.btnLogOff.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.btnLogOff.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOff.Location = new System.Drawing.Point(588, 24);
+            this.btnLogOff.Location = new System.Drawing.Point(784, 30);
+            this.btnLogOff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOff.Name = "btnLogOff";
-            this.btnLogOff.Size = new System.Drawing.Size(108, 37);
+            this.btnLogOff.Size = new System.Drawing.Size(144, 46);
             this.btnLogOff.TabIndex = 8;
             this.btnLogOff.Text = "Uitloggen";
             this.btnLogOff.UseVisualStyleBackColor = false;
@@ -125,20 +124,23 @@
             // 
             // btnChatOverview
             // 
-            this.btnChatOverview.Location = new System.Drawing.Point(612, 218);
+            this.btnChatOverview.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnChatOverview.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChatOverview.Location = new System.Drawing.Point(39, 390);
+            this.btnChatOverview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChatOverview.Name = "btnChatOverview";
-            this.btnChatOverview.Size = new System.Drawing.Size(75, 23);
+            this.btnChatOverview.Size = new System.Drawing.Size(691, 80);
             this.btnChatOverview.TabIndex = 9;
             this.btnChatOverview.Text = "Chat";
-            this.btnChatOverview.UseVisualStyleBackColor = true;
+            this.btnChatOverview.UseVisualStyleBackColor = false;
             this.btnChatOverview.Click += new System.EventHandler(this.btnChatOverview_Click);
             // 
             // FormCareHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(722, 449);
+            this.ClientSize = new System.Drawing.Size(963, 608);
             this.Controls.Add(this.btnChatOverview);
             this.Controls.Add(this.btnLogOff);
             this.Controls.Add(this.btnAccount);
@@ -147,7 +149,7 @@
             this.Controls.Add(this.lblAccountType);
             this.Controls.Add(this.btnNewQuestion);
             this.Controls.Add(this.lblWelcome);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormCareHome";
             this.Text = "FormCareHome";
             this.Load += new System.EventHandler(this.FormHomeCareRecipient_Load);
