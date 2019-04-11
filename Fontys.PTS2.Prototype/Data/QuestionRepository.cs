@@ -30,5 +30,9 @@ namespace Fontys.PTS2.Prototype.Data
             context.GetAllOpenQuestionsCareRecipientID(careRecipientID);
 
         public Question GetSingleQuestion(int questionID) => context.GetSingleQuestion(questionID);
+
+        public void EditQuestion(int questionID, string subjectNew, string contentNew, Category category,
+            string urgency) =>
+            context.EditQuestion(questionID, subjectNew, contentNew, category, urgency);
     }
 }

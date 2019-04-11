@@ -17,9 +17,9 @@ namespace Fontys.PTS2.Prototype.Classes
         public string Name { get; private set; }
         public string Description { get; private set; }
 
-        public Category()
+        public Category(string categoryName)
         {
-
+            Name = categoryName;
         }
 
         public Category(int categoryID, string categoryName, string categoryDescription)
@@ -42,6 +42,11 @@ namespace Fontys.PTS2.Prototype.Classes
         public void DeleteCategory(Category c)
         {
             //Delete the category tha's been given as parameter
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }

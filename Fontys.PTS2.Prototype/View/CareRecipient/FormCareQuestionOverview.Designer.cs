@@ -29,18 +29,17 @@
         private void InitializeComponent()
         {
             this.lvOpenQuestions = new System.Windows.Forms.ListView();
+            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.QuestionTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.QuestionStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Urgency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Category = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.QuestionID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOpenRequests = new System.Windows.Forms.Label();
             this.btnEditQuestion = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnReactions = new System.Windows.Forms.Button();
-            this.QuestionContent = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.QuestionStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CareRecipientID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // lvOpenQuestions
@@ -52,8 +51,7 @@
             this.QuestionStatus,
             this.Date,
             this.Urgency,
-            this.Category,
-            this.CareRecipientID});
+            this.Category});
             this.lvOpenQuestions.Location = new System.Drawing.Point(12, 58);
             this.lvOpenQuestions.Name = "lvOpenQuestions";
             this.lvOpenQuestions.Size = new System.Drawing.Size(662, 380);
@@ -61,10 +59,23 @@
             this.lvOpenQuestions.UseCompatibleStateImageBehavior = false;
             this.lvOpenQuestions.View = System.Windows.Forms.View.Details;
             // 
+            // QuestionID
+            // 
+            this.QuestionID.Text = "ID";
+            this.QuestionID.Width = 109;
+            // 
             // QuestionTitle
             // 
             this.QuestionTitle.Text = "Onderwerp";
             this.QuestionTitle.Width = 81;
+            // 
+            // QuestionContent
+            // 
+            this.QuestionContent.Text = "Inhoud";
+            // 
+            // QuestionStatus
+            // 
+            this.QuestionStatus.Text = "Status";
             // 
             // Date
             // 
@@ -78,11 +89,6 @@
             // 
             this.Category.Text = "Categorie";
             this.Category.Width = 90;
-            // 
-            // QuestionID
-            // 
-            this.QuestionID.Text = "ID";
-            this.QuestionID.Width = 109;
             // 
             // lblOpenRequests
             // 
@@ -128,18 +134,6 @@
             this.btnReactions.UseVisualStyleBackColor = true;
             this.btnReactions.Click += new System.EventHandler(this.btnReactions_Click);
             // 
-            // QuestionContent
-            // 
-            this.QuestionContent.Text = "Inhoud";
-            // 
-            // QuestionStatus
-            // 
-            this.QuestionStatus.Text = "Status";
-            // 
-            // CareRecipientID
-            // 
-            this.CareRecipientID.Text = "YourID";
-            // 
             // FormCareQuestionOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +167,5 @@
         private System.Windows.Forms.Button btnReactions;
         private System.Windows.Forms.ColumnHeader QuestionContent;
         private System.Windows.Forms.ColumnHeader QuestionStatus;
-        private System.Windows.Forms.ColumnHeader CareRecipientID;
     }
 }

@@ -155,6 +155,7 @@
             // 
             // cboxSex
             // 
+            this.cboxSex.DisplayMember = "dfs";
             this.cboxSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSex.FormattingEnabled = true;
             this.cboxSex.Location = new System.Drawing.Point(190, 231);
@@ -162,6 +163,7 @@
             this.cboxSex.Name = "cboxSex";
             this.cboxSex.Size = new System.Drawing.Size(132, 24);
             this.cboxSex.TabIndex = 35;
+            this.cboxSex.Tag = "";
             // 
             // label8
             // 
